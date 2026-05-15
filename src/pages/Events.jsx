@@ -2,6 +2,8 @@ import '../Events.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import EventsBg from "../assets/Events.png";
+
 
 const CalendarIcon = () => (
   <svg className="event-meta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,16 +45,30 @@ export default function Events() {
       <Navbar />
 
       {/* Hero */}
-      <section className="events-hero">
-        <div className="events-hero-overlay" />
-        <div className="events-hero-content">
-          <p className="events-hero-eyebrow">Events</p>
-          <h1 className="events-hero-title">Conferences &amp; Summits</h1>
-          <p className="events-hero-subtitle">
-            Join us at agricultural innovation summits, tech conferences, and industry gatherings where AgriScanAI is making an impact.
-          </p>
-        </div>
-      </section>
+    <section
+  className="events-hero"
+  style={{
+    backgroundImage: `url(${EventsBg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  <div className="events-hero-overlay" />
+
+  <div className="events-hero-content">
+    <p className="events-hero-eyebrow">Events</p>
+
+    <h1 className="events-hero-title">
+      Conferences &amp; Summits
+    </h1>
+
+    <p className="events-hero-subtitle">
+      Join us at agricultural innovation summits, tech conferences,
+      and industry gatherings where AgriScanAI is making an impact.
+    </p>
+  </div>
+</section>
 
       {/* Events Grid */}
       <section className="events-grid-section">
