@@ -37,9 +37,20 @@
   padding: 0 3.5vw;
 }
 
+.navbar-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .navbar-logo {
   height: 54px;
   width: auto;
+}
+
+.navbar-active {
+  font-weight: 600 !important;
+  opacity: 0.8;
 }
 
 .navbar-links {

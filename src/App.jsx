@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './Home.css';
 import Home from './pages/Home';
+import About from './pages/About';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<Navigate to="/" replace />} />
+        <Route path="/about" element={<About />} />
         <Route path="/solutions" element={<Navigate to="/" replace />} />
         <Route path="/pilot-program" element={<Navigate to="/" replace />} />
         <Route path="/impact" element={<Navigate to="/" replace />} />
