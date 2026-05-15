@@ -54,7 +54,11 @@ export default function Navbar() {
               Pilot Program
             </Link>
           </li>
-          <li><button onClick={() => scrollTo('impact')}>Impact</button></li>
+          <li>
+            <Link to="/events" className={location.pathname.startsWith('/events') ? 'navbar-active' : ''} onClick={closeMobile}>
+              Events
+            </Link>
+          </li>
           <li>
             <button onClick={() => scrollTo('resources')}>
               Resources <ExpandIcon />
@@ -82,7 +86,7 @@ export default function Navbar() {
         <Link to="/about" onClick={closeMobile}>About</Link>
         <Link to="/solutions" onClick={closeMobile}>Solutions</Link>
         <Link to="/pilot-program" onClick={closeMobile}>Pilot Program</Link>
-        <button onClick={() => scrollTo('impact')}>Impact</button>
+        <Link to="/events" onClick={closeMobile}>Events</Link>
         <button onClick={() => scrollTo('resources')}>Resources</button>
         <button onClick={() => scrollTo('contact')}>Contact Us</button>
         <Link to="/pilot-program" className="navbar-mobile-cta" onClick={closeMobile}>

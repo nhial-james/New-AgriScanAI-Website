@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import PilotProgram from './pages/PilotProgram';
 import Solutions from './pages/Solutions';
+import Events from './pages/Events';
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/pilot-program" element={<PilotProgram />} />
         <Route path="/solutions" element={<Solutions />} />
-        <Route path="/impact" element={<Navigate to="/" replace />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/:slug" element={<Events />} />
         <Route path="/resources" element={<Navigate to="/" replace />} />
         <Route path="/contact" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
