@@ -1,0 +1,911 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
+
+:root {
+  --primary: #2E7D32;
+  --primary-dark: #245421;
+  --accent-green: #33B34D;
+  --bg-light: #F1FAF7;
+  --text-dark: #1C1C1E;
+  --text-gray: #57576A;
+  --text-light: #717983;
+  --border-light: #DFE3E4;
+  --white: #FFFFFF;
+  --font-inter: 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
+  --font-montserrat: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.sol-page {
+  padding-top: 90px;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* ===== SHARED ===== */
+.sol-eyebrow {
+  font-family: var(--font-inter);
+  font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.sol-eyebrow-left {
+  text-align: left;
+}
+
+.sol-section-header {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.sol-section-title {
+  font-family: var(--font-inter);
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.sol-title-left {
+  text-align: left;
+}
+
+.sol-section-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 1rem 0 0;
+  line-height: 1.6;
+}
+
+.sol-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid var(--primary);
+  border-radius: 48px;
+  color: var(--primary);
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 10px 30px 0 rgba(46, 125, 50, 0.15);
+}
+
+.sol-btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.sol-btn-filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  border-radius: 48px;
+  color: var(--white);
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+  box-shadow: 0 10px 30px 0 rgba(46, 125, 50, 0.2);
+}
+
+.sol-btn-filled:hover {
+  background: var(--primary-dark);
+}
+
+.sol-btn-sm {
+  padding: 0.7rem 1.6rem;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+}
+
+.sol-btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+}
+
+/* ===== HERO SECTION ===== */
+.sol-hero {
+  position: relative;
+  min-height: 600px;
+  background: url('https://api.builder.io/api/v1/image/assets/TEMP/cb383164d56ae3f791dcdb1227697b24eb231a3b?width=3840') lightgray 50% / cover no-repeat;
+  display: flex;
+  align-items: stretch;
+}
+
+.sol-hero-bg-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #F1FAF7;
+  z-index: 0;
+}
+
+.sol-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 5rem 5vw;
+  gap: 3rem;
+}
+
+.sol-hero-text {
+  flex: 0 0 auto;
+  width: 46%;
+  max-width: 680px;
+}
+
+.sol-hero-title {
+  font-family: var(--font-inter);
+  font-size: clamp(2rem, 3.5vw, 3.75rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin: 0.5rem 0 1.2rem;
+}
+
+.sol-hero-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0 0 2rem;
+}
+
+.sol-hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.sol-hero-img-wrap {
+  flex: 0 0 auto;
+  width: 50%;
+  max-width: 780px;
+}
+
+.sol-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0 40px 40px 0;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== TARGET AUDIENCE ===== */
+.sol-audience {
+  padding: 6rem 5vw;
+  background: var(--white);
+}
+
+.sol-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sol-audience-card {
+  background: #F9FAFB;
+  border-radius: 30px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.sol-audience-card:hover {
+  box-shadow: 0 12px 40px rgba(46, 125, 50, 0.12);
+  transform: translateY(-4px);
+}
+
+.sol-card-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.sol-card-title {
+  font-family: var(--font-inter);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.sol-card-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.88rem, 1.2vw, 1.05rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ===== WEB APP SECTION ===== */
+.sol-webapp {
+  padding: 6rem 5vw;
+  background: #F1FAF7;
+}
+
+.sol-laptop-wrap {
+  max-width: 1300px;
+  margin: 0 auto 3rem;
+}
+
+.sol-laptop-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.sol-webapp-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sol-webapp-feature-card {
+  text-align: center;
+}
+
+.sol-webapp-feature-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+.sol-webapp-feature-label {
+  font-family: var(--font-inter);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.4rem;
+}
+
+.sol-webapp-feature-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== INSIGHT SECTION ===== */
+.sol-insight {
+  padding: 6rem 5vw;
+  background: var(--white);
+}
+
+.sol-insight-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto 3rem;
+}
+
+.sol-insight-stat-card {
+  background: var(--primary);
+  border-radius: 20px;
+  padding: 1.5rem 1.5rem 1.8rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.sol-insight-stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.sol-insight-stat-icon {
+  font-size: 1.6rem;
+}
+
+.sol-insight-chart-mini {
+  width: 80px;
+  height: 40px;
+  opacity: 0.7;
+}
+
+.sol-insight-stat-value {
+  display: block;
+  font-family: var(--font-inter);
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.sol-insight-stat-label {
+  display: block;
+  font-family: var(--font-inter);
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+.sol-insight-chart-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.sol-insight-chart-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== AGRIPAY SECTION ===== */
+.sol-agripay {
+  padding: 6rem 5vw;
+  background: #F1FAF7;
+}
+
+.sol-agripay-inner {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sol-agripay-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.sol-agripay-subtitle {
+  font-family: var(--font-inter);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 600;
+  color: var(--text-gray);
+  margin: 0.5rem 0 1rem;
+}
+
+.sol-agripay-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.88rem, 1.2vw, 1.05rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0 0 1.8rem;
+}
+
+.sol-agripay-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sol-agripay-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-inter);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.sol-agripay-check {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.sol-agripay-right {
+  flex: 0 0 auto;
+  width: 42%;
+  max-width: 520px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Payment card mockup */
+.sol-payment-card {
+  background: var(--primary-dark);
+  border-radius: 24px;
+  padding: 2rem;
+  color: white;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(36, 84, 33, 0.35);
+}
+
+.sol-payment-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.sol-payment-card-brand {
+  font-family: var(--font-montserrat);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.sol-payment-card-account {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.sol-payment-card-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.sol-payment-card-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.9);
+}
+
+.sol-payment-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.sol-payment-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.sol-payment-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.sol-payment-email {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  margin: 0.15rem 0 0;
+}
+
+.sol-payment-amount-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.sol-payment-amount {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+}
+
+.sol-payment-mpesa {
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: white;
+  color: var(--primary-dark);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.sol-payment-date {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 1.2rem;
+}
+
+.sol-payment-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.sol-payment-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sol-payment-field-arrow {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.sol-payment-pay-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: #33B34D;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-montserrat);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sol-payment-pay-btn:hover {
+  background: #28a043;
+}
+
+/* ===== GET INVOLVED ===== */
+.sol-get-involved {
+  padding: 6rem 5vw;
+  text-align: center;
+  background: var(--white);
+}
+
+.sol-get-involved-title {
+  font-family: var(--font-inter);
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-gray);
+  margin: 0.5rem 0 2rem;
+  line-height: 1.2;
+}
+
+/* ===== JOIN SECTION ===== */
+.sol-join {
+  padding: 6rem 5vw 0;
+  background: var(--white);
+}
+
+.sol-join-title {
+  font-family: var(--font-inter);
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0.5rem 0 1rem;
+  line-height: 1.15;
+}
+
+.sol-join-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.sol-join-stats {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.sol-join-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sol-join-stat-value {
+  font-family: var(--font-inter);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.sol-join-stat-label {
+  font-family: var(--font-inter);
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  font-weight: 500;
+  color: var(--text-gray);
+}
+
+/* CTA Banner */
+.sol-join-banner {
+  background: linear-gradient(90deg, #2E7D32 49.52%, #90C492 100%);
+  border-radius: 30px 30px 0 0;
+  padding: 3rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.sol-join-banner-eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem;
+}
+
+.sol-join-banner-title {
+  font-family: var(--font-inter);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.sol-join-banner-desc {
+  font-family: var(--font-inter);
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+.sol-join-banner-badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sol-store-badge-link {
+  display: inline-flex;
+  transition: transform 0.18s, opacity 0.18s;
+}
+
+.sol-store-badge-link:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.sol-store-badge-img {
+  height: 52px;
+  width: auto;
+  border-radius: 8px;
+  background: black;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.3));
+}
+
+.sol-store-badge-apple {
+  background: black;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet (max 1024px) */
+@media (max-width: 1024px) {
+  .sol-hero-content {
+    flex-direction: column;
+    padding: 4rem 5vw;
+    gap: 2.5rem;
+  }
+
+  .sol-hero-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sol-hero-img-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sol-hero-img {
+    border-radius: 20px;
+    max-height: 380px;
+    object-fit: cover;
+  }
+
+  .sol-hero-bg-panel {
+    width: 100%;
+    bottom: auto;
+    height: 55%;
+  }
+
+  .sol-audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .sol-webapp-features {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .sol-insight-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .sol-agripay-inner {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .sol-agripay-left {
+    width: 100%;
+  }
+
+  .sol-agripay-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sol-payment-card {
+    max-width: 100%;
+  }
+
+  .sol-join-stats {
+    gap: 3rem;
+  }
+
+  .sol-join-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile large (max 768px) */
+@media (max-width: 768px) {
+  .sol-page {
+    padding-top: 90px;
+  }
+
+  .sol-hero {
+    min-height: auto;
+  }
+
+  .sol-hero-content {
+    padding: 3rem 5vw;
+  }
+
+  .sol-hero-bg-panel {
+    height: 100%;
+    width: 100%;
+    opacity: 0.85;
+  }
+
+  .sol-audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sol-audience-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .sol-webapp-features {
+    grid-template-columns: 1fr;
+  }
+
+  .sol-insight-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sol-hero-actions {
+    flex-direction: column;
+  }
+
+  .sol-hero-actions .sol-btn-outline,
+  .sol-hero-actions .sol-btn-filled {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .sol-join-stats {
+    gap: 2rem;
+  }
+
+  .sol-join-stat {
+    width: calc(50% - 1rem);
+  }
+
+  .sol-join-banner {
+    border-radius: 20px 20px 0 0;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .sol-join-banner-badges {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sol-agripay-right {
+    width: 100%;
+  }
+}
+
+/* Mobile small (max 480px) */
+@media (max-width: 480px) {
+  .sol-audience,
+  .sol-webapp,
+  .sol-insight,
+  .sol-agripay,
+  .sol-get-involved,
+  .sol-join {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .sol-webapp-features {
+    grid-template-columns: 1fr;
+  }
+
+  .sol-join-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .sol-join-stat {
+    width: 100%;
+  }
+
+  .sol-store-badge-img {
+    height: 44px;
+  }
+}

@@ -45,9 +45,9 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <button onClick={() => scrollTo('solutions')}>
+            <Link to="/solutions" className={location.pathname === '/solutions' ? 'navbar-active' : ''}>
               Solutions <ExpandIcon />
-            </button>
+            </Link>
           </li>
           <li>
             <Link to="/pilot-program" className={location.pathname === '/pilot-program' ? 'navbar-active' : ''} onClick={closeMobile}>
@@ -80,7 +80,7 @@ export default function Navbar() {
 
       <div className={`navbar-mobile-menu${mobileOpen ? ' open' : ''}`}>
         <Link to="/about" onClick={closeMobile}>About</Link>
-        <button onClick={() => scrollTo('solutions')}>Solutions</button>
+        <Link to="/solutions" onClick={closeMobile}>Solutions</Link>
         <Link to="/pilot-program" onClick={closeMobile}>Pilot Program</Link>
         <button onClick={() => scrollTo('impact')}>Impact</button>
         <button onClick={() => scrollTo('resources')}>Resources</button>
