@@ -105,6 +105,9 @@
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .navbar-cta:hover {
@@ -174,6 +177,8 @@
   cursor: pointer;
   text-align: center;
   margin-top: 0.5rem;
+  text-decoration: none;
+  display: block;
 }
 
 /* ===== HERO SECTION ===== */
