@@ -35,7 +35,7 @@ const footerNav = [
     heading: 'Company',
     links: [
       { label: 'Good Partners', href: '#' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'Contact Us', href: '/contact' },
     ],
   },
 ];

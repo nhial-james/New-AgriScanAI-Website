@@ -64,7 +64,7 @@ export default function Navbar() {
               Resources <ExpandIcon />
             </button>
           </li>
-          <li><button onClick={() => scrollTo('contact')}>Contact Us</button></li>
+          <li><Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''}>Contact Us</Link></li>
         </ul>
 
         <Link to="/pilot-program" className="navbar-cta">
@@ -88,7 +88,7 @@ export default function Navbar() {
         <Link to="/pilot-program" onClick={closeMobile}>Pilot Program</Link>
         <Link to="/events" onClick={closeMobile}>Events</Link>
         <button onClick={() => scrollTo('resources')}>Resources</button>
-        <button onClick={() => scrollTo('contact')}>Contact Us</button>
+        <Link to="/contact" onClick={closeMobile}>Contact Us</Link>
         <Link to="/pilot-program" className="navbar-mobile-cta" onClick={closeMobile}>
           Apply for Partnership
         </Link>
