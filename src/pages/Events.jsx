@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import EventsBg from "../assets/Events.png";
+import IccfImg from '../assets/ICCF 2025.jpg'
+import KenyaAIImg from '../assets/The Kenya Software & AI Summit 2025.jpeg'
+import AgriFinImg from '../assets/agrifin_hero_image.png'
+import FoundersLiveImg from '../assets/Founders-Live-Nairobi-2025-Hero.png'
+import FinasImg from '../assets/FINAS-2025-hero.jpg'
+import KigaliImg from '../assets/ai-kigali-2025-Hero.jpg'   
 
 
 const CalendarIcon = () => (
@@ -18,24 +24,62 @@ const LocationIcon = () => (
   </svg>
 );
 
+// Once you add your images to src/assets/, replace each EventsBg reference below
+// with the matching import, e.g.: import IccfImg from '../assets/iccf-2025.jpg';
 const events = [
   {
     id: 1,
-    image: 'https://api.builder.io/api/v1/image/assets/TEMP/bbce0ee594a19e3372079693b0d6dcccfed6c312?width=1500',
+    image: IccfImg, // replace with: import IccfImg from '../assets/iccf-2025.jpg'
     date: 'November 18–19, 2025',
-    location: 'Sarit Expo Centre',
+    location: 'Sarit Expo Centre, Nairobi',
     title: 'AgriScanAI at the International Conference on Contract Farming (ICCF) 2025',
-    excerpt: 'AgriScanAI showcased transformative AI-powered farm management solutions at ICCF 2025, demonstrating how technology can revolutionize',
+    excerpt: 'AgriScanAI showcased transformative AI-powered farm management solutions at ICCF 2025, demonstrating how technology can revolutionize contract farming by providing transparent, data-driven insights that build trust between farmers and buyers.',
     slug: 'iccf-2025',
   },
   {
     id: 2,
-    image: 'https://api.builder.io/api/v1/image/assets/TEMP/bbce0ee594a19e3372079693b0d6dcccfed6c312?width=1500',
-    date: 'November 18–19, 2025',
-    location: 'Sarit Expo Centre',
-    title: 'AgriScanAI at the International Conference on Contract Farming (ICCF) 2025',
-    excerpt: 'AgriScanAI showcased transformative AI-powered farm management solutions at ICCF 2025, demonstrating how technology can revolutionize',
-    slug: 'iccf-2025-2',
+    image: KenyaAIImg, // replace with: import KenyaAIImg from '../assets/kenya-software-ai-summit-2025.jpg'
+    date: 'November 10–12, 2025',
+    location: 'Moi University Annex Campus, Eldoret',
+    title: 'AgriScanAI at the Kenya Software & AI Summit 2025',
+    excerpt: 'AgriScanAI participated in the Kenya Software & AI Summit 2025, showcasing AI-powered agricultural innovation and positioning Kenya as a continental leader in technology-driven transformation.',
+    slug: 'kenya-software-ai-summit-2025',
+  },
+  {
+    id: 3,
+    image: AgriFinImg, // replace with: import AgriFinImg from '../assets/agrifin-2025.jpg'
+    date: 'October 14, 2025',
+    location: 'Radisson Blu Hotel, Upper Hill, Nairobi',
+    title: 'AgriScanAI Showcased at the 9th Annual AgriFin Learning Event (ALE 2025)',
+    excerpt: "AgriScanAI proudly participated in the 9th Annual AgriFin Learning Event hosted under the theme 'Data-Driven Innovations and Investments: Harnessing Intelligence to Build Sustainable, Investable Agri-Food Systems.'",
+    slug: 'agrifin-2025',
+  },
+  {
+    id: 4,
+    image: FoundersLiveImg, // replace with: import FoundersLiveImg from '../assets/founders-live-2025.jpg'
+    date: 'September 18, 2025',
+    location: 'BaoBox, Nairobi',
+    title: 'AgriScanAI Wins at Founders Live Nairobi 2025',
+    excerpt: 'AgriScanAI emerged as the winner of Founders Live Nairobi, where we pitched our groundbreaking AI-powered solution. The global pitch competition celebrated creativity, resilience, and bold ideas shaping the future of entrepreneurship.',
+    slug: 'founders-live-2025',
+  },
+  {
+    id: 5,
+    image: FinasImg, // replace with: import FinasImg from '../assets/finas-2025.jpg'
+    date: 'May 20–22, 2025',
+    location: 'KICC, Nairobi, Kenya',
+    title: 'Financing Agri-food Systems Sustainably Conference 2025',
+    excerpt: 'AgriScanAI took center stage at FINAS 2025, a high-level gathering focused on building resilient and sustainable food systems in Africa. We shared insights on digital solutions for agri-finance and smallholder farmer support.',
+    slug: 'finas-2025',
+  },
+  {
+    id: 6,
+    image: KigaliImg, // replace with: import KigaliImg from '../assets/ai-kigali-2025.jpg'
+    date: 'April 3–4, 2025',
+    location: 'Kigali, Rwanda',
+    title: 'Global AI Summit on Africa (AI Kigali 2025)',
+    excerpt: "AgriScanAI participated in the inaugural Global AI Summit on Africa under the theme 'AI and Africa's Demographic Dividend: Reimagining Economic Opportunities for Africa's Workforce.'",
+    slug: 'ai-kigali-2025',
   },
 ];
 
@@ -57,11 +101,12 @@ export default function Events() {
   <div className="events-hero-overlay" />
 
   <div className="events-hero-content">
-    <p className="events-hero-eyebrow">Events</p>
-
-    <h1 className="events-hero-title">
+    <div className="events-hero-badge">
+      <span className="events-hero-badge-dot" />
       Conferences &amp; Summits
-    </h1>
+    </div>
+
+    <h1 className="events-hero-title">Events</h1>
 
     <p className="events-hero-subtitle">
       Join us at agricultural innovation summits, tech conferences,

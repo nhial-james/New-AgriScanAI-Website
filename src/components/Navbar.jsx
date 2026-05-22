@@ -46,7 +46,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/solutions" className={location.pathname === '/solutions' ? 'navbar-active' : ''}>
-              Solutions <ExpandIcon />
+              Solutions 
             </Link>
           </li>
           <li>
@@ -61,7 +61,7 @@ export default function Navbar() {
           </li>
           <li>
             <button onClick={() => scrollTo('resources')}>
-              Resources <ExpandIcon />
+              Resources
             </button>
           </li>
           <li><Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''}>Contact Us</Link></li>

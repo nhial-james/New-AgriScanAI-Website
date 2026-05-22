@@ -1,30 +1,41 @@
 import { useState } from 'react';
+import phoneDashboard from '../assets/phone.png'; 
+import carbonTracker from '../assets/Carbon Tracker.png';
+import DiseaseResults from '../assets/Disease Results.png';
+import yieldTracking from '../assets/Yield Tracking.png';
+import financeTracking from '../assets/Finance.png';
+import advisoryChat from '../assets/Mwanedu.png';
 
 const slides = [
   {
-    img: 'https://api.builder.io/api/v1/image/assets/TEMP/055b133f7a652bc5697596cecc0331811dd26e61?width=824',
+    img: carbonTracker, 
     title: 'Carbon Tracker',
     subtitle: 'Environmental impact monitor',
   },
   {
-    img: 'https://api.builder.io/api/v1/image/assets/TEMP/4793c0a42e758ce80d84e2e288e0a7203108e4e0?width=1970',
+    img: DiseaseResults,
     title: 'Crop Disease Detection',
-    subtitle: 'AI-powered diagnosis in seconds',
+      subtitle: 'AI-powered diagnosis in seconds',
   },
   {
-    img: 'https://api.builder.io/api/v1/image/assets/TEMP/3fa8d94e679aa5621174208b453bd51302c9c1d9?width=2650',
+    img: phoneDashboard,
     title: 'Farmer Dashboard',
     subtitle: 'Real-time farm insights',
   },
   {
-    img: 'https://api.builder.io/api/v1/image/assets/TEMP/055b133f7a652bc5697596cecc0331811dd26e61?width=824',
+    img: yieldTracking,
     title: 'Yield Tracking',
     subtitle: 'Season-by-season performance',
   },
   {
-    img: 'https://api.builder.io/api/v1/image/assets/TEMP/4793c0a42e758ce80d84e2e288e0a7203108e4e0?width=1970',
+    img: advisoryChat,
     title: 'Advisory Chat',
     subtitle: 'Multilingual farming guidance',
+  },
+   {
+    img: financeTracking,
+    title: 'Finance',
+    subtitle: 'Track loans, payments, and market prices',
   },
 ];
 
@@ -45,21 +56,11 @@ export default function GlimpseSection() {
         <button className="glimpse-arrow" onClick={prev} aria-label="Previous slide">&#8249;</button>
 
         <div className="glimpse-phone-wrap">
-          <div className="glimpse-side-icons">
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/27530e7a8a5a912c9d2a109ae50a641cd3d21a18?width=240"
-              alt=""
-              className="glimpse-side-icon"
-            />
+          <div className="glimpse-image-frame">
             <img
               src={slides[current].img}
               alt={slides[current].title}
               className="glimpse-phone-img"
-            />
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/eec6181afcc9a4c13aa12810c2e802c0fec187df?width=240"
-              alt=""
-              className="glimpse-side-icon"
             />
           </div>
 

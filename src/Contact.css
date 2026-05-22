@@ -2,7 +2,7 @@
 
 .contact-page {
   min-height: 100vh;
-  padding-top: 90px;
+  padding-top: 50px;
   background: url('https://api.builder.io/api/v1/image/assets/TEMP/44d7a855a49b0681b73ef2173db26ea79643c944?width=3840') center / cover no-repeat;
   background-attachment: fixed;
 }
@@ -127,7 +127,7 @@
 
 .contact-input::placeholder,
 .contact-textarea::placeholder {
-  color: #9FA5A9;
+  color: #525252;
   font-weight: 500;
 }
 

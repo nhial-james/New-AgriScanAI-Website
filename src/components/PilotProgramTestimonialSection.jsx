@@ -75,7 +75,7 @@ export default function PilotProgramTestimonialSection() {
           </div>
         </div>
       </div>
-      <div className="testimonial-dots">
+      {/* <div className="testimonial-dots">
         {testimonials.map((_, i) => (
           <button
             key={i}
@@ -84,7 +84,7 @@ export default function PilotProgramTestimonialSection() {
             aria-label={`Testimonial ${i + 1}`}
           />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

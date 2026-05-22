@@ -121,7 +121,7 @@
 /* ===== HERO SECTION ===== */
 .sol-hero {
   position: relative;
-  min-height: 600px;
+  min-height: 400px;
   background: url('https://api.builder.io/api/v1/image/assets/TEMP/cb383164d56ae3f791dcdb1227697b24eb231a3b?width=3840') lightgray 50% / cover no-repeat;
   display: flex;
   align-items: stretch;
@@ -250,7 +250,7 @@
 
 /* ===== WEB APP SECTION ===== */
 .sol-webapp {
-  padding: 6rem 5vw;
+  padding: 3rem 5vw;
   background: #F1FAF7;
 }
 
@@ -378,7 +378,7 @@
 
 /* ===== AGRIPAY SECTION ===== */
 .sol-agripay {
-  padding: 6rem 5vw;
+  padding: 2rem 5vw;
   background: #F1FAF7;
 }
 
@@ -608,7 +608,7 @@
 
 /* ===== JOIN SECTION ===== */
 .sol-join {
-  padding: 6rem 5vw 0;
+  padding: 0.5rem 5vw 0 ;
   background: var(--white);
 }
 

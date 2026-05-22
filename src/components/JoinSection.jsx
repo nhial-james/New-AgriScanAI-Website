@@ -1,3 +1,5 @@
+import googlePlayBadge from '../assets/Play Store.png';
+
 const stats = [
   { value: '50+', label: 'Crops & Diseases' },
   { value: '94%', label: 'Detection Accuracy' },
@@ -34,23 +36,27 @@ export default function JoinSection() {
           </p>
         </div>
 
-        <div className="join-cta-actions">
+       <div className="join-cta-actions">
+  <a
+    href="https://play.google.com/store"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="store-badge-btn"
+    aria-label="Get it on Google Play"
+  >
+    <img
+      src={googlePlayBadge}
+      alt="Google Play"
+      className="store-badge-img"
+    />
+  </a>
           <a
-            href="#"
-            className="store-badge-btn"
-            aria-label="Get it on Google Play"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png"
-              alt="Google Play"
-              className="store-badge-img"
-            />
-          </a>
-          <a
-            href="#"
-            className="store-badge-btn"
-            aria-label="Download on the App Store"
-          >
+    href="https://apps.apple.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="store-badge-btn"
+    aria-label="Download on the App Store"
+  >
             <img
               src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
               alt="App Store"

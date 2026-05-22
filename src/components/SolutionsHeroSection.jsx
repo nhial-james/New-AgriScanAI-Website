@@ -6,7 +6,7 @@ export default function SolutionsHeroSection() {
       <div className="sol-hero-bg-panel" />
       <div className="sol-hero-content">
         <div className="sol-hero-text">
-          <p className="sol-eyebrow">Build for Impact</p>
+          <p className="sol-eyebrow sol-eyebrow-left">Build for Impact</p>
           <h1 className="sol-hero-title">
             Empowering Ecosystems<br />with Intelligent Data
           </h1>
@@ -15,7 +15,7 @@ export default function SolutionsHeroSection() {
           </p>
           <div className="sol-hero-actions">
             <a href="#target-audience" className="sol-btn-outline">Explore Solutions</a>
-            <Link to="/pilot-program" className="sol-btn-filled">Request a Demo</Link>
+            <Link to="/contact" className="sol-btn-filled">Request a Demo</Link>
           </div>
         </div>
         <div className="sol-hero-img-wrap">

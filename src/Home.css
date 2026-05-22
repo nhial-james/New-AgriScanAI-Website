@@ -182,68 +182,279 @@
 }
 
 /* ===== HERO SECTION ===== */
+
 .hero-section {
   margin-top: 90px;
   position: relative;
   width: 100%;
   height: calc(100vh - 90px);
-  min-height: 560px;
+  min-height: 670px;
   max-height: 950px;
-  background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/5ea999941340b255bf711d8e3bbe8d8f1157dd4e?width=3840');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  gap: 0;
 }
-
-.hero-phone-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+ 
+/* subtle green-white tint over the background to match the design */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(220, 240, 220, 0.38);
+  z-index: 0;
+}
+ 
+/* ── LEFT COLUMN ── */
+.hero-left {
   position: relative;
   z-index: 2;
-  width: 100%;
-  padding: 2rem 0;
+  flex: 0 0 48%;
+  display: flex;
+  align-items: flex-end;        
+  justify-content: center;
+  height: 80%;
+  padding-left: 3vw;
 }
-
+ 
+.hero-phone-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+ 
 .hero-phones-img {
   width: 72%;
-  max-width: 1000px;
+  max-width: 420px;
   height: auto;
-  filter: drop-shadow(0 24px 64px rgba(0,0,0,0.3));
+  object-fit: contain;
+  filter: drop-shadow(0 28px 56px rgba(0, 0, 0, 0.28));
+  transform: translateY(0);
   animation: heroFloat 6s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
+  0%,  100% { transform: translateY(0); }
+  50%        { transform: translateY(-14px); }
 }
-
+ 
+/* ── RIGHT COLUMN ── */
+.hero-right {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 52%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 5vw 3rem 2vw;
+  gap: 1.4rem;
+}
+ 
+/* Heading */
+.hero-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  font-weight: 800;
+  color: #1a4a1a;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+ 
+/* Sub-paragraph */
+.hero-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.3vw, 1.13rem);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0;
+}
+ 
+/* Apply for Pilot Partnership CTA */
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d6a2d;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  padding: 0.85rem 2.4rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.22s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 4px 18px rgba(45, 106, 45, 0.35);
+  white-space: nowrap;
+  align-self: flex-start;         /* don't stretch full width */
+}
+ 
+.hero-cta-btn:hover {
+  background-color: #235523;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(45, 106, 45, 0.45);
+}
+ 
+.hero-cta-btn:active {
+  transform: translateY(0);
+}
+ 
+/* Store badges row */
 .hero-store-badges {
   display: flex;
-  gap: 1.2rem;
-  justify-content: center;
+  gap: 1rem;
+  align-items: center;
   flex-wrap: wrap;
 }
-
+ 
 .hero-store-badge-link {
   display: inline-flex;
-  transition: transform 0.18s, opacity 0.18s;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
-
+ 
 .hero-store-badge-link:hover {
   transform: translateY(-3px);
-  opacity: 0.9;
+  opacity: 0.88;
 }
-
+ 
 .hero-store-badge {
-  height: 52px;
+  height: 46px;
   width: auto;
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.28));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.24));
   border-radius: 8px;
+}
+ 
+/* FoundersLive badge */
+.hero-founders-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+ 
+.founders-logo {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 0.35rem 0.55rem;
+  border-radius: 4px;
+  line-height: 1.1;
+  min-width: 62px;
+  text-align: center;
+}
+ 
+.founders-logo-text {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+}
+ 
+.founders-logo-live {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e8e8e8;
+}
+ 
+.founders-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+ 
+/* ===== RESPONSIVE ===== */
+ 
+/* Tablet: tighten spacing */
+@media (max-width: 900px) {
+  .hero-section {
+    gap: 0;
+  }
+ 
+  .hero-left {
+    flex: 0 0 44%;
+    padding-left: 1.5vw;
+  }
+ 
+  .hero-right {
+    flex: 0 0 56%;
+    padding: 2rem 3vw 2rem 1.5vw;
+    gap: 1.1rem;
+  }
+ 
+  .hero-phones-img {
+    width: 85%;
+    max-width: 340px;
+  }
+}
+ 
+/* Mobile: stack vertically */
+@media (max-width: 640px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    padding-bottom: 2rem;
+    align-items: center;
+  }
+ 
+  .hero-left {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    padding: 2rem 1rem 0;
+  }
+ 
+  .hero-phones-img {
+    width: 70%;
+    max-width: 280px;
+    animation: heroFloat 6s ease-in-out infinite;
+  }
+ 
+  .hero-right {
+    flex: none;
+    width: 100%;
+    padding: 1.5rem 1.5rem 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+ 
+  .hero-heading {
+    text-align: center;
+  }
+ 
+  .hero-subtext {
+    text-align: center;
+  }
+ 
+  .hero-cta-btn {
+    align-self: center;
+  }
+ 
+  .hero-store-badges {
+    justify-content: center;
+  }
+ 
+  .hero-founders-badge {
+    justify-content: center;
+  }
 }
 
 /* ===== SECTION HEADER (shared) ===== */
@@ -281,7 +492,7 @@
 .challenge-section {
   position: relative;
   z-index: 1;
-  margin-top: -90px;
+  margin-top: -60px;
   background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/80d51500dacb76c987a0a52f03f8bdb64bece425?width=3840');
   background-size: cover;
   background-position: top center;
@@ -812,10 +1023,28 @@
   opacity: 0.6;
 }
 
+/* SAME SIZE FRAME FOR ALL IMAGES */
+.glimpse-image-frame {
+  width: 340px;
+  height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  border-radius: 36px;
+}
+
+/* IMAGE */
 .glimpse-phone-img {
   width: 100%;
-  max-width: 360px;
-  height: auto;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
 }
 
 .glimpse-caption {
@@ -864,7 +1093,7 @@
 
 /* ===== JOIN SECTION ===== */
 .join-section {
-  padding: 6rem 5vw;
+  padding: 0rem 5vw;
   background: var(--white);
 }
 
@@ -1220,6 +1449,7 @@
 
   .hero-phones-img {
     width: 96%;
+    transform: translateY(0);
   }
 
   .hero-store-badges {
@@ -1231,7 +1461,7 @@
   }
 
   .challenge-section {
-    margin-top: -50px;
+    margin-top: -30px;
   }
 
   .challenge-content {
