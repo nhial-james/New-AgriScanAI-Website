@@ -1,20 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import Header from '../../components/common/Header';
-import Footer from '../../components/common/Footer';
-import PageTransition from '../../components/ui/PageTransition';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import PageTransition from './PageTransition';
+import Finas2025Image from '../assets/FINAS-2025-hero.jpg';
+import '../EventDetail.css';
 
 const Finas2025 = () => {
   return (
     <PageTransition>
-      <Helmet>
-        <title>AgriScanAI at FINAS 2025 - AgriScanAI</title>
-        <meta name="description" content="AgriScanAI showcased at FINAS 2025 Conference" />
-      </Helmet>
-      
       <div className="flex flex-col min-h-screen bg-white">
-        <Header />
+        <Navbar />
 
         {/* Hero Section */}
         <section className="relative w-full py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-primary-background via-primary-light to-primary-accent">
@@ -33,8 +29,8 @@ const Finas2025 = () => {
         <article className="w-full py-12 md:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <img 
-              src="/images/events/FINAS-2025-hero.jpg" 
-              alt="FINAS 2025" 
+              src={Finas2025Image}
+              alt="FINAS 2025"
               className="w-full rounded-lg shadow-lg mb-12 object-cover"
             />
 

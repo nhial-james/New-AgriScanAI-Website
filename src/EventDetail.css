@@ -1,0 +1,192 @@
+/* ──────────────────────────────────────────────
+   EventDetail.css
+   Tailwind-equivalent utility classes used by
+   the event detail components.
+   ────────────────────────────────────────────── */
+/* Global font for event detail page */
+* {
+  font-family: var(--font-inter);
+}
+
+.inline-flex {
+  text-decoration: none;
+}
+/* ── Layout ── */
+.flex            { display: flex; }
+.inline-flex     { display: inline-flex; }
+.flex-col        { flex-direction: column; }
+.items-center    { align-items: center; }
+.justify-center  { justify-content: center; }
+.min-h-screen    { min-height: 100vh; }
+.w-full          { width: 100%; }
+.overflow-hidden { overflow: hidden; }
+
+/* ── Positioning ── */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0  { top: 0; right: 0; bottom: 0; left: 0; }
+.z-10     { z-index: 10; }
+
+/* ── Sizing / max-width ── */
+.max-w-4xl { max-width: 56rem; }
+.max-w-7xl { max-width: 80rem; }
+.mx-auto   { margin-left: auto; margin-right: auto; }
+
+/* ── Spacing – padding ── */
+.py-3  { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-12 { padding-top: 3rem;    padding-bottom: 3rem; }
+.py-16 { padding-top: 4rem;    padding-bottom: 4rem; }
+.py-20 { padding-top: 5rem;    padding-bottom: 5rem; }
+.py-24 { padding-top: 6rem;    padding-bottom: 6rem; }
+.py-32 { padding-top: 8rem;    padding-bottom: 8rem; }
+
+.px-4  { padding-left: 1rem;  padding-right: 1rem; }
+.px-6  { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-8  { padding-left: 2rem;  padding-right: 2rem; }
+
+.pt-8  { padding-top: 2rem; }
+.pb-4  { padding-bottom: 1rem; }
+.pl-6  { padding-left: 1.5rem; }
+
+.p-6   { padding: 1.5rem; }
+
+/* ── Spacing – margin ── */
+.mb-2  { margin-bottom: 0.5rem; }
+.mb-3  { margin-bottom: 0.75rem; }
+.mb-4  { margin-bottom: 1rem; }
+.mb-6  { margin-bottom: 1.5rem; }
+.mb-8  { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+
+.mt-2  { margin-top: 0.5rem; }
+.mt-4  { margin-top: 1rem; }
+.mt-6  { margin-top: 1.5rem; }
+.mt-8  { margin-top: 2rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-12 { margin-top: 3rem; }
+
+.my-8  { margin-top: 2rem; margin-bottom: 2rem; }
+
+/* ── Gap / space ── */
+.gap-4 { gap: 1rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+
+/* ── Background colours ── */
+.bg-white { background-color: #fff; }
+
+/* semi-transparent black overlay */
+.bg-black\/30 { background-color: rgba(0, 0, 0, 0.3); }
+
+/* event hero gradient  */
+.bg-gradient-to-br.from-primary-background {
+  background: linear-gradient(to bottom right, #245421, #388e3c, #4caf50);
+}
+
+/* highlight box */
+.bg-primary-light\/10 { background-color: rgba(76, 175, 80, 0.1); }
+
+/* ── Text colours ── */
+.text-white          { color: #ffffff; }
+.text-gray-700       { color: #374151; }
+.text-gray-900       { color: #111827; }
+.text-primary-background { color: #245421; }
+
+.text-white\/90 { color: rgba(255, 255, 255, 0.9); }
+
+/* ── Text alignment ── */
+.text-center { text-align: center; }
+
+/* ── Font sizes ── */
+.text-lg  { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl  { font-size: 1.25rem;  line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem;   line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem;  line-height: 2.5rem; }
+.text-5xl { font-size: 3rem;     line-height: 1; }
+.text-6xl { font-size: 3.75rem;  line-height: 1; }
+
+/* ── Font weights ── */
+.font-semibold { font-weight: 600; }
+.font-bold     { font-weight: 700; }
+
+/* ── Font style / line-height ── */
+.italic          { font-style: italic; }
+.leading-relaxed { line-height: 1.625; }
+.leading-normal  { line-height: 1.5; }
+
+/* ── Drop shadows (on text) ── */
+.drop-shadow-lg { filter: drop-shadow(0 10px 8px rgba(0,0,0,0.04)) drop-shadow(0 4px 3px rgba(0,0,0,0.1)); }
+.drop-shadow-md { filter: drop-shadow(0 4px 3px rgba(0,0,0,0.07)) drop-shadow(0 2px 2px rgba(0,0,0,0.06)); }
+
+/* ── Box shadows ── */
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+
+/* ── Border radius ── */
+.rounded    { border-radius: 0.25rem; }
+.rounded-lg { border-radius: 0.5rem; }
+
+/* ── Borders ── */
+.border-t   { border-top: 1px solid; }
+.border-2   { border: 2px solid; }
+.border-l-4 { border-left: 4px solid; }
+
+.border-gray-200          { border-color: #e5e7eb; }
+.border-primary-background { border-color: #245421; }
+
+/* ── Lists ── */
+.list-disc    { list-style-type: disc; }
+.list-inside  { list-style-position: inside; }
+
+/* ── Object fit ── */
+.object-cover { object-fit: cover; }
+
+/* ── Transition ── */
+.transition-colors { transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease; }
+
+/* ── Button colours ── */
+.bg-primary-background { background-color: #245421; }
+
+/* ── Hover states ── */
+.hover\:bg-primary-light:hover      { background-color: #388e3c; }
+.hover\:bg-primary-background:hover { background-color: #245421; }
+.hover\:text-white:hover            { color: #ffffff; }
+
+/* ── Prose (basic article typography) ── */
+.prose {
+  max-width: 65ch;
+  font-family: inherit;
+  color: #374151;
+  line-height: 1.75;
+}
+.prose-lg { font-size: 1.125rem; }
+.prose h2, .prose h3 { color: #245421; }
+.prose blockquote { border-left: 4px solid #245421; padding-left: 1rem; font-style: italic; }
+.prose ul  { padding-left: 1.5rem; }
+.prose p   { margin-bottom: 1rem; }
+
+/* Keep max-none from overriding max-width on prose wrapper */
+.max-w-none { max-width: none; }
+
+/* ── Responsive variants ── */
+@media (min-width: 640px) {
+  .sm\:flex-row  { flex-direction: row; }
+  .sm\:px-6      { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .sm\:text-4xl  { font-size: 2.25rem; line-height: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+  .md\:py-16  { padding-top: 4rem;  padding-bottom: 4rem; }
+  .md\:py-24  { padding-top: 6rem;  padding-bottom: 6rem; }
+  .md\:text-xl  { font-size: 1.25rem;  line-height: 1.75rem; }
+  .md\:text-5xl { font-size: 3rem;     line-height: 1; }
+  .md\:text-4xl { font-size: 2.25rem;  line-height: 2.5rem; }
+  .md\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .md\:py-16, .md\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8   { padding-left: 2rem; padding-right: 2rem; }
+  .lg\:py-20  { padding-top: 5rem;  padding-bottom: 5rem; }
+  .lg\:py-32  { padding-top: 8rem;  padding-bottom: 8rem; }
+  .lg\:text-6xl { font-size: 3.75rem; line-height: 1; }
+}
