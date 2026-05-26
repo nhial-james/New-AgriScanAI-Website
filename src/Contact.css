@@ -3,8 +3,8 @@
 .contact-page {
   min-height: 100vh;
   padding-top: 50px;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/44d7a855a49b0681b73ef2173db26ea79643c944?width=3840') center / cover no-repeat;
-  background-attachment: fixed;
+  background: linear-gradient(160deg, #f8fdf8 0%, #ffffff 60%, #f1faf7 100%);
+  overflow-x: hidden;
 }
 
 .contact-content-wrap {
@@ -97,11 +97,26 @@
   margin: 0 0 2rem;
 }
 
+.contact-label {
+  display: block;
+  font-family: var(--font-inter);
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.contact-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
+
 
 .contact-form-row {
   display: grid;

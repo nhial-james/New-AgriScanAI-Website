@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Home.css";
 import heroBg from "../assets/herobg.png";
 import phoneImg from "../assets/phone.png";
-import googlePlayBadge from '../assets/Play Store.png';
-  
+import googlePlayBadge from '../assets/Icons/google play.svg';
+import appStoreBadge from '../assets/Icons/app store.svg';
+import DownloadModal from "./ui/DownloadModal";
 
 export default function HeroSection() {
+  const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
+  const [isAppStoreModalOpen, setIsAppStoreModalOpen] = useState(false);
+
   return (
+    <>
     <section
       className="hero-section"
       style={{ backgroundImage: `url(${heroBg})` }}
@@ -31,21 +36,16 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero-subtext">
-          AgriScanAI Partners with Governments, NGOs and agricultural programs
-          to deploy AI-powered advisory tools that improves farmer
-          decision-making reduce crop losses, and build climate resilience.
+          AgriScanAI partners with Governments, NGOs, and agricultural programs
+          to deploy AI-powered advisory tools that improve farmer
+          decision-making, reduce crop losses, and build climate resilience.
         </p>
-
-        <Link to="/pilot-program" className="hero-cta-btn">
-          Apply for Pilot Partnership
-        </Link>
 
         {/* App store badges */}
         <div className="hero-store-badges">
           <a
-            href="https://play.google.com/store/apps/details?id=com.agriscanai"  /* ← replace */
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
             className="hero-store-badge-link"
             aria-label="Get on Google Play"
           >
@@ -56,19 +56,22 @@ export default function HeroSection() {
             />
           </a>
           <a
-            href="https://apps.apple.com/app/agriscanai/idYOURAPPID"  /* ← replace */
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
             className="hero-store-badge-link"
             aria-label="Download on App Store"
           >
             <img
-              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              src={appStoreBadge}
               alt="Download on the App Store"
               className="hero-store-badge"
             />
           </a>
         </div>
+
+        <Link to="/pilot-program" className="hero-cta-btn">
+          Apply for Pilot Partnership
+        </Link>
 
         {/* FoundersLive badge */}
         <div className="hero-founders-badge">
@@ -84,5 +87,18 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+      <DownloadModal 
+        isOpen={isPlayStoreModalOpen} 
+        onClose={() => setIsPlayStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="Google Play Version"
+      />
+      <DownloadModal 
+        isOpen={isAppStoreModalOpen} 
+        onClose={() => setIsAppStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="App Store Version"
+      />
+    </>
   );
 }

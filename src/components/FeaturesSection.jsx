@@ -1,46 +1,56 @@
+import farmerProfiling from '../assets/Icons/Farmer Profiling & Digital Records.svg';
+import realTimeData from '../assets/Icons/Real-Time Data & Analytics Dashboard.svg';
+import aiCropDisease from '../assets/Icons/AI-Powered Crop Disease Detection.svg';
+import mobileField from '../assets/Icons/Mobile Field Data Collection.svg';
+import yieldRecording from '../assets/Icons/Yield Recording & Tracking.svg';
+import financialTracking from '../assets/Icons/Financial & Input Tracking.svg';
+import climateCarbon from '../assets/Icons/Climate & Carbon Monitoring.svg';
+import mwaneduAI from '../assets/Icons/Mwanedu AI Smart Recommendations.svg';
+import programFSC from '../assets/Icons/Program & FSC Performance Tracking.svg';
+
 const features = [
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/bd61d77533e67baf8e43ac23b851e455fcee0345?width=188',
+    icon: farmerProfiling,
     title: 'Farmer Profiling & Digital Records',
     desc: 'Create and manage detailed farmer profiles including location, crops, acreage, and production history all stored in a centralized digital system.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/02ef20dc023f8e78feff4debb6344587320e465e?width=193',
+    icon: realTimeData,
     title: 'Real-Time Data & Analytics Dashboard',
     desc: 'Access live dashboards that provide insights into farmer activity, productivity trends, and overall program performance.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/c8395012d7483eb1cb96a05f6b1f1bd19eba8c2f?width=204',
+    icon: aiCropDisease,
     title: 'AI-Powered Crop Disease Detection',
     desc: 'Use image recognition to instantly identify crop diseases and pests, enabling faster and more accurate interventions.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/75d901e737ed881bf3673b720be90a1b500642cf?width=213',
+    icon: mobileField,
     title: 'Mobile Field Data Collection',
     desc: 'Capture field data directly from smartphones or tablets, even in remote areas, reducing reliance on paper-based systems.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/f3f62dea6e145bd8dac5c47dbe9ed426aa835b9e?width=203',
+    icon: yieldRecording,
     title: 'Yield Recording & Tracking',
     desc: 'Record harvest data and monitor crop yields over time. Analyze productivity trends across seasons and regions to improve planning.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/f171b5e1f7b7f4bd005b539b8520150a5ce5d287?width=188',
+    icon: financialTracking,
     title: 'Financial & Input Tracking',
     desc: 'Track inputs, costs, financing, and farmer income to provide better financial visibility and decision-making support.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/e12d5c9fef628d9d5971a74dddb842a2f10e2827?width=208',
+    icon: climateCarbon,
     title: 'Climate & Carbon Monitoring',
     desc: 'Record and analyze environmental data, including emissions and carbon sequestration, to support climate-smart agriculture initiatives.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/9f4d9db222d407569f54a79160e997b0c6f284af?width=183',
+    icon: mwaneduAI,
     title: 'Mwanedu AI Smart Recommendations',
     desc: 'Provide farmers with personalized agronomic advice, crop management tips, and best practices based on collected data and AI insights.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/02918aca003aaf45bd8ba11393155c5c60aa9923?width=196',
+    icon: programFSC,
     title: 'Program & FSC Performance Tracking',
     desc: 'Monitor the performance of farmer groups, aggregators, or FSCs with metrics on productivity, engagement, and financial activity.',
   },

@@ -63,27 +63,32 @@ const InstagramIcon = () => (
 
 const footerNav = [
   {
-    heading: 'Solutions',
+    heading: 'Product',
     links: [
-      { label: 'AgriScanAI', href: '/solutions' },
+      { label: 'Solutions', href: '/solutions' },
+      { label: 'Pilot Program', href: '/pilot-program' },
       { label: 'AgriPay (Payments)', href: '/solutions' },
     ],
   },
   {
-    heading: 'Learn',
+    heading: 'Company',
     links: [
       { label: 'About Us', href: '/about' },
-      { label: 'Request Demo', href: '/contact' },
+      { label: 'Events', href: '/events' },
+      { label: 'Good Partners', href: 'https://goodpartnerske.org/' },
     ],
   },
-{
-  heading: 'Company',
-  links: [
-    { label: 'Good Partners', href: 'https://goodpartnerske.org/' },
-    { label: 'Contact Us', href: '/contact' },
-  ],
-},
+  {
+    heading: 'Support',
+    links: [
+      { label: 'Contact Us', href: '/contact' },
+      { label: 'Request Demo', href: '/contact' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Use', href: '/terms-of-use' },
+    ],
+  },
 ];
+
 
 export default function Footer() {
   return (

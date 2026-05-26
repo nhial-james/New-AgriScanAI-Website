@@ -3,19 +3,14 @@
 .legal-hero {
   margin-top: 90px;
   background: linear-gradient(135deg, #245421 0%, #2E7D32 60%, #33B34D 100%);
-  padding: 80px 5vw 70px;
-  text-align: center;
   position: relative;
-  overflow: hidden;
-}
-
-.legal-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/c6851ee88f47452ababeb627c73e203bf707eeaf?width=1920') center / cover no-repeat;
-  opacity: 0.06;
-  pointer-events: none;
+  width: 100%;
+  padding: 5rem 5vw;
+  background: linear-gradient(160deg, #f8fdf8 0%, #f1faf7 50%, #e8f5e9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .legal-eyebrow {

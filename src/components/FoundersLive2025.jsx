@@ -1,136 +1,163 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import FoundersLive2025Image from '../assets/Founders-Live-Nairobi-2025-Hero.png';
+import FoundersLiveImg from '../assets/events/Founders-Live-Nairobi-2025-Hero.png';
+import agriscanPoster from '../assets/events/AgriScanAI-poster.jpg';
 import '../EventDetail.css';
 
 const FoundersLive2025 = () => {
+  useEffect(() => {
+    document.title = 'AgriScanAI Wins Founders Live Nairobi 2025 - AgriScanAI';
+  }, []);
+
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
 
         {/* Hero Section */}
-        <section className="relative w-full py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-primary-background via-primary-light to-primary-accent">
-          <div className="absolute inset-0 bg-black/30"></div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-              Founders Live Nairobi 2025
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 drop-shadow-md">
-              Connecting Africa's Startup Founders and Investors
-            </p>
+        <section className="w-full relative">
+          <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
+            <img src={FoundersLiveImg} alt="Founders Live Nairobi 2025" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16">
+              <div className="max-w-7xl mx-auto">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                  AgriScanAI Wins at Founders Live Nairobi 2025
+                </h1>
+                <p className="text-lg md:text-xl text-white/90 mb-4">
+                  Nairobi, Kenya — September 18, 2025
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Content */}
         <article className="w-full py-12 md:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <img 
-              src={FoundersLive2025Image}
-              alt="Founders Live Nairobi 2025"
-              className="w-full rounded-lg shadow-lg mb-12 object-cover"
-            />
-
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                AgriScanAI was thrilled to participate in Founders Live Nairobi 2025, a premier event dedicated to connecting Africa's most innovative startup founders with investors, mentors, and fellow entrepreneurs. The event showcased the incredible depth of talent and entrepreneurial energy driving innovation across the African continent.
+            <div className="prose prose-lg max-w-none mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                AgriScanAI is proud to announce that we emerged as the <strong>winner of Founders Live Nairobi</strong>, where we pitched our groundbreaking solution, AgriScanAI.
               </p>
 
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Founders Live brought together hundreds of early-stage and growth-stage startups across sectors, from fintech and logistics to agritech and cleantech, creating a dynamic ecosystem for networking, funding opportunities, and collaboration.
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Founders Live, a global pitch competition where entrepreneurs deliver 99-second pitches followed by audience voting, brought together five innovative startups at BaoBox, Nairobi. The excitement from the audience and the judges was overwhelming, validating our mission and product-market fit.
               </p>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-background mt-12 mb-6">
-                About Founders Live 2025
-              </h2>
-
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Founders Live is Africa's premier startup event, designed to amplify African founders and catalyze investment into the continent's most promising startups. The 2025 edition featured pitch competitions, investor roundtables, panel discussions, and networking sessions bringing together founders, venture capitalists, corporate investors, and ecosystem enablers.
-              </p>
-
-              <h3 className="text-2xl font-semibold text-primary-background mt-10 mb-4">
-                Event Focus Areas:
-              </h3>
-              <ul className="list-disc list-inside text-lg text-gray-700 space-y-2 mb-6">
-                <li>Early-Stage Funding and Pitching</li>
-                <li>Corporate Venture Partnerships</li>
-                <li>Impact Investing in Africa</li>
-                <li>Building Scalable African Startups</li>
-                <li>Emerging Sector Opportunities</li>
-                <li>Founder Support and Ecosystem Development</li>
-              </ul>
-
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-background mt-12 mb-6">
-                AgriScanAI's Participation
-              </h2>
-
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                AgriScanAI showcased our journey from concept to market impact, demonstrating how technology-driven solutions can address critical challenges in African agriculture. Our booth featured live demonstrations of our AI-powered disease detection system and conversations with investors interested in agritech innovation.
-              </p>
-
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Through Founders Live, we connected with:
-              </p>
-
-              <ul className="list-disc list-inside text-lg text-gray-700 space-y-2 mb-6">
-                <li>Venture capital firms investing in African agritech</li>
-                <li>Impact investors focused on food security and farmer livelihoods</li>
-                <li>Corporate partners exploring agricultural innovation partnerships</li>
-                <li>Fellow founders working to scale agriculture solutions</li>
-                <li>Mentors and advisors who have navigated similar scaling challenges</li>
-              </ul>
-
-              <blockquote className="border-l-4 border-primary-background pl-6 my-8 italic text-lg text-gray-700">
-                "Founders Live showcased the vibrancy of Africa's startup ecosystem. AgriScanAI's presence demonstrated that African founders are building solutions not just for Africa, but for the world."
-                <footer className="mt-2 font-semibold text-gray-900">— Event Attendee</footer>
-              </blockquote>
-
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-background mt-12 mb-6">
-                Key Conversations and Insights
-              </h2>
-
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Founders Live 2025 highlighted the growing investor interest in agritech and climate-tech solutions. Conversations with investors, corporate development teams, and fellow founders reinforced that:
-              </p>
-
-              <div className="bg-primary-light/10 border-l-4 border-primary-background p-6 my-8 rounded">
-                <h3 className="text-2xl font-bold text-primary-background mb-3">
-                  Founders Live 2025 Takeaway
-                </h3>
-                <p className="text-lg text-gray-700">
-                  African agritech is attracting significant investment and international interest. Founders solving real farmer problems with technology have the potential to build globally-scaled, profitable businesses while creating tremendous social impact.
-                </p>
+              <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
+                <img src={agriscanPoster} alt="AgriScanAI pitch" className="w-full h-auto" />
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-background mt-12 mb-6">
-                Moving Forward
-              </h2>
+              <section className="mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary-background mb-6">
+                  Our Winning Pitch: AgriScanAI
+                </h2>
 
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Our participation in Founders Live Nairobi 2025 strengthened AgriScanAI's position within the African startup and investment ecosystem. The connections made, feedback received, and conversations started will help accelerate our path to scaling impact across Africa.
-              </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  At the event, AgriScanAI showcased our AI-powered solution transforming agriculture by helping farmers detect plant diseases, improve yields, and make data-driven decisions. The audience resonated with our vision of using AI to empower farmers and strengthen food security in Africa.
+                </p>
+              </section>
 
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
-                We remain committed to building AgriScanAI into a leading agricultural technology company that empowers African farmers while creating value for all our stakeholders. Founders Live confirmed that the market opportunity, investor appetite, and founder talent are all aligned to make this vision possible.
-              </p>
+              <section className="mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary-background mb-6">
+                  The Prize & Recognition
+                </h2>
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  As winners, AgriScanAI received:
+                </p>
+
+                <div className="bg-gray-50 rounded-lg p-6 md:p-8 mb-6">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-primary-background flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <span className="text-gray-700 text-lg"><strong>Founders Live Professional Boost</strong> – a one-year membership valued at $999, with access to over $1,000,000 in cash credits and savings across 100+ essential platforms for startups</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-primary-background flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <span className="text-gray-700 text-lg">A feature on the <strong>Founders Live Podcast</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-primary-background flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <span className="text-gray-700 text-lg">Eligibility to compete in the Prime Time regional qualifiers, with the chance to advance to the global stage</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  This achievement is not just about recognition; it's about fueling our mission to scale AgriScanAI and create meaningful impact in agriculture across Africa.
+                </p>
+
+                <div className="bg-primary-light/10 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 mb-8 mt-8">
+                  <p className="text-xl md:text-2xl text-primary-background font-medium italic leading-relaxed">
+                    "This win is a true reflection of both our individual contributions and collective teamwork. It is an important milestone, and I believe it's just the beginning of many more wins to come."
+                  </p>
+                  <p className="text-lg text-gray-600 mt-4">— AgriScanAI Team</p>
+                </div>
+              </section>
+
+              <section className="mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary-background mb-6">
+                  What's Next
+                </h2>
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Winning Founders Live Nairobi provides AgriScanAI with a springboard into bigger opportunities — from scaling our AI-driven solutions to engaging investors and partners who share our vision of technology for sustainable agriculture.
+                </p>
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  We look forward to representing Kenya in future Founders Live competitions and continuing to champion innovation that matters.
+                </p>
+
+                <div className="bg-primary-light/10 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 mb-8 mt-8">
+                  <h3 className="text-2xl font-bold text-primary-background mb-4">
+                    Regional Qualifiers Ahead
+                  </h3>
+                  <p className="text-lg text-gray-700">
+                    AgriScanAI is now eligible to compete in Prime Time regional qualifiers with the potential to advance to the global stage of Founders Live.
+                  </p>
+                </div>
+
+                <p className="text-lg text-gray-700 leading-relaxed mb-12">
+                  Together, we are not just building technology; we are building a future of resilient farmers and sustainable food systems.
+                </p>
+              </section>
+
+              <section className="text-center bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-100 shadow-sm mt-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Join the Movement</h2>
+                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Want to learn more about AgriScanAI or collaborate on future innovations?
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <Link to="/about" className="inline-flex justify-center items-center px-8 py-4 bg-primary-background text-white font-bold rounded-lg hover:bg-primary-light transition-colors shadow-md hover:shadow-lg">
+                    Explore AgriScanAI
+                  </Link>
+                  <Link to="/contact" className="inline-flex justify-center items-center px-8 py-4 bg-white text-primary-background border-2 border-primary-background font-bold rounded-lg hover:bg-primary-50 transition-colors">
+                    Contact Us
+                  </Link>
+                </div>
+              </section>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-gray-200">
+            {/* CTA Buttons & Pagination */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-12 pt-8 border-t border-gray-200">
               <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 bg-primary-background text-white font-semibold rounded-lg hover:bg-primary-light transition-colors"
+                to="/events/agrifin-2025"
+                className="flex items-center gap-2 text-gray-600 hover:text-primary-background font-medium transition-colors duration-300"
               >
-                Contact Us
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+                Previous Event
               </Link>
-              <Link
-                to="/events"
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-primary-background text-primary-background font-semibold rounded-lg hover:bg-primary-background hover:text-white transition-colors"
+              <Link 
+                to="/events/finas-2025" 
+                className="flex items-center gap-2 text-primary-background hover:text-primary-light font-medium transition-colors duration-300"
               >
-                Back to Events
+                Next Event
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
               </Link>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import heroImg from '../assets/Empowering Ecosystems with Intelligent Data image.png';
 
 export default function SolutionsHeroSection() {
   return (
@@ -20,7 +21,7 @@ export default function SolutionsHeroSection() {
         </div>
         <div className="sol-hero-img-wrap">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/6846a3711641c8e2055d9c94750327885f88551e?width=1724"
+            src={heroImg}
             alt="AgriScanAI team in field"
             className="sol-hero-img"
           />

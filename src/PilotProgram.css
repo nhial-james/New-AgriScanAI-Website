@@ -1,6 +1,6 @@
 /* ===== PILOT PROGRAM PAGE ===== */
 .pilot-page {
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/642ad3a79b2e48c26725a174fb38802da64db571?width=3840') lightgray 50% / cover no-repeat fixed;
+  background: linear-gradient(160deg, #f8fdf8 0%, #f1faf7 50%, #e8f5e9 100%);
   min-height: 100vh;
 }
 
@@ -215,30 +215,57 @@
   white-space: pre-line;
   line-height: 1.4;
 }
+/* ===== TESTIMONIAL NAVIGATION ===== */
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.75rem;
+}
+
+.testimonial-arrow {
+  background: none;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.testimonial-arrow:hover {
+  background: var(--primary);
+  color: #fff;
+}
 
 .testimonial-dots {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 1.75rem;
 }
 
 .testimonial-dot {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #D1D5DB;
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s, width 0.2s;
 }
 
 .testimonial-dot.active {
-  background: #4CAF50;
-  width: 16px;
-  height: 16px;
-  transform: scale(1.15);
+  background: var(--primary);
+  width: 28px;
+  border-radius: 5px;
 }
 
 /* ===== GET INVOLVED ===== */

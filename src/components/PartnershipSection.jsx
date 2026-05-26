@@ -1,4 +1,8 @@
 import { Link } from 'react-router-dom';
+import ngosIcon from '../assets/Icons/NGOs & Development Programs.svg';
+import govtIcon from '../assets/Icons/Government Agencies & Network.svg';
+import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.svg';
+import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.svg';
 
 const CheckIcon = ({ color = '#2E7D32' }) => (
   <svg className="check-icon-sm" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,22 +28,22 @@ const partnersBring = [
 
 const partnerTypes = [
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/d98a12bcb54a85ffd375800acf7c51fdea60cf3b?width=180',
+    icon: ngosIcon,
     title: 'NGOs & Development Programs',
     desc: 'Implementing agriculture and livelihoods programs',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/d98a12bcb54a85ffd375800acf7c51fdea60cf3b?width=180',
+    icon: govtIcon,
     title: 'Government Agencies & Network',
     desc: 'Supporting extension services and farmer outreach',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/d98a12bcb54a85ffd375800acf7c51fdea60cf3b?width=180',
+    icon: cooperativesIcon,
     title: 'Farmers Cooperatives & Networks',
     desc: 'Strengthening advisory access and productivity',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/d98a12bcb54a85ffd375800acf7c51fdea60cf3b?width=180',
+    icon: climateIcon,
     title: 'Climate & Food Security Initiatives',
     desc: 'Building Resilient in Vulnerable Communities',
   },

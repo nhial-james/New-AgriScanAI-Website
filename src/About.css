@@ -5,7 +5,7 @@
   position: relative;
   width: 100%;
   min-height: 500px;
-  background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/74c3d0ea4c1b1c3b20d86a49247eee21556c743f?width=3840');
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1faf7 100%);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -103,7 +103,7 @@
 
 /* Intro */
 .about-intro {
-  padding: 4rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -120,7 +120,7 @@
 
 /* Empowering Section */
 .about-empowering {
-  padding: 4rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -176,7 +176,7 @@
 
 /* Idea Section */
 .about-idea {
-  padding: 5rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
   text-align: center;
 }
@@ -201,7 +201,7 @@
 
 /* Mission & Vision */
 .about-mission-vision {
-  padding: 4rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -265,7 +265,7 @@
 
 /* Good Partners */
 .about-good-partners {
-  padding: 5rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
   text-align: center;
 }
@@ -290,7 +290,7 @@
 
 /* Why Choose */
 .about-why-choose {
-  padding: 5rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -364,7 +364,7 @@
 
 /* Join Journey */
 .about-join-journey {
-  padding: 4rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -406,16 +406,26 @@
   justify-content: center;
 }
 
-.about-store-badge {
-  height: 70px;
-  width: auto;
-  display: block;
-  transition: transform 0.2s, opacity 0.2s;
+.about-store-badge-link {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.about-store-badge:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+.about-store-badge-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.about-store-badge {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 /* ===== RESPONSIVE ===== */

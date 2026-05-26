@@ -1,23 +1,26 @@
-const CheckIcon = () => (
-  <svg className="sol-card-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M27.9998 4.66663C15.1198 4.66663 4.6665 15.12 4.6665 28C4.6665 40.88 15.1198 51.3333 27.9998 51.3333C40.8798 51.3333 51.3332 40.88 51.3332 28C51.3332 15.12 40.8798 4.66663 27.9998 4.66663ZM27.9998 46.6666C17.7098 46.6666 9.33317 38.29 9.33317 28C9.33317 17.71 17.7098 9.33329 27.9998 9.33329C38.2898 9.33329 46.6665 17.71 46.6665 28C46.6665 38.29 38.2898 46.6666 27.9998 46.6666ZM38.7098 17.6866L23.3332 33.0633L17.2898 27.0433L13.9998 30.3333L23.3332 39.6666L41.9998 21L38.7098 17.6866Z" fill="#2E7D32" />
-  </svg>
-);
+import ngosIcon from '../assets/Icons/NGOs & Development Programs.svg';
+import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.svg';
+import govtIcon from '../assets/Icons/Government Agencies & Network.svg';
+import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.svg';
 
 const audiences = [
   {
+    icon: ngosIcon,
     title: 'NGOs & Development Programs',
     desc: 'Monitor farmer impact, track program effectiveness, and demonstrate ROI to donors and stakeholders with granular, real-time ground truth visibility.',
   },
   {
+    icon: cooperativesIcon,
     title: 'Agribusiness & Cooperatives',
     desc: 'Manage supply chains natively, ensure farmer compliance, predict yield risks, and optimize sourcing with offline-first mobile data collection.',
   },
   {
+    icon: govtIcon,
     title: 'Government Agencies',
     desc: 'Scale agricultural initiatives nationwide, securely track input subsidy usage, and measure far-reaching policy impact efficiently using verified data.',
   },
   {
+    icon: climateIcon,
     title: 'Climate Resilience Projects',
     desc: 'Monitor verified carbon credits, cross-check climate-smart practices, overlay satellite vegetation indices, and accurately report environmental impact.',
   },
@@ -33,7 +36,7 @@ export default function SolutionsTargetAudienceSection() {
       <div className="sol-audience-grid">
         {audiences.map((item) => (
           <div className="sol-audience-card" key={item.title}>
-            <CheckIcon />
+            <img src={item.icon} alt={item.title} className="sol-audience-icon" />
             <h3 className="sol-card-title">{item.title}</h3>
             <p className="sol-card-desc">{item.desc}</p>
             <button className="sol-btn-outline sol-btn-sm">Learn More</button>

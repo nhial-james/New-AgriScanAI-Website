@@ -1,14 +1,15 @@
+import { useEffect } from 'react';
 import '../Events.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import EventsBg from "../assets/Events.png";
+import EventsBg from "../assets/Events hero image.png";
 import IccfImg from '../assets/ICCF 2025.jpg'
 import KenyaAIImg from '../assets/The Kenya Software & AI Summit 2025.jpeg'
 import AgriFinImg from '../assets/agrifin_hero_image.png'
 import FoundersLiveImg from '../assets/Founders-Live-Nairobi-2025-Hero.png'
 import FinasImg from '../assets/FINAS-2025-hero.jpg'
-import KigaliImg from '../assets/ai-kigali-2025-Hero.jpg'   
+import KigaliImg from '../assets/ai-kigali-2025-Hero.jpg'
 
 
 const CalendarIcon = () => (
@@ -84,6 +85,10 @@ const events = [
 ];
 
 export default function Events() {
+  useEffect(() => {
+    document.title = 'Events & Conferences | AgriScanAI';
+  }, []);
+
   return (
     <>
       <Navbar />

@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './Home.css';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import PilotProgram from './pages/PilotProgram';
 import Solutions from './pages/Solutions';
 import Events from './pages/Events';
+import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
@@ -18,12 +20,14 @@ import AIKigali2025 from './components/AIKigali2025';
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/pilot-program" element={<PilotProgram />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/events/iccf-2025" element={<ICCF2025 />} />
         <Route path="/events/kenya-software-ai-summit-2025" element={<KenyaSoftwareAISummit2025 />} />
         <Route path="/events/agrifin-2025" element={<AgriFin2025 />} />

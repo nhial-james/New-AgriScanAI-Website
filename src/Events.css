@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   min-height: 500px;
-  background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/f762d508500df576da741d20e8c4b86ebfee65be?width=3840');
+  background: linear-gradient(135deg, #1a3a1a 0%, #2E7D32 100%);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -18,12 +18,7 @@
 .events-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-.events-hero {
-  background-size: cover;
-  background-position: center;
- 
+  background: rgba(0, 0, 0, 0.65);
 }
 .events-hero-content {
   position: relative;
@@ -88,7 +83,7 @@
 
 /* Events Grid Section */
 .events-grid-section {
-  padding: 5rem 5vw;
+  padding: var(--section-padding);
   background: #fff;
 }
 
@@ -218,7 +213,7 @@
 
 /* CTA Section */
 .events-cta-section {
-  padding: 4rem 5vw;
+  padding: var(--section-padding);
   background: #fff;
 }
 

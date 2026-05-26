@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import '../Contact.css';
 import Navbar from '../components/Navbar';
 import ContactFormSection from '../components/ContactFormSection';
@@ -6,6 +7,10 @@ import JoinSection from '../components/JoinSection';
 import Footer from '../components/Footer';
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = 'Contact Us | AgriScanAI';
+  }, []);
+
   return (
     <>
       <Navbar />

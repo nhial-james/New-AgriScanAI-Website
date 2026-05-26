@@ -1,5 +1,10 @@
-import googlePlayBadge from '../assets/Play Store.png';
+import React, { useState } from 'react';
+import DownloadModal from './ui/DownloadModal';
+import ComingSoonModal from './ui/ComingSoonModal';
 
+import googlePlayBadge from '../assets/Icons/google play.svg';
+import appStoreBadge from '../assets/Icons/app store.svg';
+import androidApkBadge from '../assets/Icons/android apk.svg';
 
 const stats = [
   { value: '50+', label: 'Crops & Diseases' },
@@ -8,6 +13,11 @@ const stats = [
 ];
 
 export default function SolutionsJoinSection() {
+  const [isApkModalOpen, setIsApkModalOpen] = useState(false);
+  const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
+  const [isAppStoreModalOpen, setIsAppStoreModalOpen] = useState(false);
+  const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
+  const [isAppleModalOpen, setIsAppleModalOpen] = useState(false);
   return (
     <section className="sol-join">
       <div className="sol-section-header">
@@ -36,34 +46,68 @@ export default function SolutionsJoinSection() {
           </p>
         </div>
         <div className="sol-join-banner-badges">
-          <a
-            href="https://play.google.com/store"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sol-store-badge-link"
-            aria-label="Get it on Google Play"
+          <button
+            onClick={() => setIsApkModalOpen(true)}
+            className="sol-store-badge-link bg-transparent border-none p-0 shadow-none hover:shadow-none hover:-translate-y-1 transition-transform inline-block"
+            aria-label="Download Android APK"
           >
-            <img
-              src={googlePlayBadge}
-              alt="Get it on Google Play"
-              className="sol-store-badge-img"
-            />
+            <img src={androidApkBadge} alt="Download Android APK" className="sol-store-badge-img h-12 w-auto" />
+          </button>
+          
+          <a 
+            href="#" 
+            className="sol-store-badge"
+            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+            aria-label="Download on Google Play"
+          >
+            <img src={googlePlayBadge} alt="Download on Google Play" className="sol-store-badge-img h-12 w-auto" />
           </a>
-          <a
-            href="https://apps.apple.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sol-store-badge-link"
+          
+          <a 
+            href="#" 
+            className="sol-store-badge"
+            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
             aria-label="Download on the App Store"
           >
-            <img
-              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-              alt="Download on the App Store"
-              className="sol-store-badge-img sol-store-badge-apple"
-            />
+            <img src={appStoreBadge} alt="Download on the App Store" className="sol-store-badge-img h-12 w-auto" />
           </a>
         </div>
       </div>
+
+      <DownloadModal 
+        isOpen={isApkModalOpen} 
+        onClose={() => setIsApkModalOpen(false)} 
+        downloadUrl="/downloads/agriscanai-v2.0.apk" 
+        appName="AgriScanAI APK"
+      />
+      <DownloadModal 
+        isOpen={isPlayStoreModalOpen} 
+        onClose={() => setIsPlayStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="Google Play Version"
+      />
+      <DownloadModal 
+        isOpen={isAppStoreModalOpen} 
+        onClose={() => setIsAppStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="App Store Version"
+      />
+
+      <ComingSoonModal 
+        isOpen={isGoogleModalOpen} 
+        onClose={() => setIsGoogleModalOpen(false)} 
+        storeName="Google Play Store"
+        message="AgriScanAI will soon be available on Google Play Store!"
+        colorClass="from-blue-500 to-blue-700"
+      />
+
+      <ComingSoonModal 
+        isOpen={isAppleModalOpen} 
+        onClose={() => setIsAppleModalOpen(false)} 
+        storeName="Apple App Store"
+        message="AgriScanAI will soon be available on Apple App Store!"
+        colorClass="from-gray-800 to-black"
+      />
     </section>
   );
 }

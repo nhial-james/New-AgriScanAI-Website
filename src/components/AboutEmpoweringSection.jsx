@@ -1,3 +1,5 @@
+import empoweringImg from '../assets/Empowering small-scale farmers with digital farming image.png';
+
 export default function AboutEmpoweringSection() {
   return (
     <section className="about-empowering">
@@ -15,7 +17,7 @@ export default function AboutEmpoweringSection() {
         </div>
         <div className="about-empowering-img-side">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/a11b672f5a912f3ec6168201b69e838df4b419a1?width=1082"
+            src={empoweringImg}
             alt="Farmers using digital technology"
           />
         </div>

@@ -1,18 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
-
-:root {
-  --primary: #2E7D32;
-  --primary-dark: #245421;
-  --accent-green: #33B34D;
-  --bg-light: #F1FAF7;
-  --text-dark: #1C1C1E;
-  --text-gray: #57576A;
-  --text-light: #717983;
-  --border-light: #DFE3E4;
-  --white: #FFFFFF;
-  --font-inter: 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
-  --font-montserrat: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
-}
+/* ===== SOLUTIONS PAGE STYLES ===== */
+/* Fonts & design tokens are in index.css */
 
 /* ===== PAGE WRAPPER ===== */
 .sol-page {
@@ -122,7 +109,7 @@
 .sol-hero {
   position: relative;
   min-height: 400px;
-  background: url('https://api.builder.io/api/v1/image/assets/TEMP/cb383164d56ae3f791dcdb1227697b24eb231a3b?width=3840') lightgray 50% / cover no-repeat;
+  background: linear-gradient(135deg, #f1faf7 0%, #e8f5e9 50%, #f1faf7 100%);
   display: flex;
   align-items: stretch;
 }
@@ -196,7 +183,7 @@
 
 /* ===== TARGET AUDIENCE ===== */
 .sol-audience {
-  padding: 6rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -231,6 +218,13 @@
   flex-shrink: 0;
 }
 
+.sol-audience-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .sol-card-title {
   font-family: var(--font-inter);
   font-size: clamp(1.1rem, 1.6vw, 1.4rem);
@@ -250,7 +244,7 @@
 
 /* ===== WEB APP SECTION ===== */
 .sol-webapp {
-  padding: 3rem 5vw;
+  padding: var(--section-padding);
   background: #F1FAF7;
 }
 
@@ -306,7 +300,7 @@
 
 /* ===== INSIGHT SECTION ===== */
 .sol-insight {
-  padding: 6rem 5vw;
+  padding: var(--section-padding);
   background: var(--white);
 }
 
@@ -378,7 +372,7 @@
 
 /* ===== AGRIPAY SECTION ===== */
 .sol-agripay {
-  padding: 2rem 5vw;
+  padding: var(--section-padding-sm);
   background: #F1FAF7;
 }
 
@@ -592,7 +586,7 @@
 
 /* ===== GET INVOLVED ===== */
 .sol-get-involved {
-  padding: 6rem 5vw;
+  padding: var(--section-padding);
   text-align: center;
   background: var(--white);
 }
@@ -608,7 +602,7 @@
 
 /* ===== JOIN SECTION ===== */
 .sol-join {
-  padding: 0.5rem 5vw 0 ;
+  padding: var(--section-padding);
   background: var(--white);
 }
 

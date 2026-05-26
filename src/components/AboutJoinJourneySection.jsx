@@ -1,4 +1,17 @@
+import React, { useState } from 'react';
+import DownloadModal from './ui/DownloadModal';
+import ComingSoonModal from './ui/ComingSoonModal';
+
+import googlePlayBadge from '../assets/Icons/google play.svg';
+import appStoreBadge from '../assets/Icons/app store.svg';
+import androidApkBadge from '../assets/Icons/android apk.svg';
+
 export default function AboutJoinJourneySection() {
+  const [isApkModalOpen, setIsApkModalOpen] = useState(false);
+  const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
+  const [isAppStoreModalOpen, setIsAppStoreModalOpen] = useState(false);
+  const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
+  const [isAppleModalOpen, setIsAppleModalOpen] = useState(false);
   return (
     <section className="about-join-journey">
       <div className="about-join-card">
@@ -13,23 +26,69 @@ export default function AboutJoinJourneySection() {
           suppliers, or an investor interested in agricultural innovation, we&apos;re here to partner
           with you.
         </p>
-        <div className="about-join-stores">
-          <a href="#" aria-label="Get it on Google Play">
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/03500a58f13bb711a1ba9ead6d22b0fc8984b2ee?width=676"
-              alt="Get it on Google Play"
-              className="about-store-badge"
-            />
+        <div className="about-join-stores flex gap-4 mt-8">
+          <button
+            onClick={() => setIsApkModalOpen(true)}
+            className="about-store-badge-link bg-transparent border-none p-0 shadow-none hover:shadow-none hover:-translate-y-1 transition-transform inline-block"
+            aria-label="Download Android APK"
+          >
+            <img src={androidApkBadge} alt="Download Android APK" className="about-store-badge h-12 w-auto" />
+          </button>
+          
+          <a 
+            href="#" 
+            className="about-store-badge"
+            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+            aria-label="Download on Google Play"
+          >
+            <img src={googlePlayBadge} alt="Download on Google Play" className="about-store-badge h-12 w-auto" />
           </a>
-          <a href="#" aria-label="Download on the App Store">
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/6a8c2a9e39e50be5b19b3ff26c975e6cd4d693bc?width=600"
-              alt="Download on the App Store"
-              className="about-store-badge"
-            />
+          
+          <a 
+            href="#" 
+            className="about-store-badge"
+            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
+            aria-label="Download on the App Store"
+          >
+            <img src={appStoreBadge} alt="Download on the App Store" className="about-store-badge h-12 w-auto" />
           </a>
         </div>
       </div>
+      
+      <DownloadModal 
+        isOpen={isApkModalOpen} 
+        onClose={() => setIsApkModalOpen(false)} 
+        downloadUrl="/downloads/agriscanai-v2.0.apk" 
+        appName="AgriScanAI APK"
+      />
+      <DownloadModal 
+        isOpen={isPlayStoreModalOpen} 
+        onClose={() => setIsPlayStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="Google Play Version"
+      />
+      <DownloadModal 
+        isOpen={isAppStoreModalOpen} 
+        onClose={() => setIsAppStoreModalOpen(false)} 
+        downloadUrl="#" 
+        appName="App Store Version"
+      />
+
+      <ComingSoonModal 
+        isOpen={isGoogleModalOpen} 
+        onClose={() => setIsGoogleModalOpen(false)} 
+        storeName="Google Play Store"
+        message="AgriScanAI will soon be available on Google Play Store!"
+        colorClass="from-blue-500 to-blue-700"
+      />
+
+      <ComingSoonModal 
+        isOpen={isAppleModalOpen} 
+        onClose={() => setIsAppleModalOpen(false)} 
+        storeName="Apple App Store"
+        message="AgriScanAI will soon be available on Apple App Store!"
+        colorClass="from-gray-800 to-black"
+      />
     </section>
   );
 }

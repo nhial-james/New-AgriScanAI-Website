@@ -1,25 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
-const ExpandIcon = () => (
-  <svg className="navbar-dropdown-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z" fill="#245421"/>
-  </svg>
-);
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
+
+  // Add shadow when page scrolls down
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const scrollTo = (id) => {
     setMobileOpen(false);
     if (!isHome) {
       navigate('/');
+      // Use a slightly longer delay to ensure the page has loaded
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 200);
       return;
     }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -29,7 +37,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>
         <Link to="/" className="navbar-logo-link">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/8875a797b6b2ecb01b311084b9748f9728f23b34?width=562"
@@ -46,7 +54,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/solutions" className={location.pathname === '/solutions' ? 'navbar-active' : ''}>
-              Solutions 
+              Solutions
             </Link>
           </li>
           <li>
@@ -60,9 +68,9 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <button onClick={() => scrollTo('resources')}>
+            <Link to="/resources" className={location.pathname === '/resources' ? 'navbar-active' : ''} onClick={closeMobile}>
               Resources
-            </button>
+            </Link>
           </li>
           <li><Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''}>Contact Us</Link></li>
         </ul>
@@ -72,8 +80,9 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="navbar-hamburger"
+          className={`navbar-hamburger${mobileOpen ? ' open' : ''}`}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(o => !o)}
         >
           <span />
@@ -87,7 +96,7 @@ export default function Navbar() {
         <Link to="/solutions" onClick={closeMobile}>Solutions</Link>
         <Link to="/pilot-program" onClick={closeMobile}>Pilot Program</Link>
         <Link to="/events" onClick={closeMobile}>Events</Link>
-        <button onClick={() => scrollTo('resources')}>Resources</button>
+        <Link to="/resources" onClick={closeMobile}>Resources</Link>
         <Link to="/contact" onClick={closeMobile}>Contact Us</Link>
         <Link to="/pilot-program" className="navbar-mobile-cta" onClick={closeMobile}>
           Apply for Partnership

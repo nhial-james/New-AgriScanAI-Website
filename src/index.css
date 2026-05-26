@@ -1,13 +1,47 @@
+/* ===== Google Fonts (single import for the whole app) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* ===== Design Tokens (single source of truth) ===== */
 :root {
   color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Brand colours */
+  --primary: #2E7D32;
+  --primary-dark: #245421;
+  --primary-deep: #2C6455;
+  --accent-green: #33B34D;
+
+  /* Backgrounds */
+  --bg-light: #F1FAF7;
+  --white: #FFFFFF;
+
+  /* Text */
+  --text-dark: #1C1C1E;
+  --text-gray: #57576A;
+  --text-light: #717983;
+
+  /* Borders */
+  --border-light: #DFE3E4;
+
+  /* Fonts */
+  --font-inter: 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
+  --font-montserrat: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
+
+  /* Layout */
+  --section-padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 5vw);
+  --section-padding-sm: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 5vw);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

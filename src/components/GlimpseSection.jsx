@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import phoneDashboard from '../assets/phone.png'; 
+import { useState, useEffect, useRef } from 'react';
+import phoneDashboard from '../assets/Farmer Dashboard.png'; 
 import carbonTracker from '../assets/Carbon Tracker.png';
 import DiseaseResults from '../assets/Disease Results.png';
 import yieldTracking from '../assets/Yield Tracking.png';
@@ -15,7 +15,7 @@ const slides = [
   {
     img: DiseaseResults,
     title: 'Crop Disease Detection',
-      subtitle: 'AI-powered diagnosis in seconds',
+    subtitle: 'AI-powered diagnosis in seconds',
   },
   {
     img: phoneDashboard,
@@ -32,7 +32,7 @@ const slides = [
     title: 'Advisory Chat',
     subtitle: 'Multilingual farming guidance',
   },
-   {
+  {
     img: financeTracking,
     title: 'Finance',
     subtitle: 'Track loans, payments, and market prices',
@@ -41,9 +41,22 @@ const slides = [
 
 export default function GlimpseSection() {
   const [current, setCurrent] = useState(2);
+  const [fading, setFading] = useState(false);
+  const timeoutRef = useRef(null);
 
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const goTo = (index) => {
+    if (fading) return;
+    setFading(true);
+    timeoutRef.current = setTimeout(() => {
+      setCurrent(index);
+      setFading(false);
+    }, 250);
+  };
+
+  const prev = () => goTo((current - 1 + slides.length) % slides.length);
+  const next = () => goTo((current + 1) % slides.length);
+
+  useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
   return (
     <section className="glimpse-section" id="resources">
@@ -53,10 +66,14 @@ export default function GlimpseSection() {
       </div>
 
       <div className="glimpse-carousel">
-        <button className="glimpse-arrow" onClick={prev} aria-label="Previous slide">&#8249;</button>
+        <button className="glimpse-arrow" onClick={prev} aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+          </svg>
+        </button>
 
         <div className="glimpse-phone-wrap">
-          <div className="glimpse-image-frame">
+          <div className={`glimpse-image-frame ${fading ? 'glimpse-fading' : ''}`}>
             <img
               src={slides[current].img}
               alt={slides[current].title}
@@ -64,7 +81,7 @@ export default function GlimpseSection() {
             />
           </div>
 
-          <div className="glimpse-caption">
+          <div className={`glimpse-caption ${fading ? 'glimpse-fading' : ''}`}>
             <p className="glimpse-caption-title">{slides[current].title}</p>
             <p className="glimpse-caption-sub">{slides[current].subtitle}</p>
           </div>
@@ -74,14 +91,18 @@ export default function GlimpseSection() {
               <button
                 key={i}
                 className={`glimpse-dot${i === current ? ' active' : ''}`}
-                onClick={() => setCurrent(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
         </div>
 
-        <button className="glimpse-arrow" onClick={next} aria-label="Next slide">&#8250;</button>
+        <button className="glimpse-arrow" onClick={next} aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/>
+          </svg>
+        </button>
       </div>
     </section>
   );

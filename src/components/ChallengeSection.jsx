@@ -1,16 +1,20 @@
+import limitedExtension from '../assets/Icons/Limited Extension Capacity.svg';
+import risingPest from '../assets/Icons/Rising Pest and Climate Risks.svg';
+import delayAccess from '../assets/Icons/Delay Access to Advisory.svg';
+
 const challenges = [
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/1eecd17e4eaf90caa4f39a6f7551f533b64c579d?width=242',
+    icon: limitedExtension,
     title: 'Limited Extension Capacity',
     desc: 'Not enough field staff to reach all farmers who need support.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/5015991020715c33261d5e1fd508a4b61fe5c756?width=265',
+    icon: risingPest,
     title: 'Rising Pest and Climate Risks',
     desc: 'Increasing crop threats and unpredictable weather patterns.',
   },
   {
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/d7a2b283552cc7daa7b1431391abe3428ab6f1d0?width=258',
+    icon: delayAccess,
     title: 'Delay Access to Advisory',
     desc: 'Farmers often get information too late to take action.',
   },
