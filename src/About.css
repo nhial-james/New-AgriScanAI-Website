@@ -103,7 +103,7 @@
 
 /* Intro */
 .about-intro {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
 }
 
@@ -120,7 +120,7 @@
 
 /* Empowering Section */
 .about-empowering {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
 }
 
@@ -176,7 +176,7 @@
 
 /* Idea Section */
 .about-idea {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
   text-align: center;
 }
@@ -201,7 +201,7 @@
 
 /* Mission & Vision */
 .about-mission-vision {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
 }
 
@@ -265,7 +265,7 @@
 
 /* Good Partners */
 .about-good-partners {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
   text-align: center;
 }
@@ -290,7 +290,7 @@
 
 /* Why Choose */
 .about-why-choose {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
 }
 
@@ -364,7 +364,7 @@
 
 /* Join Journey */
 .about-join-journey {
-  padding: var(--section-padding);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5vw);
   background: var(--white);
 }
 

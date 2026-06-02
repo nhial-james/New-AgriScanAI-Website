@@ -36,8 +36,8 @@
   --font-montserrat: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
 
   /* Layout */
-  --section-padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 5vw);
-  --section-padding-sm: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 5vw);
+  --section-padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 5vw);
+  --section-padding-sm: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 5vw, 5vw);
 }
 
 html {
@@ -48,6 +48,8 @@ body {
   margin: 0;
   padding: 0;
   background: #fff;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 #root {
@@ -55,8 +57,292 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
+
+/* ===== DOWNLOAD MODAL STYLE SYSTEM ===== */
+.dl-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000 !important; /* Ensure overlay renders higher than navbar (1000) and relatively styled heroes (2) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dl-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dl-modal-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 24px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 82vh; /* Set safety height to fit perfectly in all viewport sizes */
+  overflow: hidden;
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.dl-modal-overlay.open .dl-modal-container {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Header/Banner Section */
+.dl-modal-header {
+  position: relative;
+  padding: 2.2rem 1.5rem 1.2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fdf8 0%, #f1faf7 100%);
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+/* Close Button */
+.dl-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  color: #717983;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.dl-modal-close:hover {
+  background: #f3f4f6;
+  color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+.dl-modal-close svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+/* App Icon Container */
+.dl-modal-icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.12);
+  border: 1px solid #e8f5e9;
+  position: relative;
+}
+
+.dl-modal-icon-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent-green);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 99px;
+  border: 2px solid #ffffff;
+}
+
+.dl-modal-title {
+  font-family: var(--font-inter);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.dl-modal-subtitle {
+  font-family: var(--font-inter);
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  line-height: 1.45;
+  padding: 0 1rem;
+}
+
+/* Body / Form Section */
+.dl-modal-body {
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  overflow-y: auto; /* Scroll overflow within form area safely */
+  flex-grow: 1;
+}
+
+.dl-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.dl-modal-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dl-modal-label {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dl-modal-label span {
+  color: #ef4444;
+}
+
+.dl-modal-input {
+  width: 100%;
+  height: 48px; /* Fixed robust input box height */
+  padding: 0 1rem;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid var(--border-light);
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.dl-modal-input:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+/* Status message */
+.dl-modal-message {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.dl-modal-message.success {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.dl-modal-message.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+/* Submit Button */
+.dl-modal-submit {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  font-family: var(--font-montserrat);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+  transition: all 0.2s ease;
+}
+
+.dl-modal-submit:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.3);
+}
+
+.dl-modal-submit:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.dl-modal-footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: var(--font-inter);
+  font-size: 0.7rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+/* Global Hero Section Dark Gradient Overlay Utilities */
+.absolute.inset-0.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.absolute.inset-0.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops)) !important;
+}
+
+.from-black\/80 {
+  --tw-gradient-from: rgba(0, 0, 0, 0.8) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.from-black\/85 {
+  --tw-gradient-from: rgba(0, 0, 0, 0.85) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.via-black\/40 {
+  --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(0, 0, 0, 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position) !important;
+}
+

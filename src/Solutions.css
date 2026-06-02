@@ -173,6 +173,14 @@
   max-width: 780px;
 }
 
+.mobile-only-img {
+  display: none;
+}
+
+.desktop-only-img {
+  display: block;
+}
+
 .sol-hero-img {
   width: 100%;
   height: auto;
@@ -658,7 +666,7 @@
 /* CTA Banner */
 .sol-join-banner {
   background: linear-gradient(90deg, #2E7D32 49.52%, #90C492 100%);
-  border-radius: 30px 30px 0 0;
+  border-radius: 30px;
   padding: 3rem 5vw;
   display: flex;
   align-items: center;
@@ -815,6 +823,43 @@
 
   .sol-hero-content {
     padding: 3rem 5vw;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .sol-hero-text {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sol-hero-text .sol-eyebrow-left {
+    text-align: center;
+  }
+
+  .sol-hero-actions {
+    justify-content: center;
+  }
+
+  .desktop-only-img {
+    display: none;
+  }
+
+  .mobile-only-img {
+    display: flex;
+    width: 100%;
+    max-width: 540px;
+    margin: 1.5rem auto;
+    justify-content: center;
+  }
+
+  .mobile-only-img img {
+    border-radius: 24px;
   }
 
   .sol-hero-bg-panel {
@@ -859,7 +904,7 @@
   }
 
   .sol-join-banner {
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     padding: 2.5rem 1.5rem;
   }
 
@@ -870,6 +915,13 @@
 
   .sol-agripay-right {
     width: 100%;
+  }
+}
+
+/* Mobile medium (max 600px) */
+@media (max-width: 600px) {
+  .sol-page {
+    padding-top: 70px;
   }
 }
 
@@ -901,5 +953,32 @@
 
   .sol-store-badge-img {
     height: 44px;
+  }
+
+  .sol-hero-title {
+    font-size: 1.7rem;
+  }
+
+  .sol-audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sol-insight-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 375px) {
+  .sol-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .sol-hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .sol-join-banner {
+    padding: 2rem 1rem;
   }
 }

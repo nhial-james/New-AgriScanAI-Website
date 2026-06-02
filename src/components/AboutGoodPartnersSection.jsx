@@ -8,7 +8,7 @@ export default function AboutGoodPartnersSection() {
         Good Partners has been committed to building innovative, tailored solutions across AI,
         systems development, and digital infrastructure built for impact, scalability, and growth.
       </p>
-      <a href="#" className="about-btn-outline">Explore Good Partners</a>
+      <a href="https://goodpartners.co.ke" target="_blank" rel="noopener noreferrer" className="about-btn-outline">Explore Good Partners</a>
     </section>
   );
 }

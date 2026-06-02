@@ -16,6 +16,9 @@ import AgriFin2025 from './components/AgriFin2025';
 import FoundersLive2025 from './components/FoundersLive2025';
 import Finas2025 from './components/Finas2025';
 import AIKigali2025 from './components/AIKigali2025';
+import KakamegaTraining2026 from './components/KakamegaTraining2026';
+import AmrefPHCCongress2026 from './components/AmrefPHCCongress2026';
+import NairobiStartupSummit2026 from './components/NairobiStartupSummit2026';
 
 export default function App() {
   return (
@@ -34,10 +37,12 @@ export default function App() {
         <Route path="/events/founders-live-2025" element={<FoundersLive2025 />} />
         <Route path="/events/finas-2025" element={<Finas2025 />} />
         <Route path="/events/ai-kigali-2025" element={<AIKigali2025 />} />
+        <Route path="/events/agriscanai-farmer-training-kakamega-2026" element={<KakamegaTraining2026 />} />
+        <Route path="/events/amref-2nd-phc-congress-2026" element={<AmrefPHCCongress2026 />} />
+        <Route path="/events/nairobi-startup-summit-2026" element={<NairobiStartupSummit2026 />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="/resources" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

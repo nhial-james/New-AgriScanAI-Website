@@ -10,7 +10,9 @@ import AgriFinImg from '../assets/agrifin_hero_image.png'
 import FoundersLiveImg from '../assets/Founders-Live-Nairobi-2025-Hero.png'
 import FinasImg from '../assets/FINAS-2025-hero.jpg'
 import KigaliImg from '../assets/ai-kigali-2025-Hero.jpg'
-
+import KakamegaHero from '../assets/events/kakamega-training-2026-images/kakamega-training-hero-image.jpg';
+import AmrefHero from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.jpg';
+import StartupHero from '../assets/events/Nairobi-StartUp-2026/Nairobi StartUp Summit.jpg';
 
 const CalendarIcon = () => (
   <svg className="event-meta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +30,33 @@ const LocationIcon = () => (
 // Once you add your images to src/assets/, replace each EventsBg reference below
 // with the matching import, e.g.: import IccfImg from '../assets/iccf-2025.jpg';
 const events = [
+  {
+    id: 9,
+    image: StartupHero,
+    date: 'May 28–29, 2026',
+    location: 'USIU Africa, Nairobi',
+    title: 'Good Partners at the 4th Edition of Nairobi Startup Summit & Awards',
+    excerpt: 'Good Partners presented AgriScanAI and BetterPAY at the 4th Nairobi Startup Summit, engaging East Africa’s innovation ecosystem on data-driven agriculture, secure payments, and community accountability.',
+    slug: 'nairobi-startup-summit-2026',
+  },
+  {
+    id: 7,
+    image: KakamegaHero,
+    date: 'March 23–25, 2026',
+    location: 'Kakamega County, Kenya',
+    title: 'AgriScanAI Farmer Training in Kakamega: Empowering Smallholder Farmers Through AI',
+    excerpt: 'Good Partners partnered with Kilimo Permaculture (KTIP) to onboard 103 farmers in Ikholomani, Kakamega. Farmers received hands-on training on AI crop disease scanning, record keeping, and advisory workflows.',
+    slug: 'agriscanai-farmer-training-kakamega-2026',
+  },
+  {
+    id: 8,
+    image: AmrefHero,
+    date: 'March 4–6, 2026',
+    location: 'Nairobi, Kenya',
+    title: 'Good Partners at the 2nd Primary Health Care Congress, Nairobi 2026',
+    excerpt: 'Good Partners showcased BetterPay for attendance and payment verification at the 2nd PHC Congress hosted by Amref Health Africa and MoH Kenya. Highlighting transparent systems for community health programmes.',
+    slug: 'amref-2nd-phc-congress-2026',
+  },
   {
     id: 1,
     image: IccfImg, // replace with: import IccfImg from '../assets/iccf-2025.jpg'
@@ -133,8 +162,8 @@ export default function Events() {
                     {event.date}
                   </span>
                   <span className="event-meta-location">
-                    <LocationIcon />
                     {event.location}
+                    <LocationIcon />
                   </span>
                 </div>
                 <h2 className="event-card-title">{event.title}</h2>

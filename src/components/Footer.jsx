@@ -83,8 +83,6 @@ const footerNav = [
     links: [
       { label: 'Contact Us', href: '/contact' },
       { label: 'Request Demo', href: '/contact' },
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms of Use', href: '/terms-of-use' },
     ],
   },
 ];

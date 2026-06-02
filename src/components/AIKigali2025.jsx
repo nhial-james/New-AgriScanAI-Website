@@ -240,23 +240,27 @@ const AIKigali2025 = () => {
                   </Link>
                 </div>
               </section>
-            </div>
+          </div>
 
-            {/* CTA Buttons & Pagination */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-12 pt-8 border-t border-gray-200">
+            {/* Bottom Navigation Pagination */}
+            <div className="flex justify-between items-center my-8 pt-8 border-t border-gray-200">
+              <div className="w-32 hidden sm:block"></div>
+
+              <Link
+                to="/events"
+                className="inline-flex items-center gap-2 text-gray-600 hover:text-primary-background font-semibold transition-colors"
+              >
+                <span>All Events</span>
+              </Link>
+
               <Link
                 to="/events/finas-2025"
-                className="flex items-center gap-2 text-gray-600 hover:text-primary-background font-medium transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-primary-background font-semibold hover:text-primary-light transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
-                Previous Event
-              </Link>
-              <Link 
-                to="/events" 
-                className="flex items-center gap-2 text-primary-background hover:text-primary-light font-medium transition-colors duration-300"
-              >
-                Back to Events
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+                <span>Next Event</span>
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           </div>

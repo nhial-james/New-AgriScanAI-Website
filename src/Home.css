@@ -284,6 +284,14 @@
   margin: 0;
 }
  
+/* CTA + FoundersLive badge row */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+ 
 /* Apply for Pilot Partnership CTA */
 .hero-cta-btn {
   display: inline-flex;
@@ -452,6 +460,10 @@
  
   .hero-cta-btn {
     align-self: center;
+  }
+
+  .hero-cta-row {
+    justify-content: center;
   }
  
   .hero-store-badges {
@@ -1391,11 +1403,16 @@
 
   .approach-content {
     flex-direction: column;
+    gap: 2rem;
   }
 
   .approach-text,
   .approach-image {
     flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .approach-phone-img {
     max-width: 100%;
   }
 
@@ -1422,11 +1439,26 @@
 
   .join-cta-actions {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .footer-top {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .glimpse-image-frame {
+    width: 280px;
+    height: 400px;
+  }
+
+  .together-banner {
+    padding: 2.5rem 2rem;
+    border-radius: 28px;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -1445,8 +1477,15 @@
 
   .hero-section {
     margin-top: 70px;
-    min-height: 60vh;
-    max-height: 600px;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    padding-top: 80px;
+    padding-bottom: 3rem;
+  }
+
+  .hero-left {
+    padding-top: 0.5rem !important;
   }
 
   .hero-phones-img {
@@ -1500,5 +1539,115 @@
 
   .glimpse-side-icon {
     display: none;
+  }
+
+  .glimpse-image-frame {
+    width: 240px;
+    height: 340px;
+  }
+
+  .glimpse-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .glimpse-arrow {
+    position: absolute;
+    top: 170px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    padding: 0.4rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .glimpse-arrow:first-of-type {
+    left: 0.5rem;
+  }
+
+  .glimpse-arrow:last-of-type {
+    right: 0.5rem;
+  }
+
+  .join-cta-banner {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .partnership-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .together-banner {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  /* Center align footer elements on mobile */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-logo-col {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-top > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+}
+
+/* ===== VERY SMALL PHONES (max 375px) ===== */
+@media (max-width: 375px) {
+  .hero-heading {
+    font-size: 1.55rem;
+  }
+
+  .hero-subtext {
+    font-size: 0.9rem;
+  }
+
+  .hero-cta-btn {
+    font-size: 0.88rem;
+    padding: 0.75rem 1.6rem;
+  }
+
+  .hero-store-badge {
+    height: 34px;
+  }
+
+  .founders-logo-text {
+    font-size: 0.65rem;
+  }
+
+  .founders-logo-live {
+    font-size: 0.95rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-types-grid {
+    grid-template-columns: 1fr;
   }
 }

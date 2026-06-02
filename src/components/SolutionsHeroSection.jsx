@@ -11,6 +11,16 @@ export default function SolutionsHeroSection() {
           <h1 className="sol-hero-title">
             Empowering Ecosystems<br />with Intelligent Data
           </h1>
+
+          {/* Inline mobile hero image */}
+          <div className="sol-hero-img-wrap mobile-only-img">
+            <img
+              src={heroImg}
+              alt="AgriScanAI team in field"
+              className="sol-hero-img"
+            />
+          </div>
+
           <p className="sol-hero-desc">
             Whether you run a small NGO or a large government program, AgriScanAI provides the end-to-end operational visibility needed to transform agricultural networks.
           </p>
@@ -19,7 +29,9 @@ export default function SolutionsHeroSection() {
             <Link to="/contact" className="sol-btn-filled">Request a Demo</Link>
           </div>
         </div>
-        <div className="sol-hero-img-wrap">
+        
+        {/* Desktop hero side image */}
+        <div className="sol-hero-img-wrap desktop-only-img">
           <img
             src={heroImg}
             alt="AgriScanAI team in field"
