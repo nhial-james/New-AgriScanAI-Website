@@ -167,8 +167,13 @@
   background: none;
   border: none;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   padding: 0.4rem 0;
+}
+
+.navbar-mobile-menu a.navbar-active {
+  color: var(--primary);
+  font-weight: 700 !important;
 }
 
 .navbar-mobile-cta {

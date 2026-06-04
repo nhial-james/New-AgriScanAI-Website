@@ -48,29 +48,27 @@ export default function SolutionsJoinSection() {
         <div className="sol-join-banner-badges">
           <button
             onClick={() => setIsApkModalOpen(true)}
-            className="sol-store-badge-link bg-transparent border-none p-0 shadow-none hover:shadow-none hover:-translate-y-1 transition-transform inline-block"
+            className="sol-store-badge-link"
             aria-label="Download Android APK"
           >
             <img src={androidApkBadge} alt="Download Android APK" className="sol-store-badge-img h-12 w-auto" />
           </button>
           
-          <a 
-            href="#" 
-            className="sol-store-badge"
-            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsPlayStoreModalOpen(true)}
+            className="sol-store-badge-link"
             aria-label="Download on Google Play"
           >
             <img src={googlePlayBadge} alt="Download on Google Play" className="sol-store-badge-img h-12 w-auto" />
-          </a>
+          </button>
           
-          <a 
-            href="#" 
-            className="sol-store-badge"
-            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsAppStoreModalOpen(true)}
+            className="sol-store-badge-link"
             aria-label="Download on the App Store"
           >
             <img src={appStoreBadge} alt="Download on the App Store" className="sol-store-badge-img h-12 w-auto" />
-          </a>
+          </button>
         </div>
       </div>
 

@@ -50,29 +50,27 @@ export default function JoinSection() {
         <div className="join-cta-actions">
           <button
             onClick={() => setIsApkModalOpen(true)}
-            className="store-badge-btn bg-transparent border-none p-0 shadow-none hover:shadow-none hover:-translate-y-1 transition-transform"
+            className="store-badge-btn"
             aria-label="Download Android APK"
           >
             <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
           </button>
           
-          <a 
-            href="#" 
-            className="store-badge"
-            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsPlayStoreModalOpen(true)}
+            className="store-badge-btn"
             aria-label="Download on Google Play"
           >
             <img src={googlePlayBadge} alt="Download on Google Play" className="store-badge-img h-12 w-auto" />
-          </a>
+          </button>
           
-          <a 
-            href="#" 
-            className="store-badge"
-            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsAppStoreModalOpen(true)}
+            className="store-badge-btn"
             aria-label="Download on the App Store"
           >
             <img src={appStoreBadge} alt="Download on the App Store" className="store-badge-img h-12 w-auto" />
-          </a>
+          </button>
         </div>
       </div>
 

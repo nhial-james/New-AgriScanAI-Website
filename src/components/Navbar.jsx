@@ -92,12 +92,12 @@ export default function Navbar() {
       </nav>
 
       <div className={`navbar-mobile-menu${mobileOpen ? ' open' : ''}`}>
-        <Link to="/about" onClick={closeMobile}>About</Link>
-        <Link to="/solutions" onClick={closeMobile}>Solutions</Link>
-        <Link to="/pilot-program" onClick={closeMobile}>Pilot Program</Link>
-        <Link to="/events" onClick={closeMobile}>Events</Link>
-        <Link to="/resources" onClick={closeMobile}>Resources</Link>
-        <Link to="/contact" onClick={closeMobile}>Contact Us</Link>
+        <Link to="/about" className={location.pathname === '/about' ? 'navbar-active' : ''} onClick={closeMobile}>About</Link>
+        <Link to="/solutions" className={location.pathname === '/solutions' ? 'navbar-active' : ''} onClick={closeMobile}>Solutions</Link>
+        <Link to="/pilot-program" className={location.pathname === '/pilot-program' ? 'navbar-active' : ''} onClick={closeMobile}>Pilot Program</Link>
+        <Link to="/events" className={location.pathname.startsWith('/events') ? 'navbar-active' : ''} onClick={closeMobile}>Events</Link>
+        <Link to="/resources" className={location.pathname === '/resources' ? 'navbar-active' : ''} onClick={closeMobile}>Resources</Link>
+        <Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''} onClick={closeMobile}>Contact Us</Link>
         <Link to="/pilot-program" className="navbar-mobile-cta" onClick={closeMobile}>
           Apply for Partnership
         </Link>

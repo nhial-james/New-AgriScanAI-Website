@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageTransition from '../components/PageTransition';
 import ScrollToTop from '../components/ScrollToTop';
 
-// Merch images
-import collarTshirtImg from '../assets/resources/AgriScanAI Collar Tshirt.png';
-import whiteTshirtImg from '../assets/resources/AgriScanAI White T-shirts.png';
-import capImg from '../assets/resources/AgriScanAI Cap.png';
+// Merch images (Hidden)
+// import collarTshirtImg from '../assets/resources/AgriScanAI Collar Tshirt.png';
+// import whiteTshirtImg from '../assets/resources/AgriScanAI White T-shirts.png';
+// import capImg from '../assets/resources/AgriScanAI Cap.png';
 
-// Business Card
-import bizCardFrontImg from '../assets/resources/Business Card Front.png';
-import bizCardBackImg from '../assets/resources/Business Card Back.png';
+// Business Card (Hidden)
+// import bizCardFrontImg from '../assets/resources/Business Card Front.png';
+// import bizCardBackImg from '../assets/resources/Business Card Back.png';
 
-// File Holder
-import fileHolderFrontImg from '../assets/resources/Front Page.png';
-import fileHolderLeftImg from '../assets/resources/Left Interior.png';
-import fileHolderRightImg from '../assets/resources/Right Interior.png';
-import fileHolderBackImg from '../assets/resources/back Page.png';
+// File Holder (Hidden)
+// import fileHolderFrontImg from '../assets/resources/Front Page.png';
+// import fileHolderLeftImg from '../assets/resources/Left Interior.png';
+// import fileHolderRightImg from '../assets/resources/Right Interior.png';
+// import fileHolderBackImg from '../assets/resources/back Page.png';
 
 // Brochure
 import brochureFrontImg from '../assets/resources/Brochure Front.png';
@@ -26,9 +26,9 @@ import brochureBackImg from '../assets/resources/Brochure Back.png';
 // Newsletter
 import newsletterCoverImg from '../assets/newsletter-cover.jpg';
 
-// PDFs — imported as Vite assets for proper bundling
-import bizCardPdf from '../assets/resources/AgriScanAI Business Card.pdf';
-import fileHolderPdf from '../assets/resources/AgriScanAI File Holder Design.pdf';
+// PDFs — imported as Vite assets for proper bundling (Hidden Business Card & File Holder)
+// import bizCardPdf from '../assets/resources/AgriScanAI Business Card.pdf';
+// import fileHolderPdf from '../assets/resources/AgriScanAI File Holder Design.pdf';
 import brochurePdf from '../assets/resources/AgriScanAI Trifold Brochure.pdf';
 import newsletterPdf from '../assets/documents/Good Partners Quarterly Newsletter.pdf';
 
@@ -146,7 +146,7 @@ function ImageModal({ images, startIndex, onClose }) {
   );
 }
 
-/** Merch card */
+/** Merch card (Hidden)
 function MerchCard({ src, name }) {
   const [open, setOpen] = useState(false);
   return (
@@ -177,6 +177,7 @@ function MerchCard({ src, name }) {
     </>
   );
 }
+*/
 
 /** Brand asset card with multiple images + optional PDF */
 function BrandAssetCard({ title, description, images, pdfUrl, pdfLabel = 'Download PDF' }) {
@@ -285,7 +286,7 @@ export default function Resources() {
         </p>
       </section>
 
-      {/* ── Merch ───────────────────────────── */}
+      {/* ── Merch (Hidden) ─────────────────────
       <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <SectionHeader
@@ -300,58 +301,7 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
-      {/* ── Brand Assets ─────────────────────── */}
-      <section style={{ ...S.sectionPad, background: '#fff' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <SectionHeader
-            eyebrow="Brand Assets"
-            title="Official Brand Materials"
-            subtitle="Click any image to view it full screen. Download the PDF version for printing."
-          />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.75rem' }}>
-
-            {/* Business Card */}
-            <BrandAssetCard
-              title="AgriScanAI Business Card"
-              description="Official double-sided business card design — front and back."
-              images={[
-                { src: bizCardFrontImg, label: 'Business Card — Front' },
-                { src: bizCardBackImg, label: 'Business Card — Back' },
-              ]}
-              pdfUrl={bizCardPdf}
-              pdfLabel="Download PDF"
-            />
-
-            {/* File Holder */}
-            <BrandAssetCard
-              title="AgriScanAI File Holder"
-              description="Full presentation file holder design across all four panels."
-              images={[
-                { src: fileHolderFrontImg, label: 'File Holder — Front Page' },
-                { src: fileHolderLeftImg, label: 'File Holder — Left Interior' },
-                { src: fileHolderRightImg, label: 'File Holder — Right Interior' },
-                { src: fileHolderBackImg, label: 'File Holder — Back Page' },
-              ]}
-              pdfUrl={fileHolderPdf}
-              pdfLabel="Download PDF"
-            />
-
-            {/* Trifold Brochure */}
-            <BrandAssetCard
-              title="AgriScanAI Trifold Brochure"
-              description="Full trifold brochure design — front and back panels."
-              images={[
-                { src: brochureFrontImg, label: 'Brochure — Front' },
-                { src: brochureBackImg, label: 'Brochure — Back' },
-              ]}
-              pdfUrl={brochurePdf}
-              pdfLabel="Download PDF"
-            />
-
-          </div>
-        </div>
-      </section>
+      ───────────────────────────────────────── */}
 
       {/* ── Newsletter / Document ─────────────── */}
       <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
@@ -361,9 +311,9 @@ export default function Resources() {
             title="Latest Publications"
             subtitle="Research reports and quarterly newsletters from the AgriScanAI team."
           />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
             {/* Newsletter card */}
-            <div style={{ background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ width: '100%', maxWidth: '380px', background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)', display: 'flex', flexDirection: 'column' }}>
               {/* Cover image — fully visible */}
               <div style={{ width: '100%', background: '#f8fcf8', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
                 <img
@@ -407,6 +357,62 @@ export default function Resources() {
         </div>
       </section>
 
+      {/* ── Brand Assets ─────────────────────── */}
+      <section style={{ ...S.sectionPad, background: '#fff' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <SectionHeader
+            eyebrow="Brand Assets"
+            title="Official Brand Materials"
+            subtitle="Click any image to view it full screen. Download the PDF version for printing."
+          />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', justifyContent: 'center' }}>
+
+            {/* Business Card (Hidden)
+            <BrandAssetCard
+              title="AgriScanAI Business Card"
+              description="Official double-sided business card design — front and back."
+              images={[
+                { src: bizCardFrontImg, label: 'Business Card — Front' },
+                { src: bizCardBackImg, label: 'Business Card — Back' },
+              ]}
+              pdfUrl={bizCardPdf}
+              pdfLabel="Download PDF"
+            />
+            */}
+
+            {/* File Holder (Hidden)
+            <BrandAssetCard
+              title="AgriScanAI File Holder"
+              description="Full presentation file holder design across all four panels."
+              images={[
+                { src: fileHolderFrontImg, label: 'File Holder — Front Page' },
+                { src: fileHolderLeftImg, label: 'File Holder — Left Interior' },
+                { src: fileHolderRightImg, label: 'File Holder — Right Interior' },
+                { src: fileHolderBackImg, label: 'File Holder — Back Page' },
+              ]}
+              pdfUrl={fileHolderPdf}
+              pdfLabel="Download PDF"
+            />
+            */}
+
+            {/* Trifold Brochure */}
+            <div style={{ width: '100%', maxWidth: '420px' }}>
+              <BrandAssetCard
+                title="AgriScanAI Trifold Brochure"
+                description="Full trifold brochure design — front and back panels."
+                images={[
+                  { src: brochureFrontImg, label: 'Brochure — Front' },
+                  { src: brochureBackImg, label: 'Brochure — Back' },
+                ]}
+                pdfUrl={brochurePdf}
+                pdfLabel="Download PDF"
+              />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── Presentation ─────────────────────── */}
       <section style={{ ...S.sectionPad, background: '#fff' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
@@ -439,7 +445,7 @@ export default function Resources() {
             subtitle="Stay connected with our latest news, events, and agricultural insights on LinkedIn."
           />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
-            {linkedInPosts.map(({ urn, url }) => (
+            {linkedInPosts.map(({ urn }) => (
               <div
                 key={urn}
                 style={{ background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)' }}

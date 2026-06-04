@@ -6,7 +6,7 @@ import SolutionsWebAppSection from '../components/SolutionsWebAppSection';
 import SolutionsInsightSection from '../components/SolutionsInsightSection';
 import SolutionsAgriPaySection from '../components/SolutionsAgriPaySection';
 import SolutionsGetInvolvedSection from '../components/SolutionsGetInvolvedSection';
-import SolutionsJoinSection from '../components/SolutionsJoinSection';
+import JoinSection from '../components/JoinSection';
 import Footer from '../components/Footer';
 import '../Solutions.css';
 
@@ -25,7 +25,7 @@ export default function Solutions() {
         <SolutionsInsightSection />
         <SolutionsAgriPaySection />
         <SolutionsGetInvolvedSection />
-        <SolutionsJoinSection />
+        <JoinSection />
       </main>
       <Footer />
     </>

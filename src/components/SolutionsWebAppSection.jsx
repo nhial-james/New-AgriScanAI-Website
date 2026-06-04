@@ -1,4 +1,4 @@
-import webAppMockup from '../assets/Farming Visualized image.png';
+import webAppMockup from '../assets/insignt image.png';
 
 export default function SolutionsWebAppSection() {
   return (

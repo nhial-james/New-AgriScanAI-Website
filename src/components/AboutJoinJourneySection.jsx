@@ -29,29 +29,27 @@ export default function AboutJoinJourneySection() {
         <div className="about-join-stores flex gap-4 mt-8">
           <button
             onClick={() => setIsApkModalOpen(true)}
-            className="about-store-badge-link bg-transparent border-none p-0 shadow-none hover:shadow-none hover:-translate-y-1 transition-transform inline-block"
+            className="about-store-badge-link"
             aria-label="Download Android APK"
           >
             <img src={androidApkBadge} alt="Download Android APK" className="about-store-badge h-12 w-auto" />
           </button>
           
-          <a 
-            href="#" 
-            className="about-store-badge"
-            onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsPlayStoreModalOpen(true)}
+            className="about-store-badge-link"
             aria-label="Download on Google Play"
           >
             <img src={googlePlayBadge} alt="Download on Google Play" className="about-store-badge h-12 w-auto" />
-          </a>
+          </button>
           
-          <a 
-            href="#" 
-            className="about-store-badge"
-            onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
+          <button
+            onClick={() => setIsAppStoreModalOpen(true)}
+            className="about-store-badge-link"
             aria-label="Download on the App Store"
           >
             <img src={appStoreBadge} alt="Download on the App Store" className="about-store-badge h-12 w-auto" />
-          </a>
+          </button>
         </div>
       </div>
       

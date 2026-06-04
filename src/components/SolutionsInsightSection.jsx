@@ -1,4 +1,4 @@
-import insightChartImg from '../assets/Designed to Keep Farmers Growing image.png';
+import insightChartImg from '../assets/Farming Visualized image.png';
 
 export default function SolutionsInsightSection() {
   return (
