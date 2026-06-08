@@ -5,11 +5,13 @@ import heroBg from "../assets/herobg.png";
 import phoneImg from "../assets/phone.png";
 import googlePlayBadge from '../assets/Icons/google play.svg';
 import appStoreBadge from '../assets/Icons/app store.svg';
+import androidApkBadge from '../assets/Icons/android apk.svg';
 import DownloadModal from "./ui/DownloadModal";
 
 export default function HeroSection() {
   const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
   const [isAppStoreModalOpen, setIsAppStoreModalOpen] = useState(false);
+  const [isApkModalOpen, setIsApkModalOpen] = useState(false);
 
   return (
     <>
@@ -45,6 +47,18 @@ export default function HeroSection() {
           <div className="hero-store-badges">
             <a
               href="#"
+              onClick={(e) => { e.preventDefault(); setIsApkModalOpen(true); }}
+              className="hero-store-badge-link"
+              aria-label="Download Android APK"
+            >
+              <img
+                src={androidApkBadge}
+                alt="Download Android APK"
+                className="hero-store-badge"
+              />
+            </a>
+            <a
+              href="#"
               onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
               className="hero-store-badge-link"
               aria-label="Get on Google Play"
@@ -71,7 +85,7 @@ export default function HeroSection() {
 
           {/* CTA + FoundersLive badge inline */}
           <div className="hero-cta-row">
-            <Link to="/pilot-program" className="hero-cta-btn">
+            <Link to="/contact" className="hero-cta-btn">
               Apply for Pilot Partnership
             </Link>
 
@@ -90,6 +104,12 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
+      <DownloadModal
+        isOpen={isApkModalOpen}
+        onClose={() => setIsApkModalOpen(false)}
+        downloadUrl="/downloads/agriscanai-v1.0.apk"
+        appName="AgriScanAI APK"
+      />
       <DownloadModal
         isOpen={isPlayStoreModalOpen}
         onClose={() => setIsPlayStoreModalOpen(false)}

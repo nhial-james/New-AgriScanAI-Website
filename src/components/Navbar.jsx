@@ -75,7 +75,7 @@ export default function Navbar() {
           <li><Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''}>Contact Us</Link></li>
         </ul>
 
-        <Link to="/pilot-program" className="navbar-cta">
+        <Link to="/contact" className="navbar-cta">
           Apply for Partnership
         </Link>
 
@@ -98,7 +98,7 @@ export default function Navbar() {
         <Link to="/events" className={location.pathname.startsWith('/events') ? 'navbar-active' : ''} onClick={closeMobile}>Events</Link>
         <Link to="/resources" className={location.pathname === '/resources' ? 'navbar-active' : ''} onClick={closeMobile}>Resources</Link>
         <Link to="/contact" className={location.pathname === '/contact' ? 'navbar-active' : ''} onClick={closeMobile}>Contact Us</Link>
-        <Link to="/pilot-program" className="navbar-mobile-cta" onClick={closeMobile}>
+        <Link to="/contact" className="navbar-mobile-cta" onClick={closeMobile}>
           Apply for Partnership
         </Link>
       </div>
