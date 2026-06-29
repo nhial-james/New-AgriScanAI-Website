@@ -502,6 +502,135 @@
   }
 }
 
+/* ===== TRUSTED PARTNERS SECTION ===== */
+
+/* Section background: same soft green as the surrounding page */
+.partners-section {
+  background: linear-gradient(160deg, #eaf5ea 0%, #f1faf7 60%, #e8f5e9 100%);
+  padding: 3.5rem 0 5rem;
+  overflow: hidden;
+}
+
+.partners-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  text-align: center;
+}
+
+.partners-eyebrow {
+  font-family: var(--font-inter);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin: 0 0 2.5rem;
+  opacity: 0.75;
+}
+
+/* Marquee wrapper — clips overflow and adds edge fade */
+.partners-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Gradient fade masks match the section background exactly */
+.partners-marquee-wrapper::before,
+.partners-marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #eaf5ea, transparent);
+}
+
+.partners-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #e8f5e9, transparent);
+}
+
+/* The scrolling track */
+.partners-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: partnersScroll 32s linear infinite;
+  padding: 0.5rem 0;
+}
+
+.partners-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes partnersScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual logo — no card background, no border */
+.partners-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.partners-logo-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Default: tint logos to the primary brand colour #2d6a2e */
+.partners-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  /* CSS filter chain approximating #2d6a2e (dark forest green) */
+  filter: brightness(0) saturate(100%)
+          invert(27%) sepia(50%) saturate(700%)
+          hue-rotate(90deg) brightness(92%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* On hover/focus: reveal original brand colours */
+.partners-logo-item:hover .partners-logo-img,
+.partners-logo-item:focus .partners-logo-img {
+  filter: none;
+}
+
+@media (max-width: 640px) {
+  .partners-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .partners-logo-img {
+    height: 32px;
+    max-width: 120px;
+  }
+
+  .partners-marquee-track {
+    gap: 2.5rem;
+  }
+
+  .partners-marquee-wrapper::before,
+  .partners-marquee-wrapper::after {
+    width: 60px;
+  }
+}
+
 /* ===== SECTION HEADER (shared) ===== */
 .section-header {
   text-align: center;

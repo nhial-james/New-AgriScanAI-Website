@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
+import TrustedPartnersSection from '../components/TrustedPartnersSection';
 import ChallengeSection from '../components/ChallengeSection';
 import ApproachSection from '../components/ApproachSection';
 import FeaturesSection from '../components/FeaturesSection';
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
+      <TrustedPartnersSection />
       <ChallengeSection />
       <ApproachSection />
       <FeaturesSection />
