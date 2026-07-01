@@ -77,7 +77,7 @@ export default function JoinSection() {
       <DownloadModal 
         isOpen={isApkModalOpen} 
         onClose={() => setIsApkModalOpen(false)} 
-        downloadUrl="/downloads/agriscanai-v1.0.apk" 
+        downloadUrl="/downloads/app-release.apk" 
         appName="AgriScanAI APK"
       />
       <DownloadModal 

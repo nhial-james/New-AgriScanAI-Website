@@ -107,7 +107,7 @@ export default function HeroSection() {
       <DownloadModal
         isOpen={isApkModalOpen}
         onClose={() => setIsApkModalOpen(false)}
-        downloadUrl="/downloads/agriscanai.apk"
+        downloadUrl="/downloads/app-release.apk"
         appName="AgriScanAI APK"
       />
       <DownloadModal
