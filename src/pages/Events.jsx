@@ -9,6 +9,7 @@ import KenyaAIImg from '../assets/The Kenya Software & AI Summit 2025.jpeg'
 import AgriFinImg from '../assets/agrifin_hero_image.png'
 import FoundersLiveImg from '../assets/Founders-Live-Nairobi-2025-Hero.png'
 import FinasImg from '../assets/FINAS-2025-hero.jpg'
+import Finas2026Img from '../assets/images/FINAS 2026 Images/FINAS 2026 Hero Image.jpeg'
 import KigaliImg from '../assets/ai-kigali-2025-Hero.jpg'
 import KakamegaHero from '../assets/events/kakamega-training-2026-images/kakamega-training-hero-image.jpg';
 import AmrefHero from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.jpg';
@@ -30,6 +31,15 @@ const LocationIcon = () => (
 // Once you add your images to src/assets/, replace each EventsBg reference below
 // with the matching import, e.g.: import IccfImg from '../assets/iccf-2025.jpg';
 const events = [
+  {
+    id: 10,
+    image: Finas2026Img,
+    date: 'June 30 – July 2, 2026',
+    location: 'KICC, Nairobi, Kenya',
+    title: 'Good Partners Returns to FINAS 2026: Showcasing AgriScanAI and Advancing Africa\'s Sustainable Food Systems',
+    excerpt: 'Good Partners returned to FINAS 2026 to showcase AgriScanAI\'s growth, engage stakeholders on agricultural finance, and highlight the progress made through farmer pilots and real-world deployments.',
+    slug: 'finas-2026',
+  },
   {
     id: 9,
     image: StartupHero,

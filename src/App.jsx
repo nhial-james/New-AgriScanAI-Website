@@ -15,6 +15,7 @@ import KenyaSoftwareAISummit2025 from './components/KenyaSoftwareAISummit2025';
 import AgriFin2025 from './components/AgriFin2025';
 import FoundersLive2025 from './components/FoundersLive2025';
 import Finas2025 from './components/Finas2025';
+import Finas2026 from './components/Finas2026';
 import AIKigali2025 from './components/AIKigali2025';
 import KakamegaTraining2026 from './components/KakamegaTraining2026';
 import AmrefPHCCongress2026 from './components/AmrefPHCCongress2026';
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/events/agrifin-2025" element={<AgriFin2025 />} />
         <Route path="/events/founders-live-2025" element={<FoundersLive2025 />} />
         <Route path="/events/finas-2025" element={<Finas2025 />} />
+        <Route path="/events/finas-2026" element={<Finas2026 />} />
         <Route path="/events/ai-kigali-2025" element={<AIKigali2025 />} />
         <Route path="/events/agriscanai-farmer-training-kakamega-2026" element={<KakamegaTraining2026 />} />
         <Route path="/events/amref-2nd-phc-congress-2026" element={<AmrefPHCCongress2026 />} />
