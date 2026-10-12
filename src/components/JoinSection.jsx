@@ -12,6 +12,10 @@ const stats = [
   { value: '24/7', label: 'AI Availability' },
 ];
 
+// Feature flags (set to true to re-enable in future)
+const SHOW_APP_STORES = false;
+const SHOW_APK_FORM = false;
+
 export default function JoinSection() {
   const [isApkModalOpen, setIsApkModalOpen] = useState(false);
   const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
@@ -48,66 +52,89 @@ export default function JoinSection() {
         </div>
 
         <div className="join-cta-actions">
-          <button
-            onClick={() => setIsApkModalOpen(true)}
-            className="store-badge-btn"
-            aria-label="Download Android APK"
-          >
-            <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
-          </button>
+          {SHOW_APK_FORM ? (
+            <button
+              onClick={() => setIsApkModalOpen(true)}
+              className="store-badge-btn"
+              aria-label="Download Android APK"
+            >
+              <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
+            </button>
+          ) : (
+            <a
+              href="/downloads/app-release.apk"
+              download="AgriScanAI.apk"
+              className="store-badge-btn inline-block"
+              aria-label="Download Android APK"
+            >
+              <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
+            </a>
+          )}
           
-          <button
-            onClick={() => setIsPlayStoreModalOpen(true)}
-            className="store-badge-btn"
-            aria-label="Download on Google Play"
-          >
-            <img src={googlePlayBadge} alt="Download on Google Play" className="store-badge-img h-12 w-auto" />
-          </button>
-          
-          <button
-            onClick={() => setIsAppStoreModalOpen(true)}
-            className="store-badge-btn"
-            aria-label="Download on the App Store"
-          >
-            <img src={appStoreBadge} alt="Download on the App Store" className="store-badge-img h-12 w-auto" />
-          </button>
+          {/* Google Play and App Store buttons (hidden until app is available on stores) */}
+          {SHOW_APP_STORES && (
+            <>
+              <button
+                onClick={() => setIsPlayStoreModalOpen(true)}
+                className="store-badge-btn"
+                aria-label="Download on Google Play"
+              >
+                <img src={googlePlayBadge} alt="Download on Google Play" className="store-badge-img h-12 w-auto" />
+              </button>
+              
+              <button
+                onClick={() => setIsAppStoreModalOpen(true)}
+                className="store-badge-btn"
+                aria-label="Download on the App Store"
+              >
+                <img src={appStoreBadge} alt="Download on the App Store" className="store-badge-img h-12 w-auto" />
+              </button>
+            </>
+          )}
         </div>
       </div>
 
-      <DownloadModal 
-        isOpen={isApkModalOpen} 
-        onClose={() => setIsApkModalOpen(false)} 
-        downloadUrl="/downloads/app-release.apk" 
-        appName="AgriScanAI APK"
-      />
-      <DownloadModal 
-        isOpen={isPlayStoreModalOpen} 
-        onClose={() => setIsPlayStoreModalOpen(false)} 
-        downloadUrl="#" 
-        appName="Google Play Version"
-      />
-      <DownloadModal 
-        isOpen={isAppStoreModalOpen} 
-        onClose={() => setIsAppStoreModalOpen(false)} 
-        downloadUrl="#" 
-        appName="App Store Version"
-      />
+      {SHOW_APK_FORM && (
+        <DownloadModal 
+          isOpen={isApkModalOpen} 
+          onClose={() => setIsApkModalOpen(false)} 
+          downloadUrl="/downloads/app-release.apk" 
+          appName="AgriScanAI APK"
+        />
+      )}
 
-      <ComingSoonModal 
-        isOpen={isGoogleModalOpen} 
-        onClose={() => setIsGoogleModalOpen(false)} 
-        storeName="Google Play Store"
-        message="AgriScanAI will soon be available on Google Play Store!"
-        colorClass="from-blue-500 to-blue-700"
-      />
+      {SHOW_APP_STORES && (
+        <>
+          <DownloadModal 
+            isOpen={isPlayStoreModalOpen} 
+            onClose={() => setIsPlayStoreModalOpen(false)} 
+            downloadUrl="#" 
+            appName="Google Play Version"
+          />
+          <DownloadModal 
+            isOpen={isAppStoreModalOpen} 
+            onClose={() => setIsAppStoreModalOpen(false)} 
+            downloadUrl="#" 
+            appName="App Store Version"
+          />
 
-      <ComingSoonModal 
-        isOpen={isAppleModalOpen} 
-        onClose={() => setIsAppleModalOpen(false)} 
-        storeName="Apple App Store"
-        message="AgriScanAI will soon be available on Apple App Store!"
-        colorClass="from-gray-800 to-black"
-      />
+          <ComingSoonModal 
+            isOpen={isGoogleModalOpen} 
+            onClose={() => setIsGoogleModalOpen(false)} 
+            storeName="Google Play Store"
+            message="AgriScanAI will soon be available on Google Play Store!"
+            colorClass="from-blue-500 to-blue-700"
+          />
+
+          <ComingSoonModal 
+            isOpen={isAppleModalOpen} 
+            onClose={() => setIsAppleModalOpen(false)} 
+            storeName="Apple App Store"
+            message="AgriScanAI will soon be available on Apple App Store!"
+            colorClass="from-gray-800 to-black"
+          />
+        </>
+      )}
     </section>
   );
 }

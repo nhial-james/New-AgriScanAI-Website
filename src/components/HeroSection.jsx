@@ -8,6 +8,10 @@ import appStoreBadge from '../assets/Icons/app store.svg';
 import androidApkBadge from '../assets/Icons/android apk.svg';
 import DownloadModal from "./ui/DownloadModal";
 
+// Feature flags (set to true to re-enable in future)
+const SHOW_APP_STORES = false;
+const SHOW_APK_FORM = false;
+
 export default function HeroSection() {
   const [isPlayStoreModalOpen, setIsPlayStoreModalOpen] = useState(false);
   const [isAppStoreModalOpen, setIsAppStoreModalOpen] = useState(false);
@@ -45,42 +49,63 @@ export default function HeroSection() {
 
           {/* App store badges */}
           <div className="hero-store-badges">
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); setIsApkModalOpen(true); }}
-              className="hero-store-badge-link"
-              aria-label="Download Android APK"
-            >
-              <img
-                src={androidApkBadge}
-                alt="Download Android APK"
-                className="hero-store-badge"
-              />
-            </a>
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
-              className="hero-store-badge-link"
-              aria-label="Get on Google Play"
-            >
-              <img
-                src={googlePlayBadge}
-                alt="Get it on Google Play"
-                className="hero-store-badge"
-              />
-            </a>
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
-              className="hero-store-badge-link"
-              aria-label="Download on App Store"
-            >
-              <img
-                src={appStoreBadge}
-                alt="Download on the App Store"
-                className="hero-store-badge"
-              />
-            </a>
+            {SHOW_APK_FORM ? (
+              <a
+                href="#"
+                onClick={(e) => { e.preventDefault(); setIsApkModalOpen(true); }}
+                className="hero-store-badge-link"
+                aria-label="Download Android APK"
+              >
+                <img
+                  src={androidApkBadge}
+                  alt="Download Android APK"
+                  className="hero-store-badge"
+                />
+              </a>
+            ) : (
+              <a
+                href="/downloads/app-release.apk"
+                download="AgriScanAI.apk"
+                className="hero-store-badge-link"
+                aria-label="Download Android APK"
+              >
+                <img
+                  src={androidApkBadge}
+                  alt="Download Android APK"
+                  className="hero-store-badge"
+                />
+              </a>
+            )}
+
+            {/* Google Play and App Store buttons (hidden until app is available on stores) */}
+            {SHOW_APP_STORES && (
+              <>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setIsPlayStoreModalOpen(true); }}
+                  className="hero-store-badge-link"
+                  aria-label="Get on Google Play"
+                >
+                  <img
+                    src={googlePlayBadge}
+                    alt="Get it on Google Play"
+                    className="hero-store-badge"
+                  />
+                </a>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setIsAppStoreModalOpen(true); }}
+                  className="hero-store-badge-link"
+                  aria-label="Download on App Store"
+                >
+                  <img
+                    src={appStoreBadge}
+                    alt="Download on the App Store"
+                    className="hero-store-badge"
+                  />
+                </a>
+              </>
+            )}
           </div>
 
           {/* CTA + FoundersLive badge inline */}
@@ -104,24 +129,30 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
-      <DownloadModal
-        isOpen={isApkModalOpen}
-        onClose={() => setIsApkModalOpen(false)}
-        downloadUrl="/downloads/app-release.apk"
-        appName="AgriScanAI APK"
-      />
-      <DownloadModal
-        isOpen={isPlayStoreModalOpen}
-        onClose={() => setIsPlayStoreModalOpen(false)}
-        downloadUrl="#"
-        appName="Google Play Version"
-      />
-      <DownloadModal
-        isOpen={isAppStoreModalOpen}
-        onClose={() => setIsAppStoreModalOpen(false)}
-        downloadUrl="#"
-        appName="App Store Version"
-      />
+      {SHOW_APK_FORM && (
+        <DownloadModal
+          isOpen={isApkModalOpen}
+          onClose={() => setIsApkModalOpen(false)}
+          downloadUrl="/downloads/app-release.apk"
+          appName="AgriScanAI APK"
+        />
+      )}
+      {SHOW_APP_STORES && (
+        <>
+          <DownloadModal
+            isOpen={isPlayStoreModalOpen}
+            onClose={() => setIsPlayStoreModalOpen(false)}
+            downloadUrl="#"
+            appName="Google Play Version"
+          />
+          <DownloadModal
+            isOpen={isAppStoreModalOpen}
+            onClose={() => setIsAppStoreModalOpen(false)}
+            downloadUrl="#"
+            appName="App Store Version"
+          />
+        </>
+      )}
     </>
   );
 }
