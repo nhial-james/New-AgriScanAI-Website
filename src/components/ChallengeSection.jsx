@@ -5,8 +5,8 @@ import delayAccess from '../assets/Icons/Delay Access to Advisory.svg';
 const challenges = [
   {
     icon: limitedExtension,
-    title: 'Limited Extension Capacity',
-    desc: 'Not enough field staff to reach all farmers who need support.',
+    title: 'Agricultural Knowledge Gap',
+    desc: 'Smallholder farmers lack timely, reliable and locally relevant information to make informed farming decisions. ',
   },
   {
     icon: risingPest,
@@ -28,7 +28,7 @@ export default function ChallengeSection() {
       <div className="challenge-content">
         <div className="section-header">
           <p className="section-eyebrow">The Challenge</p>
-          <h2 className="section-title">Limited Reach of Agricultural Programs</h2>
+          <h2 className="section-title">What are the Challenges faced by Farmers today?</h2>
         </div>
 
         <div className="challenge-cards">

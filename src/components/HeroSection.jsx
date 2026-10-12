@@ -37,14 +37,11 @@ export default function HeroSection() {
         {/* ── RIGHT: copy + CTAs ── */}
         <div className="hero-right">
           <h1 className="hero-heading">
-            Strengthening Smallholder
-            Farmer Resilience Through AI
+            Better Farming Decisions. Stronger Agricultural Programmes.
           </h1>
 
           <p className="hero-subtext">
-            AgriScanAI partners with Governments, NGOs, and agricultural programs
-            to deploy AI-powered advisory tools that improve farmer
-            decision-making, reduce crop losses, and build climate resilience.
+            AgriScanAI combines AI-powered crop insights, localised agricultural advice and weather intelligence to help farmers make timely, informed decisions while enabling organisations to deliver smarter, more effective agricultural support at scale.
           </p>
 
           {/* App store badges */}
@@ -64,7 +61,7 @@ export default function HeroSection() {
               </a>
             ) : (
               <a
-                href="/downloads/app-release.apk"
+                href="/downloads/AgriScanAI.apk"
                 download="AgriScanAI.apk"
                 className="hero-store-badge-link"
                 aria-label="Download Android APK"
@@ -111,7 +108,7 @@ export default function HeroSection() {
           {/* CTA + FoundersLive badge inline */}
           <div className="hero-cta-row">
             <Link to="/contact" className="hero-cta-btn">
-              Apply for Pilot Partnership
+              Explore AgriScanAI
             </Link>
 
             {/* FoundersLive badge */}
@@ -133,7 +130,7 @@ export default function HeroSection() {
         <DownloadModal
           isOpen={isApkModalOpen}
           onClose={() => setIsApkModalOpen(false)}
-          downloadUrl="/downloads/app-release.apk"
+          downloadUrl="/downloads/AgriScanAI.apk"
           appName="AgriScanAI APK"
         />
       )}

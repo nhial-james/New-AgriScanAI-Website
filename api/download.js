@@ -1,0 +1,318 @@
+import { Resend } from 'resend';
+import { AGRISCAN_LOGO } from './logo.js';
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const { name, email, appName, isWaitlist } = req.body || {};
+
+  if (!email || !name) {
+    return res.status(400).json({ error: 'Name and email are required.' });
+  }
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const sender = 'AgriScanAI <info@agriscanai.co.ke>';
+  
+  // Team receivers
+  const teamEmails = [
+    'info@agriscanai.co.ke',
+    'james@goodpartnerske.org',
+    'mercy@goodpartnerske.org',
+    'elizabeth@goodpartnerske.org',
+    'lizakaren@goodpartnerske.org',
+  ];
+
+  const resend = new Resend(apiKey);
+  const prefix = isWaitlist ? 'New App Waitlist Lead' : 'Brochure / Document Download';
+
+  try {
+    // 1. Team Notification Email
+    const adminHtml = `
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${prefix}: ${name}</title>
+  <style>
+    body { margin: 0 !important; padding: 0 !important; background: #f1f5f9; }
+    table { border-collapse: collapse; }
+    img { border: 0; outline: none; text-decoration: none; display: block; }
+    @media only screen and (max-width: 620px) {
+      .email-shell { width: 100% !important; }
+      .pad { padding-left: 20px !important; padding-right: 20px !important; }
+      .masthead { padding: 24px 20px !important; }
+      .main-title { font-size: 22px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#334155;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+    ${prefix}: ${name} (${email}) for ${appName}
+  </div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f1f5f9;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" class="email-shell" width="680" cellpadding="0" cellspacing="0" border="0"
+          style="width:680px;max-width:680px;background:#ffffff;border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,.10);">
+
+          <!-- Masthead -->
+          <tr>
+            <td class="masthead" align="center" style="background:#166534;padding:32px 30px 28px;">
+              <img src="${AGRISCAN_LOGO}" width="170" alt="AgriScanAI" style="display:block;width:170px;max-width:70%;height:auto;margin:0 auto 16px;" border="0">
+              <span style="display:inline-block;background:rgba(255,255,255,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.35);padding:4px 14px;border-radius:20px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Resource Portal Lead</span>
+              <h1 class="main-title" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:1.3;letter-spacing:-.3px;color:#ffffff;font-weight:800;">
+                ${prefix}
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Summary Box -->
+          <tr>
+            <td class="pad" style="padding:32px 40px 16px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #166534;border-radius:4px;">
+                <tr>
+                  <td style="padding:16px 20px;">
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#166534;font-weight:700;">
+                      A new lead has been recorded through the AgriScanAI Resource &amp; Download Portal.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Lead Details Grid -->
+          <tr>
+            <td class="pad" style="padding:12px 40px 24px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:14px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:4px;">
+                    <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Name</span>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#1e293b;">${name}</p>
+                  </td>
+                </tr>
+                <tr><td height="10" style="height:10px;font-size:1px;line-height:1px;">&nbsp;</td></tr>
+                <tr>
+                  <td style="padding:14px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:4px;">
+                    <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Email Address</span>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1e293b;">
+                      <a href="mailto:${email}" style="color:#166534;font-weight:700;text-decoration:underline;">${email}</a>
+                    </p>
+                  </td>
+                </tr>
+                <tr><td height="10" style="height:10px;font-size:1px;line-height:1px;">&nbsp;</td></tr>
+                <tr>
+                  <td style="padding:14px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:4px;">
+                    <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Resource / Application</span>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1e293b;"><strong>${appName}</strong></p>
+                  </td>
+                </tr>
+                <tr><td height="10" style="height:10px;font-size:1px;line-height:1px;">&nbsp;</td></tr>
+                <tr>
+                  <td style="padding:14px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:4px;">
+                    <span style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;">Lead Category</span>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1e293b;">${isWaitlist ? 'Early Access Waitlist Signup' : 'Direct Publication Download'}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Direct Reply Button -->
+          <tr>
+            <td align="center" style="padding:0 40px 32px;">
+              <a href="mailto:${email}?subject=AgriScanAI - Follow-up on ${appName}"
+                style="display:inline-block;background:#166534;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;padding:14px 34px;border-radius:4px;">
+                &#9993; Reach Out to ${name}
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="background:#166534;padding:28px 24px;">
+              <img src="${AGRISCAN_LOGO}" width="112" alt="AgriScanAI" style="display:block;width:112px;max-width:45%;height:auto;margin:0 auto 14px;" border="0">
+              <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#dcfce7;">
+                Marsabit Plaza, Ngong Road, Nairobi | +254 711 085 400
+              </p>
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.6;color:#bbf7d0;">
+                &copy; 2026 AgriScanAI. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    // 2. User Delivery / Confirmation Email
+    const userSubject = isWaitlist
+      ? `You're on the AgriScanAI Early Access list for ${appName}!`
+      : `Thank you for downloading: ${appName} — AgriScanAI`;
+
+    const userHeadline = isWaitlist
+      ? `Early Access Confirmation`
+      : `Document Download`;
+
+    const userBody = isWaitlist
+      ? `
+        <p style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8;color:#475569;">
+          Thank you for expressing interest in early access to <strong>${appName}</strong>.
+        </p>
+        <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8;color:#475569;">
+          We are actively finalizing our upcoming release. You are now registered on our priority notification list, and our team will notify you the moment the application is ready for deployment.
+        </p>
+      `
+      : `
+        <p style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8;color:#475569;">
+          Thank you for downloading <strong>${appName}</strong>.
+        </p>
+        <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8;color:#475569;">
+          We hope this publication provides valuable insights into how AgriScanAI empowers smallholder farmers and extension organizations across Africa with AI-driven agricultural advisory.
+        </p>
+        <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.8;color:#475569;">
+          If your organization is interested in deploying AgriScanAI for a pilot program or partnership, we would be delighted to schedule a demonstration.
+        </p>
+      `;
+
+    const userHtml = `
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${userSubject}</title>
+  <style>
+    body { margin: 0 !important; padding: 0 !important; background: #f1f5f9; }
+    table { border-collapse: collapse; }
+    img { border: 0; outline: none; text-decoration: none; display: block; }
+    @media only screen and (max-width: 620px) {
+      .email-shell { width: 100% !important; }
+      .pad { padding-left: 20px !important; padding-right: 20px !important; }
+      .masthead { padding: 24px 20px !important; }
+      .main-title { font-size: 22px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#334155;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+    Hi ${name}, thank you for your interest in ${appName}.
+  </div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f1f5f9;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" class="email-shell" width="680" cellpadding="0" cellspacing="0" border="0"
+          style="width:680px;max-width:680px;background:#ffffff;border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,.10);">
+
+          <!-- Masthead -->
+          <tr>
+            <td class="masthead" align="center" style="background:#166534;padding:32px 30px 28px;">
+              <img src="${AGRISCAN_LOGO}" width="170" alt="AgriScanAI" style="display:block;width:170px;max-width:70%;height:auto;margin:0 auto 16px;" border="0">
+              <span style="display:inline-block;background:rgba(255,255,255,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.35);padding:4px 14px;border-radius:20px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">${userHeadline}</span>
+              <h1 class="main-title" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:1.3;letter-spacing:-.3px;color:#ffffff;font-weight:800;">
+                ${appName}
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td class="pad" style="padding:36px 40px 24px;">
+              <p style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;color:#334155;font-weight:700;">
+                Dear ${name},
+              </p>
+              ${userBody}
+
+              <!-- Highlight Note Box -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #166534;border-radius:4px;margin-bottom:24px;">
+                <tr>
+                  <td style="padding:16px 20px;">
+                    <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#166534;font-weight:700;">
+                      Questions or partnership inquiries?
+                    </p>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#475569;">
+                      Reply directly to this email or contact us at <a href="mailto:info@agriscanai.co.ke" style="color:#166534;font-weight:700;text-decoration:underline;">info@agriscanai.co.ke</a> or call <a href="tel:+254711085400" style="color:#166534;font-weight:700;text-decoration:underline;">+254 711 085 400</a>.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#64748b;">
+                Warm regards,
+              </p>
+              <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#166534;">
+                The AgriScanAI Team
+              </p>
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#64748b;">
+                AgriScanAI
+              </p>
+            </td>
+          </tr>
+
+          <!-- Action Button -->
+          <tr>
+            <td align="center" style="padding:0 40px 32px;">
+              <a href="https://agriscanai.co.ke" target="_blank"
+                style="display:inline-block;background:#166534;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;padding:14px 34px;border-radius:4px;">
+                Visit AgriScanAI Website
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="background:#166534;padding:28px 24px;">
+              <img src="${AGRISCAN_LOGO}" width="112" alt="AgriScanAI" style="display:block;width:112px;max-width:45%;height:auto;margin:0 auto 14px;" border="0">
+              <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#dcfce7;">
+                Marsabit Plaza, Ngong Road, Nairobi | +254 711 085 400
+              </p>
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.6;color:#bbf7d0;">
+                &copy; 2026 AgriScanAI. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    // 1. Dispatch team lead notification
+    const adminNotification = await resend.emails.send({
+      from: sender,
+      to: teamEmails,
+      replyTo: email,
+      subject: `${prefix}: ${name} (${appName})`,
+      html: adminHtml,
+    });
+
+    // 2. Dispatch user delivery
+    try {
+      await resend.emails.send({
+        from: sender,
+        to: [email],
+        subject: userSubject,
+        html: userHtml,
+      });
+    } catch (userErr) {
+      console.warn('Download user auto-responder warning:', userErr);
+    }
+
+    return res.status(200).json({ success: true, id: adminNotification?.data?.id });
+  } catch (error) {
+    console.error('Resend download error:', error);
+    return res.status(500).json({ error: error?.message || 'Failed to process request.' });
+  }
+}

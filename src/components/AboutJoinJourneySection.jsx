@@ -41,7 +41,7 @@ export default function AboutJoinJourneySection() {
             </button>
           ) : (
             <a
-              href="/downloads/app-release.apk"
+              href="/downloads/AgriScanAI.apk"
               download="AgriScanAI.apk"
               className="about-store-badge-link inline-block"
               aria-label="Download Android APK"
@@ -77,7 +77,7 @@ export default function AboutJoinJourneySection() {
         <DownloadModal 
           isOpen={isApkModalOpen} 
           onClose={() => setIsApkModalOpen(false)} 
-          downloadUrl="/downloads/app-release.apk" 
+          downloadUrl="/downloads/AgriScanAI.apk" 
           appName="AgriScanAI APK"
         />
       )}

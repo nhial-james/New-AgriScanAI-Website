@@ -1,24 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import phoneDashboard from '../assets/Farmer Dashboard.png'; 
-import carbonTracker from '../assets/Carbon Tracker.png';
-import DiseaseResults from '../assets/Disease Results.png';
-import yieldTracking from '../assets/Yield Tracking.png';
-import financeTracking from '../assets/Finance.png';
-import advisoryChat from '../assets/Mwanedu.png';
+import farmerDashboard from '../assets/Farmer Dashboard screen.png';
+import yieldTracking from '../assets/Yield Tracking screen.png';
+import advisoryChat from '../assets/Advisory Chat screen.png';
+import financeTracking from '../assets/Finance screen.png';
+import carbonTracker from '../assets/Carbon Tracker screen.png';
+import cropDiseaseDetection from '../assets/Crop Disease Detection screen.png';
 
 const slides = [
   {
-    img: carbonTracker, 
-    title: 'Carbon Tracker',
-    subtitle: 'Environmental impact monitor',
-  },
-  {
-    img: DiseaseResults,
-    title: 'Crop Disease Detection',
-    subtitle: 'AI-powered diagnosis in seconds',
-  },
-  {
-    img: phoneDashboard,
+    img: farmerDashboard,
     title: 'Farmer Dashboard',
     subtitle: 'Real-time farm insights',
   },
@@ -37,10 +27,20 @@ const slides = [
     title: 'Finance',
     subtitle: 'Track loans, payments, and market prices',
   },
+  {
+    img: carbonTracker,
+    title: 'Carbon Tracker',
+    subtitle: 'Environmental impact monitor',
+  },
+  {
+    img: cropDiseaseDetection,
+    title: 'Crop Disease Detection',
+    subtitle: 'AI-powered diagnosis in seconds',
+  },
 ];
 
 export default function GlimpseSection() {
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
   const timeoutRef = useRef(null);
 

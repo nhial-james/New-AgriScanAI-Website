@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 
 const DownloadModal = ({ isOpen, onClose, downloadUrl, appName = 'AgriScanAI APK' }) => {
   const [form, setForm] = useState({ name: '', email: '' });
@@ -36,40 +35,25 @@ const DownloadModal = ({ isOpen, onClose, downloadUrl, appName = 'AgriScanAI APK
     setError(false);
 
     try {
-      // Configuration extracted from live site
-      const serviceId = 'service_11ah9yu';
       const isWaitlist = downloadUrl === '#';
-      const templateId = isWaitlist ? 'template_kci4c6v' : 'template_n2ne9pm';
-      const publicKey = '5ni8LpNq2kawFdv9P';
 
-      let templateParams;
-      if (isWaitlist) {
-        const nameParts = form.name.trim().split(/\s+/);
-        const firstName = nameParts[0] || '';
-        const lastName = nameParts.slice(1).join(' ') || '';
-
-        templateParams = {
-          firstName,
-          lastName,
-          from_name: form.name,
-          email: form.email,
-          from_email: form.email,
-          phone: '',
-          company: '',
-          message: `User joined the waitlist for: ${appName}`,
-        };
-      } else {
-        templateParams = {
-          from_name: form.name,
-          from_email: form.email,
-          app_name: appName,
-          download_time: new Date().toLocaleString()
-        };
-      }
-
-      await emailjs.send(serviceId, templateId, templateParams, {
-        publicKey: publicKey
+      const response = await fetch('/api/download', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          appName,
+          isWaitlist,
+        }),
       });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.error || 'Failed to process request.');
+      }
 
       // Trigger file download
       if (downloadUrl !== "#") {
@@ -89,8 +73,8 @@ const DownloadModal = ({ isOpen, onClose, downloadUrl, appName = 'AgriScanAI APK
       }, 2500);
       
     } catch (err) {
-      console.error('EmailJS response error:', err);
-      setMessage('Failed to start process. Please try again later.');
+      console.error('Download modal send error:', err);
+      setMessage(err?.message || 'Failed to start process. Please try again later.');
       setError(true);
       setLoading(false);
     }

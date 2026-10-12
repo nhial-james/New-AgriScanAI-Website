@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 const initialForm = {
   firstName: '',
@@ -45,30 +44,24 @@ export default function ContactFormSection() {
     setLoading(true);
     
     try {
-      const serviceId = 'service_11ah9yu';
-      const templateId = 'template_kci4c6v';
-      const publicKey = '5ni8LpNq2kawFdv9P';
-
-      const templateParams = {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        from_name: `${form.firstName} ${form.lastName}`,
-        email: form.email,
-        from_email: form.email,
-        phone: form.phone,
-        company: form.company,
-        message: form.message,
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, {
-        publicKey: publicKey,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
       });
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.error || 'Failed to send message.');
+      }
 
       setLoading(false);
       setSubmitted(true);
     } catch (err) {
-      console.error('EmailJS send error:', err);
-      setErrors({ message: 'Failed to send message. Please try again later.' });
+      console.error('Contact form send error:', err);
+      setErrors({ message: err?.message || 'Failed to send message. Please try again later.' });
       setLoading(false);
     }
   };

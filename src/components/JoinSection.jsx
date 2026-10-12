@@ -62,7 +62,7 @@ export default function JoinSection() {
             </button>
           ) : (
             <a
-              href="/downloads/app-release.apk"
+              href="/downloads/AgriScanAI.apk"
               download="AgriScanAI.apk"
               className="store-badge-btn inline-block"
               aria-label="Download Android APK"
@@ -98,7 +98,7 @@ export default function JoinSection() {
         <DownloadModal 
           isOpen={isApkModalOpen} 
           onClose={() => setIsApkModalOpen(false)} 
-          downloadUrl="/downloads/app-release.apk" 
+          downloadUrl="/downloads/AgriScanAI.apk" 
           appName="AgriScanAI APK"
         />
       )}
