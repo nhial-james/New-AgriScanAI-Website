@@ -1,37 +1,33 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import ICCF2025Image from '../assets/ICCF 2025.jpg';
+import ICCF2025Image from '../assets/ICCF 2025.webp';
 import '../EventDetail.css';
 
 // Import highlight images
-import img1 from '../assets/events/ICCF 2025 Highlight Image 1.JPG';
-import img2 from '../assets/events/ICCF 2025 Highlight Image 2.JPG';
-import img3 from '../assets/events/ICCF 2025 Highlight Image 3.JPG';
-import img4 from '../assets/events/ICCF 2025 Highlight Image 4.JPG';
-import img5 from '../assets/events/ICCF 2025 Highlight Image 5.JPG';
-import img6 from '../assets/events/ICCF 2025 Highlight Image 6.JPG';
-import img7 from '../assets/events/ICCF 2025 Highlight Image 7.JPG';
-import img8 from '../assets/events/ICCF 2025 Highlight Image 8.JPG';
-import img9 from '../assets/events/ICCF 2025 Highlight Image 9.JPG';
-import img10 from '../assets/events/ICCF 2025 Highlight Image 10.JPG';
-import img11 from '../assets/events/ICCF 2025 Highlight Image 11.JPG';
-import img13 from '../assets/events/ICCF 2025 Highlight Image 13.jpeg';
+import img1 from '../assets/events/ICCF 2025 Highlight Image 1.webp';
+import img2 from '../assets/events/ICCF 2025 Highlight Image 2.webp';
+import img3 from '../assets/events/ICCF 2025 Highlight Image 3.webp';
+import img4 from '../assets/events/ICCF 2025 Highlight Image 4.webp';
+import img5 from '../assets/events/ICCF 2025 Highlight Image 5.webp';
+import img6 from '../assets/events/ICCF 2025 Highlight Image 6.webp';
+import img7 from '../assets/events/ICCF 2025 Highlight Image 7.webp';
+import img8 from '../assets/events/ICCF 2025 Highlight Image 8.webp';
+import img9 from '../assets/events/ICCF 2025 Highlight Image 9.webp';
+import img10 from '../assets/events/ICCF 2025 Highlight Image 10.webp';
+import img11 from '../assets/events/ICCF 2025 Highlight Image 11.webp';
+import img13 from '../assets/events/ICCF 2025 Highlight Image 13.webp';
 
 // Import inline images
-import lizaSpeakerImg from '../assets/events/Liza Karen Achagana Speaker & Thought Leader at ICCF 2025.png';
-import goodPartnersBoothImg from '../assets/events/Good Partners Booth at ICCF 2025.JPG';
-import lizaExplainingImg from '../assets/events/Liza Karen Achagana at the Good Partners Booth explaining AgriScanAI to Visitors.JPG';
+import lizaSpeakerImg from '../assets/events/Liza Karen Achagana Speaker & Thought Leader at ICCF 2025.webp';
+import goodPartnersBoothImg from '../assets/events/Good Partners Booth at ICCF 2025.webp';
+import lizaExplainingImg from '../assets/events/Liza Karen Achagana at the Good Partners Booth explaining AgriScanAI to Visitors.webp';
 
 const gallery = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img13];
 
 const ICCF2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI at ICCF 2025 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -78,7 +74,7 @@ const ICCF2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={goodPartnersBoothImg} alt="AgriScanAI Booth at ICCF 2025" className="w-full h-auto" />
+                  <img loading="lazy" src={goodPartnersBoothImg} alt="AgriScanAI Booth at ICCF 2025" className="w-full h-auto" />
                 </div>
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 mt-8">
@@ -101,7 +97,7 @@ const ICCF2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={lizaExplainingImg} alt="Liza Karen Achagana explaining AgriScanAI to visitors" className="w-full h-auto" />
+                  <img loading="lazy" src={lizaExplainingImg} alt="Liza Karen Achagana explaining AgriScanAI to visitors" className="w-full h-auto" />
                 </div>
 
                 <div className="bg-primary-light/10 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 mb-8">
@@ -118,7 +114,7 @@ const ICCF2025 = () => {
                 </h2>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={lizaSpeakerImg} alt="Liza Karen Achagana speaking at ICCF 2025" className="w-full h-auto" />
+                  <img loading="lazy" src={lizaSpeakerImg} alt="Liza Karen Achagana speaking at ICCF 2025" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -266,7 +262,7 @@ const ICCF2025 = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {gallery.map((imgSrc, idx) => (
                     <div key={idx} className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img src={imgSrc} alt={`ICCF 2025 Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img loading="lazy" src={imgSrc} alt={`ICCF 2025 Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>

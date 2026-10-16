@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import '../PilotProgram.css';
 import Navbar from '../components/Navbar';
 import PilotProgramHeroSection from '../components/PilotProgramHeroSection';
@@ -10,19 +9,17 @@ import JoinSection from '../components/JoinSection';
 import Footer from '../components/Footer';
 
 export default function PilotProgram() {
-  useEffect(() => {
-    document.title = 'Pilot Program | AgriScanAI';
-  }, []);
-
   return (
     <div className="pilot-page">
       <Navbar />
-      <PilotProgramHeroSection />
-      <PilotProgramPhotoSection />
-      <PilotProgramIncludesSection />
-      <PilotProgramTestimonialSection />
-      <PilotProgramGetInvolvedSection />
-      <JoinSection />
+      <main className="page-main">
+        <PilotProgramHeroSection />
+        <PilotProgramPhotoSection />
+        <PilotProgramIncludesSection />
+        <PilotProgramTestimonialSection />
+        <PilotProgramGetInvolvedSection />
+        <JoinSection />
+      </main>
       <Footer />
     </div>
   );

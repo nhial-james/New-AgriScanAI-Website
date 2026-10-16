@@ -13,14 +13,16 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <TrustedPartnersSection />
-      <ChallengeSection />
-      <ApproachSection />
-      <FeaturesSection />
-      <PartnershipSection />
-      <GlimpseSection />
-      <JoinSection />
+      <main className="page-main">
+        <HeroSection />
+        <TrustedPartnersSection />
+        <ChallengeSection />
+        <ApproachSection />
+        <FeaturesSection />
+        <PartnershipSection />
+        <GlimpseSection />
+        <JoinSection />
+      </main>
       <Footer />
     </>
   );

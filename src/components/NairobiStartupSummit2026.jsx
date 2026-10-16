@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -11,10 +11,6 @@ import AgriScanLogo from '../assets/AgriScanAI Transparent.png';
 import BetterPayLogo from '../assets/BetterPay-transparent-Logo.png';
 
 export default function NairobiStartupSummit2026() {
-  useEffect(() => {
-    document.title = '4th Edition of Nairobi Startup Summit & Awards 2026 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -137,7 +133,7 @@ export default function NairobiStartupSummit2026() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex items-center h-12 mb-4">
-                      <img src={AgriScanLogo} alt="AgriScanAI Logo" className="h-10 object-contain" />
+                      <img loading="lazy" src={AgriScanLogo} alt="AgriScanAI Logo" className="h-10 object-contain" />
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       AgriScanAI is a smart farming solution designed to support data-driven agriculture and climate-smart decision-making.
@@ -149,7 +145,7 @@ export default function NairobiStartupSummit2026() {
 
                   <div className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex items-center h-12 mb-4">
-                      <img src={BetterPayLogo} alt="BetterPAY Logo" className="h-10 object-contain" />
+                      <img loading="lazy" src={BetterPayLogo} alt="BetterPAY Logo" className="h-10 object-contain" />
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       BetterPAY is a secure digital platform designed to support fund disbursement, attendance verification and program accountability.

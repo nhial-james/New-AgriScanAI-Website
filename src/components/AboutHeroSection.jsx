@@ -1,4 +1,4 @@
-import AboutBg from "../assets/About.png";
+import AboutBg from "../assets/About.webp";
 
 export default function AboutHeroSection() {
   return (

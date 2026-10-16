@@ -1,12 +1,12 @@
-import farmerProfiling from '../assets/Icons/Farmer Profiling & Digital Records.svg';
-import realTimeData from '../assets/Icons/Real-Time Data & Analytics Dashboard.svg';
-import aiCropDisease from '../assets/Icons/AI-Powered Crop Disease Detection.svg';
-import mobileField from '../assets/Icons/Mobile Field Data Collection.svg';
-import yieldRecording from '../assets/Icons/Yield Recording & Tracking.svg';
-import financialTracking from '../assets/Icons/Financial & Input Tracking.svg';
-import climateCarbon from '../assets/Icons/Climate & Carbon Monitoring.svg';
-import mwaneduAI from '../assets/Icons/Mwanedu AI Smart Recommendations.svg';
-import programFSC from '../assets/Icons/Program & FSC Performance Tracking.svg';
+import farmerProfiling from '../assets/Icons/Farmer Profiling & Digital Records.webp';
+import realTimeData from '../assets/Icons/Real-Time Data & Analytics Dashboard.webp';
+import aiCropDisease from '../assets/Icons/AI-Powered Crop Disease Detection.webp';
+import mobileField from '../assets/Icons/Mobile Field Data Collection.webp';
+import yieldRecording from '../assets/Icons/Yield Recording & Tracking.webp';
+import financialTracking from '../assets/Icons/Financial & Input Tracking.webp';
+import climateCarbon from '../assets/Icons/Climate & Carbon Monitoring.webp';
+import mwaneduAI from '../assets/Icons/Mwanedu AI Smart Recommendations.webp';
+import programFSC from '../assets/Icons/Program & FSC Performance Tracking.webp';
 
 const features = [
   {
@@ -68,7 +68,7 @@ export default function FeaturesSection() {
         {features.map((f) => (
           <div className="feature-card" key={f.title}>
             <div className="feature-icon-wrap">
-              <img src={f.icon} alt={f.title} />
+              <img loading="lazy" src={f.icon} alt={f.title} />
             </div>
             <h3 className="feature-card-title">{f.title}</h3>
             <p className="feature-card-desc">{f.desc}</p>

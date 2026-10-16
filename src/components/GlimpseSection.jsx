@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import farmerDashboard from '../assets/Farmer Dashboard screen.png';
-import yieldTracking from '../assets/Yield Tracking screen.png';
-import advisoryChat from '../assets/Advisory Chat screen.png';
-import financeTracking from '../assets/Finance screen.png';
-import carbonTracker from '../assets/Carbon Tracker screen.png';
-import cropDiseaseDetection from '../assets/Crop Disease Detection screen.png';
+import farmerDashboard from '../assets/Farmer Dashboard screen.webp';
+import yieldTracking from '../assets/Yield Tracking screen.webp';
+import advisoryChat from '../assets/Advisory Chat screen.webp';
+import financeTracking from '../assets/Finance screen.webp';
+import carbonTracker from '../assets/Carbon Tracker screen.webp';
+import cropDiseaseDetection from '../assets/Crop Disease Detection screen.webp';
 
 const slides = [
   {
@@ -74,7 +74,7 @@ export default function GlimpseSection() {
 
         <div className="glimpse-phone-wrap">
           <div className={`glimpse-image-frame ${fading ? 'glimpse-fading' : ''}`}>
-            <img
+            <img loading="lazy"
               src={slides[current].img}
               alt={slides[current].title}
               className="glimpse-phone-img"

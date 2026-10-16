@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
 import '../EventDetail.css';
 
-const finasImageModules = import.meta.glob('../assets/images/FINAS 2026 Images/*.{jpg,jpeg,png,JPG,JPEG,PNG}', { eager: true });
+// Optimised WebP copies of the original JPGs (originals kept alongside for re-export)
+const finasImageModules = import.meta.glob('../assets/images/FINAS 2026 Images/*.webp', { eager: true });
 const finasPdfModules = import.meta.glob('../assets/images/FINAS 2026 Images/*.pdf', { eager: true });
 
 const finasImageMap = Object.fromEntries(
@@ -16,7 +16,7 @@ const finasPdfMap = Object.fromEntries(
   Object.entries(finasPdfModules).map(([path, module]) => [path.split('/').pop(), module.default ?? module])
 );
 
-const image = (name) => finasImageMap[name];
+const image = (name) => finasImageMap[name.replace(/\.jpe?g$/i, '.webp')];
 const pdf = (name) => finasPdfMap[name];
 
 const progressImages = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'].map(image);
@@ -28,10 +28,6 @@ const cultureImages = ['dance hightlight 1.jpg', 'dance hightlight 2.jpg', 'danc
 const galleryImages = ['hightlight 1.jpg', 'hightlight 2.jpg', 'hightlight 3.jpg', 'hightlight 4.jpg', 'hightlight 5.jpg', 'hightlight 6.jpg', 'hightlight 7.jpg'].map(image);
 
 export default function Finas2026() {
-  useEffect(() => {
-    document.title = 'Good Partners Returns to FINAS 2026 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -66,7 +62,7 @@ export default function Finas2026() {
               </p>
 
               <div className="my-8 rounded-xl overflow-hidden shadow-xl border border-gray-100 bg-white">
-                <img src={image('IMG_2844.jpg')} alt="Good Partners at FINAS 2026 Summit Overview" className="w-full h-auto" />
+                <img loading="lazy" src={image('IMG_2844.jpg')} alt="Good Partners at FINAS 2026 Summit Overview" className="w-full h-auto" />
               </div>
 
               <section className="mb-12">
@@ -91,7 +87,7 @@ export default function Finas2026() {
                 <div className="flex flex-nowrap items-start gap-4 my-8 p-3 bg-white border border-gray-100 rounded-xl shadow-md overflow-x-auto">
                   {progressImages.map((src, index) => (
                     <div key={index} className="flex-none w-[78%] sm:w-[48%] lg:w-1/4 rounded-lg overflow-hidden bg-white">
-                      <img src={src} alt={`AgriScanAI progress ${index + 1}`} className="w-full h-auto object-contain block hover:scale-105 transition-transform duration-300" />
+                      <img loading="lazy" src={src} alt={`AgriScanAI progress ${index + 1}`} className="w-full h-auto object-contain block hover:scale-105 transition-transform duration-300" />
                     </div>
                   ))}
                 </div>
@@ -115,7 +111,7 @@ export default function Finas2026() {
                 </p>
 
                 <div className="my-8 rounded-xl overflow-hidden shadow-xl border border-gray-100 bg-white">
-                  <img src={image('IMG_0284.jpg')} alt="Good Partners exhibition at FINAS 2026" className="w-full h-auto" />
+                  <img loading="lazy" src={image('IMG_0284.jpg')} alt="Good Partners exhibition at FINAS 2026" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -125,7 +121,7 @@ export default function Finas2026() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
                   {boothImages.map((src, index) => (
                     <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-white">
-                      <img src={src} alt={`FINAS 2026 booth ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                      <img loading="lazy" src={src} alt={`FINAS 2026 booth ${index + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                     </div>
                   ))}
                 </div>
@@ -143,13 +139,13 @@ export default function Finas2026() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
                   <div className="md:row-span-2 rounded-lg overflow-hidden shadow-lg bg-white">
-                    <img src={pitchImages[0]} alt="Liza Karen Achagana at FINAS 2026 Pitch" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={pitchImages[0]} alt="Liza Karen Achagana at FINAS 2026 Pitch" className="w-full h-full object-cover" />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-lg bg-white">
-                    <img src={pitchImages[1]} alt="FINAS 2026 Pitch stage 2" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={pitchImages[1]} alt="FINAS 2026 Pitch stage 2" className="w-full h-full object-cover" />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-lg bg-white">
-                    <img src={pitchImages[2]} alt="FINAS 2026 Pitch stage 3" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={pitchImages[2]} alt="FINAS 2026 Pitch stage 3" className="w-full h-full object-cover" />
                   </div>
                 </div>
 
@@ -170,7 +166,7 @@ export default function Finas2026() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
                   {nasipImages.map((src, index) => (
                     <div key={index} className="rounded-lg overflow-hidden shadow-lg bg-white">
-                      <img src={src} alt={`NASIP discussion ${index + 1}`} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={src} alt={`NASIP discussion ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
@@ -190,7 +186,7 @@ export default function Finas2026() {
                 </div>
 
                 <div className="bg-[#e6f0fa] border border-primary-light rounded-2xl p-5 md:p-6 my-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
-                  <img src={image('NASIP Image.jpg')} alt="NASIP document" className="w-full md:w-24 rounded-lg shadow-sm object-cover" />
+                  <img loading="lazy" src={image('NASIP Image.jpg')} alt="NASIP document" className="w-full md:w-24 rounded-lg shadow-sm object-cover" />
                   <div className="flex-1">
                     <p className="font-bold text-gray-900 mb-1">National Agri-Food Systems Investment Plan (NASIP)</p>
                     <p className="text-gray-600 text-sm">Download the full NASIP document to learn more about Kenya&apos;s agricultural investment framework.</p>
@@ -212,7 +208,7 @@ export default function Finas2026() {
                 </p>
 
                 <div className="my-8 rounded-xl overflow-hidden shadow-lg bg-white">
-                  <img src={image('Agricultural Finance Technical Working Group.jpg')} alt="Launch of the Agricultural Finance Technical Working Group" className="w-full h-auto" />
+                  <img loading="lazy" src={image('Agricultural Finance Technical Working Group.jpg')} alt="Launch of the Agricultural Finance Technical Working Group" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -273,7 +269,7 @@ export default function Finas2026() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
                   {coldChainImages.map((src, index) => (
                     <div key={index} className="rounded-lg overflow-hidden shadow-lg bg-white">
-                      <img src={src} alt={`Green Cold Chain Financing Facility ${index + 1}`} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={src} alt={`Green Cold Chain Financing Facility ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
@@ -299,7 +295,7 @@ export default function Finas2026() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
                   {cultureImages.map((src, index) => (
                     <div key={index} className="aspect-square rounded-lg overflow-hidden shadow-lg bg-white">
-                      <img src={src} alt={`African cultural dance ${index + 1}`} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={src} alt={`African cultural dance ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
@@ -370,7 +366,7 @@ export default function Finas2026() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {galleryImages.map((src, index) => (
                     <div key={index} className="group overflow-hidden rounded-lg aspect-square shadow-sm hover:shadow-md transition-shadow bg-gray-100">
-                      <img src={src} alt={`FINAS 2026 highlight ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img loading="lazy" src={src} alt={`FINAS 2026 highlight ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                   ))}
                 </div>

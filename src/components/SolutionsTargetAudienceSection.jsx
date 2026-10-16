@@ -1,7 +1,7 @@
-import ngosIcon from '../assets/Icons/NGOs & Development Programs.svg';
-import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.svg';
-import govtIcon from '../assets/Icons/Government Agencies & Network.svg';
-import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.svg';
+import ngosIcon from '../assets/Icons/NGOs & Development Programs.webp';
+import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.webp';
+import govtIcon from '../assets/Icons/Government Agencies & Network.webp';
+import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.webp';
 
 const audiences = [
   {
@@ -36,7 +36,7 @@ export default function SolutionsTargetAudienceSection() {
       <div className="sol-audience-grid">
         {audiences.map((item) => (
           <div className="sol-audience-card" key={item.title}>
-            <img src={item.icon} alt={item.title} className="sol-audience-icon" />
+            <img loading="lazy" src={item.icon} alt={item.title} className="sol-audience-icon" />
             <h3 className="sol-card-title">{item.title}</h3>
             <p className="sol-card-desc">{item.desc}</p>
             <button className="sol-btn-outline sol-btn-sm">Learn More</button>

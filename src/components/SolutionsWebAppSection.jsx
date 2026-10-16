@@ -1,4 +1,4 @@
-import webAppMockup from '../assets/insignt image.png';
+import webAppMockup from '../assets/insignt image.webp';
 
 export default function SolutionsWebAppSection() {
   return (
@@ -12,7 +12,7 @@ export default function SolutionsWebAppSection() {
       </div>
 
       <div className="sol-laptop-wrap">
-        <img
+        <img loading="lazy"
           src={webAppMockup}
           alt="AgriScanAI Web Dashboard"
           className="sol-laptop-img"

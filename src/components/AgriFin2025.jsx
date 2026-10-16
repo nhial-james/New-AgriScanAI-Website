@@ -1,32 +1,28 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import AgriFinImage from '../assets/agrifin_hero_image.png';
+import AgriFinImage from '../assets/agrifin_hero_image.webp';
 import '../EventDetail.css';
 
 // Import highlight images
-import img1 from '../assets/events/agrifin_img_1.JPG';
-import img2 from '../assets/events/agrifin_img_2.JPG';
-import img3 from '../assets/events/agrifin_img_3.JPG';
-import img4 from '../assets/events/agrifin_img_4.JPG';
-import img5 from '../assets/events/agrifin_img_5.JPG';
-import img6 from '../assets/events/agrifin_img_6.JPG';
-import img7 from '../assets/events/agrifin_img_7.JPG';
+import img1 from '../assets/events/agrifin_img_1.webp';
+import img2 from '../assets/events/agrifin_img_2.webp';
+import img3 from '../assets/events/agrifin_img_3.webp';
+import img4 from '../assets/events/agrifin_img_4.webp';
+import img5 from '../assets/events/agrifin_img_5.webp';
+import img6 from '../assets/events/agrifin_img_6.webp';
+import img7 from '../assets/events/agrifin_img_7.webp';
 
 // Import inline images
-import agrifinImg4 from '../assets/events/agrifin_img_4.JPG';
-import agrifinImg2 from '../assets/events/agrifin_img_2.JPG';
-import agrifinImg3 from '../assets/events/agrifin_img_3.JPG';
+import agrifinImg4 from '../assets/events/agrifin_img_4.webp';
+import agrifinImg2 from '../assets/events/agrifin_img_2.webp';
+import agrifinImg3 from '../assets/events/agrifin_img_3.webp';
 
 const gallery = [img1, img2, img3, img4, img5, img6, img7];
 
 const AgriFin2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI at AgriFin Learning Event 2025 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -60,7 +56,7 @@ const AgriFin2025 = () => {
               </p>
 
               <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                <img src={agrifinImg4} alt="AgriScanAI at ALE 2025" className="w-full h-auto" />
+                <img loading="lazy" src={agrifinImg4} alt="AgriScanAI at ALE 2025" className="w-full h-auto" />
               </div>
 
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -68,7 +64,7 @@ const AgriFin2025 = () => {
               </p>
 
               <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                <img src={agrifinImg2} alt="Innovators at ALE 2025" className="w-full h-auto" />
+                <img loading="lazy" src={agrifinImg2} alt="Innovators at ALE 2025" className="w-full h-auto" />
               </div>
 
               <section className="mb-12">
@@ -123,7 +119,7 @@ const AgriFin2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={agrifinImg3} alt="AgriScanAI demonstration" className="w-full h-auto" />
+                  <img loading="lazy" src={agrifinImg3} alt="AgriScanAI demonstration" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -169,7 +165,7 @@ const AgriFin2025 = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {gallery.map((imgSrc, idx) => (
                     <div key={idx} className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img src={imgSrc} alt={`AgriFin Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img loading="lazy" src={imgSrc} alt={`AgriFin Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>

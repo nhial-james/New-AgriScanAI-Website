@@ -2,32 +2,81 @@
   RewriteEngine On
   RewriteBase /
 
-  # Force HTTPS on HostAfrica
+  # Canonical host: https://agriscanai.co.ke (no www) in a single 301 hop
+  RewriteCond %{HTTP_HOST} ^www\.agriscanai\.co\.ke$ [NC]
+  RewriteRule ^(.*)$ https://agriscanai.co.ke/$1 [R=301,L]
   RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP_HOST} ^(www\.)?agriscanai\.co\.ke$ [NC]
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^agriscanai\.co\.ke$ [NC]
+  RewriteRule ^(.*)$ https://agriscanai.co.ke/$1 [R=301,L]
 
   # Direct API endpoints to PHP handlers on HostAfrica cPanel
   RewriteRule ^api/contact/?$ api/contact.php [L,QSA]
   RewriteRule ^api/download/?$ api/download.php [L,QSA]
 
-  # Direct APK download redirects/aliases to AgriScanAI.apk
-  RewriteRule ^downloads/app-release\.apk$ /downloads/AgriScanAI.apk [NC,L]
-  RewriteRule ^downloads/agriscanai\.apk$ /downloads/AgriScanAI.apk [NC,L]
+  # Old/alternative APK URLs -> the current AgriScanAI.apk.
+  # Must stay case-sensitive external redirects: the previous [NC,L] internal rewrite
+  # also matched AgriScanAI.apk itself and looped until Apache returned 500 (AH00124).
+  RewriteRule ^downloads/(app-release|agriscanai)\.apk$ /downloads/AgriScanAI.apk [R=301,L]
 
-  # Don't rewrite existing files or directories
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d [OR]
-  RewriteCond %{REQUEST_FILENAME} -l
-  RewriteRule ^ - [L]
+  # Legacy /index.html URLs -> clean URLs
+  RewriteCond %{THE_REQUEST} \s/+(.*?/)?index\.html[\s?]
+  RewriteRule ^(.*?)index\.html$ /$1 [R=301,L,NE]
 
-  # React Single Page App fallback routing
-  RewriteRule ^(.*)$ /index.html [L]
+  # Prerendered pages are stored as /_pages/<route>.html. They are flat files, not
+  # <route>/index.html, so no real directory shares a route's name — otherwise
+  # mod_dir redirects /about -> /about/ and loops with the rule below.
+  # The store itself is not public (avoids duplicate URLs).
+  RewriteCond %{THE_REQUEST} \s/+_pages[/?\s]
+  RewriteRule ^ - [R=404,L]
+
+  # Trailing slash -> no trailing slash for prerendered pages (/about/ -> /about)
+  RewriteCond %{DOCUMENT_ROOT}/_pages/$1.html -f
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Serve the prerendered HTML for each route (/about -> /_pages/about.html)
+  RewriteCond %{DOCUMENT_ROOT}/_pages/$1.html -f
+  RewriteRule ^(.+)$ _pages/$1.html [L]
+
+  # Existing files are served as-is. Anything else falls through to a real 404.
 </IfModule>
+
+# Real 404 status for unknown URLs (page is prerendered and noindex)
+ErrorDocument 404 /404.html
 
 # Prevent directory listings
 Options -Indexes
+
+# Android app download: correct MIME type and always save as a file
+AddType application/vnd.android.package-archive .apk
+AddType font/woff2 .woff2
+<IfModule mod_headers.c>
+  <FilesMatch "\.apk$">
+    Header set Content-Disposition "attachment; filename=\"AgriScanAI.apk\""
+  </FilesMatch>
+</IfModule>
+
+# Never serve dotfiles such as .env
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # HTML must revalidate so deploys show up (fingerprinted /assets/ caching: see assets/.htaccess)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml application/xml text/xml text/plain
+</IfModule>
 
 # Cache-Control headers for performance
 <IfModule mod_expires.c>
@@ -36,8 +85,10 @@ Options -Indexes
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/pdf "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
 </IfModule>

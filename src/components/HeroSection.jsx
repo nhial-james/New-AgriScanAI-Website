@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Home.css";
-import heroBg from "../assets/herobg.png";
-import phoneImg from "../assets/phone.png";
-import googlePlayBadge from '../assets/Icons/google play.svg';
-import appStoreBadge from '../assets/Icons/app store.svg';
-import androidApkBadge from '../assets/Icons/android apk.svg';
+import heroBg from "../assets/herobg.webp";
+import phoneImg from "../assets/phone.webp";
+import googlePlayBadge from '../assets/Icons/google play.webp';
+import appStoreBadge from '../assets/Icons/app store.webp';
+import androidApkBadge from '../assets/Icons/android apk.webp';
 import DownloadModal from "./ui/DownloadModal";
 
 // Feature flags (set to true to re-enable in future)

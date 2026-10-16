@@ -1,4 +1,5 @@
-import nolegaImg from '../assets/Principle Nolega image.png';
+import nolegaImg from '../assets/Principle Nolega image.webp';
+import ktipLogo from '../assets/Partners Logo/KTIP-logo.png';
 
 const QuoteIcon = () => (
   <svg className="testimonial-quote-icon" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +11,7 @@ export default function PilotProgramTestimonialSection() {
   return (
     <section className="pilot-testimonial">
       <div className="testimonial-card">
-        <img
+        <img loading="lazy"
           src={nolegaImg}
           alt="Principle Nolega — testimonial"
           className="testimonial-photo"
@@ -24,7 +25,10 @@ export default function PilotProgramTestimonialSection() {
           <p className="testimonial-author">— Principle Nolega</p>
           <div className="testimonial-org-row">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/b206957aff00017d2ac7e5f095f8c45e96d78763?width=200"
+              src={ktipLogo}
+              width="100"
+              height="100"
+              loading="lazy"
               alt="Kilimo Training Institute of Permaculture (KTIP) logo"
               className="testimonial-org-logo"
             />

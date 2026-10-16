@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/Empowering Ecosystems with Intelligent Data image.png';
+import heroImg from '../assets/Empowering Ecosystems with Intelligent Data image.webp';
 
 export default function SolutionsHeroSection() {
   return (

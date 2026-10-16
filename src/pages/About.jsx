@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import '../About.css';
 import Navbar from '../components/Navbar';
 import AboutHeroSection from '../components/AboutHeroSection';
@@ -12,21 +11,19 @@ import AboutJoinJourneySection from '../components/AboutJoinJourneySection';
 import Footer from '../components/Footer';
 
 export default function About() {
-  useEffect(() => {
-    document.title = 'About Us | AgriScanAI';
-  }, []);
-
   return (
     <>
       <Navbar />
-      <AboutHeroSection />
-      <AboutIntroSection />
-      <AboutEmpoweringSection />
-      <AboutIdeaSection />
-      <AboutMissionVisionSection />
-      <AboutGoodPartnersSection />
-      <AboutWhyChooseSection />
-      <AboutJoinJourneySection />
+      <main className="page-main">
+        <AboutHeroSection />
+        <AboutIntroSection />
+        <AboutEmpoweringSection />
+        <AboutIdeaSection />
+        <AboutMissionVisionSection />
+        <AboutGoodPartnersSection />
+        <AboutWhyChooseSection />
+        <AboutJoinJourneySection />
+      </main>
       <Footer />
     </>
   );

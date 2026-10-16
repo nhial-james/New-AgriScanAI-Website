@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -6,36 +6,36 @@ import PageTransition from './PageTransition';
 import '../EventDetail.css';
 
 // Import local assets
-import AmrefHero from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.jpg';
-import PanelImage from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7239.jpg';
+import AmrefHero from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.webp';
+import PanelImage from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7239.webp';
 
 // BetterPAY folder design assets
-import bpFront from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Front.jpg';
-import bpInsideLeft from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Inside-Left.jpg';
-import bpInsideRight from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Inside-Right.jpg';
+import bpFront from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Front.webp';
+import bpInsideLeft from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Inside-Left.webp';
+import bpInsideRight from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Inside-Right.webp';
 import bpBack from '../assets/events/BetterPAY-Files-Holder-Design/BetterPAY-Back.jpg';
 
 // Gallery Highlights
 import img1 from '../assets/events/Amref-2nd-PHC-Congres-Images/0M8A4463.jpg';
 import img2 from '../assets/events/Amref-2nd-PHC-Congres-Images/0M8A4672.jpg';
-import img3 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2446.jpg';
+import img3 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2446.webp';
 import img4 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2457.jpg';
-import img5 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2727.jpg';
-import img6 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2828.jpg';
+import img5 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2727.webp';
+import img6 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_2828.webp';
 import img7 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6533.jpg';
-import img8 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6592.jpg';
-import img9 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6684.jpg';
-import img10 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6691.jpg';
-import img11 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6770.jpg';
-import img12 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7030.jpg';
-import img13 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7046.jpg';
-import img14 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7073.jpg';
-import img15 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7080.jpg';
-import img16 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7213.jpg';
-import img17 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7239.jpg';
-import img18 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.jpg';
-import img19 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7443.jpg';
-import img20 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7549.jpg';
+import img8 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6592.webp';
+import img9 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6684.webp';
+import img10 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6691.webp';
+import img11 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_6770.webp';
+import img12 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7030.webp';
+import img13 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7046.webp';
+import img14 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7073.webp';
+import img15 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7080.webp';
+import img16 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7213.webp';
+import img17 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7239.webp';
+import img18 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7252.webp';
+import img19 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7443.webp';
+import img20 from '../assets/events/Amref-2nd-PHC-Congres-Images/DSC_7549.webp';
 
 const gallery = [
   img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
@@ -44,10 +44,6 @@ const gallery = [
 
 export default function AmrefPHCCongress2026() {
   const [modalImage, setModalImage] = useState(null);
-
-  useEffect(() => {
-    document.title = '2nd Primary Health Care Congress 2026 - AgriScanAI';
-  }, []);
 
   return (
     <PageTransition>
@@ -113,16 +109,16 @@ export default function AmrefPHCCongress2026() {
                 {/* BetterPAY Flex Brochure Showcase */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8 p-3 bg-white border border-gray-100 rounded-xl shadow-md">
                   <div className="rounded-lg overflow-hidden cursor-pointer" onClick={() => setModalImage(bpFront)}>
-                    <img src={bpFront} alt="BetterPAY Folder Front" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={bpFront} alt="BetterPAY Folder Front" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="rounded-lg overflow-hidden cursor-pointer" onClick={() => setModalImage(bpInsideLeft)}>
-                    <img src={bpInsideLeft} alt="BetterPAY Folder Inside Left" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={bpInsideLeft} alt="BetterPAY Folder Inside Left" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="rounded-lg overflow-hidden cursor-pointer" onClick={() => setModalImage(bpInsideRight)}>
-                    <img src={bpInsideRight} alt="BetterPAY Folder Inside Right" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={bpInsideRight} alt="BetterPAY Folder Inside Right" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="rounded-lg overflow-hidden cursor-pointer" onClick={() => setModalImage(bpBack)}>
-                    <img src={bpBack} alt="BetterPAY Folder Back" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={bpBack} alt="BetterPAY Folder Back" className="w-full h-auto hover:scale-105 transition-transform duration-300" />
                   </div>
                 </div>
 
@@ -191,7 +187,7 @@ export default function AmrefPHCCongress2026() {
 
               {/* Panel Image */}
               <div className="my-8 rounded-xl overflow-hidden shadow-lg">
-                <img src={PanelImage} alt="Panel discussions at the 2nd PHC Congress" className="w-full h-auto" />
+                <img loading="lazy" src={PanelImage} alt="Panel discussions at the 2nd PHC Congress" className="w-full h-auto" />
                 <p className="text-sm text-gray-500 text-center py-2 bg-white font-medium border-t">Panel discussions at the 2nd Primary Health Care Congress, Nairobi</p>
               </div>
 
@@ -237,7 +233,7 @@ export default function AmrefPHCCongress2026() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {gallery.map((img, i) => (
                   <div key={i} className="group overflow-hidden rounded-lg aspect-square shadow-sm hover:shadow-md transition-shadow cursor-pointer bg-gray-100" onClick={() => setModalImage(img)}>
-                    <img src={img} alt={`Congress highlight ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={img} alt={`Congress highlight ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                 ))}
               </div>
@@ -298,7 +294,7 @@ export default function AmrefPHCCongress2026() {
         {modalImage && (
           <div className="fixed inset-0 bg-black/90 z-[100000] flex items-center justify-center p-4 cursor-pointer" onClick={() => setModalImage(null)}>
             <button className="absolute top-6 right-6 text-white text-4xl font-light hover:text-gray-300 transition-colors" onClick={() => setModalImage(null)}>×</button>
-            <img src={modalImage} alt="Enlarged gallery item" className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+            <img loading="lazy" src={modalImage} alt="Enlarged gallery item" className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
           </div>
         )}
 

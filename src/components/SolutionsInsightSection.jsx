@@ -9,7 +9,7 @@ export default function SolutionsInsightSection() {
       </div>
 
       <div className="max-w-[1300px] mx-auto overflow-hidden">
-        <img
+        <img loading="lazy"
           src={insightChartImg}
           alt="Monthly Transactions Trends Chart"
           className="w-full h-auto block"

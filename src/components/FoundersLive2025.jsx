@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import FoundersLiveImg from '../assets/events/Founders-Live-Nairobi-2025-Hero.png';
-import agriscanPoster from '../assets/events/AgriScanAI-poster.jpg';
+import FoundersLiveImg from '../assets/events/Founders-Live-Nairobi-2025-Hero.webp';
+import agriscanPoster from '../assets/events/AgriScanAI-poster.webp';
 import '../EventDetail.css';
 
 const FoundersLive2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI Wins Founders Live Nairobi 2025 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -49,7 +45,7 @@ const FoundersLive2025 = () => {
               </p>
 
               <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                <img src={agriscanPoster} alt="AgriScanAI pitch" className="w-full h-auto" />
+                <img loading="lazy" src={agriscanPoster} alt="AgriScanAI pitch" className="w-full h-auto" />
               </div>
 
               <section className="mb-12">

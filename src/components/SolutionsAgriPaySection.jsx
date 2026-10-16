@@ -35,7 +35,7 @@ export default function SolutionsAgriPaySection() {
         </div>
 
         <div className="sol-agripay-right">
-          <img src={agripayImg} alt="AgriPay" className="sol-agripay-mockup-img" style={{ width: '100%', borderRadius: '32px' }} />
+          <img loading="lazy" src={agripayImg} alt="AgriPay" className="sol-agripay-mockup-img" style={{ width: '100%', borderRadius: '32px' }} />
         </div>
       </div>
     </section>

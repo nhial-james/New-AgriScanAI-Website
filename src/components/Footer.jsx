@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/agriscanai-logo-nav.png';
 
 const XIcon = () => (
   <svg
@@ -95,7 +96,10 @@ export default function Footer() {
         <div className="footer-logo-col">
           <Link to="/">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/8875a797b6b2ecb01b311084b9748f9728f23b34?width=562"
+              src={logo}
+              width="281"
+              height="80"
+              loading="lazy"
               alt="AgriScanAI"
               className="footer-logo"
             />
@@ -109,7 +113,11 @@ export default function Footer() {
             <ul className="footer-link-list">
               {col.links.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href}>{link.label}</Link>
+                  {link.href.startsWith('http') ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  ) : (
+                    <Link to={link.href}>{link.label}</Link>
+                  )}
                 </li>
               ))}
             </ul>

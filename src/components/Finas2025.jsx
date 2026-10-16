@@ -1,30 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import FinasImg from '../assets/FINAS-2025-hero.jpg';
+import FinasImg from '../assets/FINAS-2025-hero.webp';
 import '../EventDetail.css';
 
 // Import highlight images
-import img1 from '../assets/events/Finas2025-Event-Highlight-1.JPG';
-import img2 from '../assets/events/Finas2025-Event-Highlight-2.JPG';
-import img3 from '../assets/events/Finas2025-Event-Highlight-3.JPG';
-import img4 from '../assets/events/Finas2025-Event-Highlight-4.JPG';
-import img5 from '../assets/events/Finas2025-Event-Highlight-5.JPG';
-import img6 from '../assets/events/CEO-presenting-AgriScanAI-at-FINAS2025.JPG';
+import img1 from '../assets/events/Finas2025-Event-Highlight-1.webp';
+import img2 from '../assets/events/Finas2025-Event-Highlight-2.webp';
+import img3 from '../assets/events/Finas2025-Event-Highlight-3.webp';
+import img4 from '../assets/events/Finas2025-Event-Highlight-4.webp';
+import img5 from '../assets/events/Finas2025-Event-Highlight-5.webp';
+import img6 from '../assets/events/CEO-presenting-AgriScanAI-at-FINAS2025.webp';
 
 // Import inline images
-import ceoPresentingImg from '../assets/events/CEO-presenting-AgriScanAI-at-FINAS2025.JPG';
-import finasHighlightImg from '../assets/events/Finas2025-Event-Highlight-5.JPG';
+import ceoPresentingImg from '../assets/events/CEO-presenting-AgriScanAI-at-FINAS2025.webp';
+import finasHighlightImg from '../assets/events/Finas2025-Event-Highlight-5.webp';
 
 const gallery = [img1, img2, img3, img4, img5, img6];
 
 const Finas2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI at FINAS 2025 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -68,7 +64,7 @@ const Finas2025 = () => {
               </p>
 
               <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                <img src={ceoPresentingImg} alt="CEO presenting AgriScanAI" className="w-full h-auto" />
+                <img loading="lazy" src={ceoPresentingImg} alt="CEO presenting AgriScanAI" className="w-full h-auto" />
               </div>
 
               <section className="mb-12">
@@ -234,7 +230,7 @@ const Finas2025 = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {gallery.map((imgSrc, idx) => (
                     <div key={idx} className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img src={imgSrc} alt={`Finas Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img loading="lazy" src={imgSrc} alt={`Finas Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
@@ -250,7 +246,7 @@ const Finas2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={finasHighlightImg} alt="FINAS 2025 Highlights" className="w-full h-auto" />
+                  <img loading="lazy" src={finasHighlightImg} alt="FINAS 2025 Highlights" className="w-full h-auto" />
                 </div>
               </section>
 

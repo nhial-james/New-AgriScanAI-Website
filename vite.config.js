@@ -58,6 +58,14 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), apiDevServerPlugin()],
     assetsInclude: ['**/*.pdf'],
+    build: {
+      // Keep one stylesheet with the original cascade order (see src/main.jsx).
+      cssCodeSplit: false,
+    },
+    ssr: {
+      // Bundle router into the build-time renderer so it resolves the same copy as the app.
+      noExternal: ['react-router', 'react-router-dom'],
+    },
   };
 })
 

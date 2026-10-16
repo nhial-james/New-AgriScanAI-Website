@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import SolutionsHeroSection from '../components/SolutionsHeroSection';
 import SolutionsTargetAudienceSection from '../components/SolutionsTargetAudienceSection';
@@ -11,10 +10,6 @@ import Footer from '../components/Footer';
 import '../Solutions.css';
 
 export default function Solutions() {
-  useEffect(() => {
-    document.title = 'Solutions | AgriScanAI';
-  }, []);
-
   return (
     <>
       <Navbar />

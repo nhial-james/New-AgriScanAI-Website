@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import logo from '../assets/agriscanai-logo-nav.png';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -40,7 +41,9 @@ export default function Navbar() {
       <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>
         <Link to="/" className="navbar-logo-link">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/8875a797b6b2ecb01b311084b9748f9728f23b34?width=562"
+            src={logo}
+            width="281"
+            height="80"
             alt="AgriScanAI"
             className="navbar-logo"
           />

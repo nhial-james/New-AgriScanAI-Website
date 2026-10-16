@@ -1,0 +1,8 @@
+Self-hosted web fonts used by agriscanai.co.ke
+
+Inter (v20)       Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+Montserrat (v31)  Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)
+
+These font files are unmodified copies of the WOFF2 files served by Google Fonts
+(fonts.gstatic.com). Both fonts are licensed under the SIL Open Font License,
+Version 1.1. The full licence text is available at https://openfontlicense.org

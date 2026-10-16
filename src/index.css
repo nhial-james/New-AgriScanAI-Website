@@ -1,5 +1,3 @@
-/* ===== Google Fonts (single import for the whole app) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -50,6 +48,11 @@ body {
   background: #fff;
   overflow-x: hidden;
   width: 100%;
+}
+
+.page-main {
+  /* Landmark for assistive tech without changing the #root flex layout */
+  display: contents;
 }
 
 #root {

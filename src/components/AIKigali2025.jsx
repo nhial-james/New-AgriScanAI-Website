@@ -1,27 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import AIKigaliImg from '../assets/events/ai-kigali-2025-Hero.jpg';
-import agriscanPoster from '../assets/events/AgriScanAI-poster.jpg';
+import AIKigaliImg from '../assets/events/ai-kigali-2025-Hero.webp';
+import agriscanPoster from '../assets/events/AgriScanAI-poster.webp';
 import '../EventDetail.css';
 
 // Import highlight images
-import img2 from '../assets/events/AI-Kigali-image2.jpg';
+import img2 from '../assets/events/AI-Kigali-image2.webp';
 import img3 from '../assets/events/AI-Kigali-image3.jpg';
-import img4 from '../assets/events/AI-Kigali-image4.jpg';
+import img4 from '../assets/events/AI-Kigali-image4.webp';
 import img5 from '../assets/events/AI-Kigali-image5.jpg';
-import img6 from '../assets/events/AI-Kigali-image6.jpg';
-import img7 from '../assets/events/AI-Kigali-image7.jpg';
+import img6 from '../assets/events/AI-Kigali-image6.webp';
+import img7 from '../assets/events/AI-Kigali-image7.webp';
 
 const gallery = [img2, img3, img4, img5, img6, img7];
 
 const AIKigali2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI at Global AI Summit on Africa - AI Kigali 2025';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -65,7 +61,7 @@ const AIKigali2025 = () => {
               </p>
 
               <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                <img src={agriscanPoster} alt="AgriScanAI at AI Kigali 2025" className="w-full h-auto" />
+                <img loading="lazy" src={agriscanPoster} alt="AgriScanAI at AI Kigali 2025" className="w-full h-auto" />
               </div>
 
               <section className="mb-12">
@@ -196,7 +192,7 @@ const AIKigali2025 = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {gallery.map((imgSrc, idx) => (
                     <div key={idx} className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img src={imgSrc} alt={`AI Kigali Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img loading="lazy" src={imgSrc} alt={`AI Kigali Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import approachImg from '../assets/Our Approach Image.png';
+import approachImg from '../assets/Our Approach Image.webp';
 
 const CheckIcon = ({ color = '#33B34D' }) => (
   <svg className="check-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ export default function ApproachSection() {
         </div>
 
         <div className="approach-image">
-          <img
+          <img loading="lazy"
             src={approachImg}
             alt="AgriScanAI App on Phone"
             className="approach-phone-img"

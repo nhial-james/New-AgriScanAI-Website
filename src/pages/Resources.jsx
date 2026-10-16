@@ -5,26 +5,26 @@ import PageTransition from '../components/PageTransition';
 import ScrollToTop from '../components/ScrollToTop';
 
 // Merch images (Hidden)
-// import collarTshirtImg from '../assets/resources/AgriScanAI Collar Tshirt.png';
-// import whiteTshirtImg from '../assets/resources/AgriScanAI White T-shirts.png';
-// import capImg from '../assets/resources/AgriScanAI Cap.png';
+// import collarTshirtImg from '../assets/resources/AgriScanAI Collar Tshirt.webp';
+// import whiteTshirtImg from '../assets/resources/AgriScanAI White T-shirts.webp';
+// import capImg from '../assets/resources/AgriScanAI Cap.webp';
 
 // Business Card (Hidden)
 // import bizCardFrontImg from '../assets/resources/Business Card Front.png';
 // import bizCardBackImg from '../assets/resources/Business Card Back.png';
 
 // File Holder (Hidden)
-// import fileHolderFrontImg from '../assets/resources/Front Page.png';
-// import fileHolderLeftImg from '../assets/resources/Left Interior.png';
-// import fileHolderRightImg from '../assets/resources/Right Interior.png';
-// import fileHolderBackImg from '../assets/resources/back Page.png';
+// import fileHolderFrontImg from '../assets/resources/Front Page.webp';
+// import fileHolderLeftImg from '../assets/resources/Left Interior.webp';
+// import fileHolderRightImg from '../assets/resources/Right Interior.webp';
+// import fileHolderBackImg from '../assets/resources/back Page.webp';
 
 // Brochure
-import brochureFrontImg from '../assets/resources/Brochure Front.png';
-import brochureBackImg from '../assets/resources/Brochure Back.png';
+import brochureFrontImg from '../assets/resources/Brochure Front.webp';
+import brochureBackImg from '../assets/resources/Brochure Back.webp';
 
 // Newsletter
-import newsletterCoverImg from '../assets/newsletter-cover.jpg';
+import newsletterCoverImg from '../assets/newsletter-cover.webp';
 
 // PDFs — imported as Vite assets for proper bundling (Hidden Business Card & File Holder)
 // import bizCardPdf from '../assets/resources/AgriScanAI Business Card.pdf';
@@ -166,7 +166,7 @@ function MerchCard({ src, name }) {
         onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(46,125,50,0.08)'; }}
       >
         <div style={{ height: '220px', overflow: 'hidden', background: '#f9f9f9' }}>
-          <img src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }} />
+          <img loading="lazy" src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s' }} />
         </div>
         <div style={{ padding: '1rem 1.25rem 1.25rem' }}>
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1rem', color: '#1C1C1E', margin: 0 }}>{name}</p>
@@ -213,7 +213,7 @@ function BrandAssetCard({ title, description, images, pdfUrl, pdfLabel = 'Downlo
                 background: '#e8f5e9',
               }}
             >
-              <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }}
+              <img loading="lazy" src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }}
                 onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
                 onMouseLeave={e => e.currentTarget.style.transform = ''}
               />
@@ -258,244 +258,242 @@ function BrandAssetCard({ title, description, images, pdfUrl, pdfLabel = 'Downlo
    MAIN PAGE
 ───────────────────────────────────────────── */
 export default function Resources() {
-  useEffect(() => {
-    document.title = 'Resources | AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <ScrollToTop />
       <Navbar />
+      <main className="page-main">
 
-      {/* ── Hero ─────────────────────────────── */}
-      <section style={{
-        paddingTop: '130px',
-        paddingBottom: '3rem',
-        paddingLeft: 'clamp(1.5rem,5vw,5vw)',
-        paddingRight: 'clamp(1.5rem,5vw,5vw)',
-        background: '#fff',
-        textAlign: 'center',
-      }}>
-        <p style={S.eyebrow}>Knowledge Hub</p>
-        <h1 style={{ ...S.sectionTitle, fontSize: 'clamp(2rem,4.5vw,3.8rem)', maxWidth: '900px', margin: '0 auto' }}>
-          Discover Insights &amp; Resources
-        </h1>
-        <p style={{ ...S.subtitle, margin: '1rem auto 0', maxWidth: '760px', fontSize: 'clamp(0.95rem,1.3vw,1.15rem)' }}>
-          Access our latest research reports, presentation slides, brand assets, and comprehensive guides
-          designed to empower the agricultural community.
-        </p>
-      </section>
+        {/* ── Hero ─────────────────────────────── */}
+        <section style={{
+          paddingTop: '130px',
+          paddingBottom: '3rem',
+          paddingLeft: 'clamp(1.5rem,5vw,5vw)',
+          paddingRight: 'clamp(1.5rem,5vw,5vw)',
+          background: '#fff',
+          textAlign: 'center',
+        }}>
+          <p style={S.eyebrow}>Knowledge Hub</p>
+          <h1 style={{ ...S.sectionTitle, fontSize: 'clamp(2rem,4.5vw,3.8rem)', maxWidth: '900px', margin: '0 auto' }}>
+            Discover Insights &amp; Resources
+          </h1>
+          <p style={{ ...S.subtitle, margin: '1rem auto 0', maxWidth: '760px', fontSize: 'clamp(0.95rem,1.3vw,1.15rem)' }}>
+            Access our latest research reports, presentation slides, brand assets, and comprehensive guides
+            designed to empower the agricultural community.
+          </p>
+        </section>
 
-      {/* ── Merch (Hidden) ─────────────────────
-      <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <SectionHeader
-            eyebrow="Official Merchandise"
-            title="AgriScanAI Branded Merch"
-            subtitle="Wear your support for agricultural innovation. Our official branded merchandise."
-          />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            <MerchCard src={collarTshirtImg} name="AgriScanAI Collar T-shirt" />
-            <MerchCard src={whiteTshirtImg} name="AgriScanAI White T-shirts" />
-            <MerchCard src={capImg} name="AgriScanAI Cap" />
+        {/* ── Merch (Hidden) ─────────────────────
+        <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <SectionHeader
+              eyebrow="Official Merchandise"
+              title="AgriScanAI Branded Merch"
+              subtitle="Wear your support for agricultural innovation. Our official branded merchandise."
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+              <MerchCard src={collarTshirtImg} name="AgriScanAI Collar T-shirt" />
+              <MerchCard src={whiteTshirtImg} name="AgriScanAI White T-shirts" />
+              <MerchCard src={capImg} name="AgriScanAI Cap" />
+            </div>
           </div>
-        </div>
-      </section>
-      ───────────────────────────────────────── */}
+        </section>
+        ───────────────────────────────────────── */}
 
-      {/* ── Newsletter / Document ─────────────── */}
-      <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <SectionHeader
-            eyebrow="Reports & Newsletters"
-            title="Latest Publications"
-            subtitle="Research reports and quarterly newsletters from the AgriScanAI team."
-          />
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
-            {/* Newsletter card */}
-            <div style={{ width: '100%', maxWidth: '380px', background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)', display: 'flex', flexDirection: 'column' }}>
-              {/* Cover image — fully visible */}
-              <div style={{ width: '100%', background: '#f8fcf8', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
-                <img
-                  src={newsletterCoverImg}
-                  alt="Good Partners Quarterly Newsletter Cover"
-                  style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block', borderRadius: '8px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
-                />
-              </div>
+        {/* ── Newsletter / Document ─────────────── */}
+        <section style={{ ...S.sectionPad, background: '#F9FAFB' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <SectionHeader
+              eyebrow="Reports & Newsletters"
+              title="Latest Publications"
+              subtitle="Research reports and quarterly newsletters from the AgriScanAI team."
+            />
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
+              {/* Newsletter card */}
+              <div style={{ width: '100%', maxWidth: '380px', background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)', display: 'flex', flexDirection: 'column' }}>
+                {/* Cover image — fully visible */}
+                <div style={{ width: '100%', background: '#f8fcf8', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
+                  <img loading="lazy"
+                    src={newsletterCoverImg}
+                    alt="Good Partners Quarterly Newsletter Cover"
+                    style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block', borderRadius: '8px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
+                  />
+                </div>
 
-              {/* Body */}
-              <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', flex: 1 }}>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 700, color: '#2E7D32', textTransform: 'uppercase', letterSpacing: '0.07em' }}>Newsletter · Q1 2026</span>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: '#1C1C1E', margin: 0 }}>Good Partners Quarterly Newsletter (Q1)</h3>
-                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.88rem', color: '#57576A', margin: 0, lineHeight: 1.55 }}>Get our Q1 insights, project milestones, and updates directly from the team.</p>
+                {/* Body */}
+                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', flex: 1 }}>
+                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 700, color: '#2E7D32', textTransform: 'uppercase', letterSpacing: '0.07em' }}>Newsletter · Q1 2026</span>
+                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: '#1C1C1E', margin: 0 }}>Good Partners Quarterly Newsletter (Q1)</h3>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.88rem', color: '#57576A', margin: 0, lineHeight: 1.55 }}>Get our Q1 insights, project milestones, and updates directly from the team.</p>
 
-                {/* Action buttons */}
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #f0f0f0' }}>
-                  <a
-                    href="https://drive.google.com/file/d/17bG0ykfwXQY8rPYTtJyuXn-MyPtQT-Rn/view"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ flex: '1 1 auto', padding: '0.65rem 1rem', borderRadius: '10px', border: '1.5px solid #2E7D32', background: 'transparent', color: '#2E7D32', fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', transition: 'background 0.2s, color 0.2s' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#2E7D32'; e.currentTarget.style.color = '#fff'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#2E7D32'; }}
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Read Online
-                  </a>
-                  <a
-                    href={newsletterPdf}
-                    download
-                    style={{ flex: '1 1 auto', padding: '0.65rem 1rem', borderRadius: '10px', border: 'none', background: '#2E7D32', color: '#fff', fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download PDF
-                  </a>
+                  {/* Action buttons */}
+                  <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #f0f0f0' }}>
+                    <a
+                      href="https://drive.google.com/file/d/17bG0ykfwXQY8rPYTtJyuXn-MyPtQT-Rn/view"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ flex: '1 1 auto', padding: '0.65rem 1rem', borderRadius: '10px', border: '1.5px solid #2E7D32', background: 'transparent', color: '#2E7D32', fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', transition: 'background 0.2s, color 0.2s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = '#2E7D32'; e.currentTarget.style.color = '#fff'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#2E7D32'; }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      Read Online
+                    </a>
+                    <a
+                      href={newsletterPdf}
+                      download
+                      style={{ flex: '1 1 auto', padding: '0.65rem 1rem', borderRadius: '10px', border: 'none', background: '#2E7D32', color: '#fff', fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      Download PDF
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Brand Assets ─────────────────────── */}
-      <section style={{ ...S.sectionPad, background: '#fff' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <SectionHeader
-            eyebrow="Brand Assets"
-            title="Official Brand Materials"
-            subtitle="Click any image to view it full screen. Download the PDF version for printing."
-          />
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', justifyContent: 'center' }}>
-
-            {/* Business Card (Hidden)
-            <BrandAssetCard
-              title="AgriScanAI Business Card"
-              description="Official double-sided business card design — front and back."
-              images={[
-                { src: bizCardFrontImg, label: 'Business Card — Front' },
-                { src: bizCardBackImg, label: 'Business Card — Back' },
-              ]}
-              pdfUrl={bizCardPdf}
-              pdfLabel="Download PDF"
+        {/* ── Brand Assets ─────────────────────── */}
+        <section style={{ ...S.sectionPad, background: '#fff' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <SectionHeader
+              eyebrow="Brand Assets"
+              title="Official Brand Materials"
+              subtitle="Click any image to view it full screen. Download the PDF version for printing."
             />
-            */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', justifyContent: 'center' }}>
 
-            {/* File Holder (Hidden)
-            <BrandAssetCard
-              title="AgriScanAI File Holder"
-              description="Full presentation file holder design across all four panels."
-              images={[
-                { src: fileHolderFrontImg, label: 'File Holder — Front Page' },
-                { src: fileHolderLeftImg, label: 'File Holder — Left Interior' },
-                { src: fileHolderRightImg, label: 'File Holder — Right Interior' },
-                { src: fileHolderBackImg, label: 'File Holder — Back Page' },
-              ]}
-              pdfUrl={fileHolderPdf}
-              pdfLabel="Download PDF"
-            />
-            */}
-
-            {/* Trifold Brochure */}
-            <div style={{ width: '100%', maxWidth: '420px' }}>
+              {/* Business Card (Hidden)
               <BrandAssetCard
-                title="AgriScanAI Trifold Brochure"
-                description="Full trifold brochure design — front and back panels."
+                title="AgriScanAI Business Card"
+                description="Official double-sided business card design — front and back."
                 images={[
-                  { src: brochureFrontImg, label: 'Brochure — Front' },
-                  { src: brochureBackImg, label: 'Brochure — Back' },
+                  { src: bizCardFrontImg, label: 'Business Card — Front' },
+                  { src: bizCardBackImg, label: 'Business Card — Back' },
                 ]}
-                pdfUrl={brochurePdf}
+                pdfUrl={bizCardPdf}
                 pdfLabel="Download PDF"
               />
-            </div>
+              */}
 
-          </div>
-        </div>
-      </section>
-
-      {/* ── Presentation ─────────────────────── */}
-      <section style={{ ...S.sectionPad, background: '#fff' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <SectionHeader
-            eyebrow="Presentations"
-            title="About Us Presentation"
-            subtitle="Explore our journey, vision, and the innovative technology driving AgriScanAI forward."
-          />
-          <div style={{ position: 'relative', width: '100%', maxWidth: '960px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', background: '#F9FAFB' }}>
-            <div style={{ position: 'relative', width: '100%', height: 0, paddingTop: '56.25%' }}>
-              <iframe
-                loading="lazy"
-                style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none' }}
-                src="https://www.canva.com/design/DAG5aExjfpA/ZvE6sun-Ezo-HTQFGqxyjQ/view?embed"
-                allowFullScreen="allowfullscreen"
-                allow="fullscreen"
-                title="AgriScanAI Presentation"
+              {/* File Holder (Hidden)
+              <BrandAssetCard
+                title="AgriScanAI File Holder"
+                description="Full presentation file holder design across all four panels."
+                images={[
+                  { src: fileHolderFrontImg, label: 'File Holder — Front Page' },
+                  { src: fileHolderLeftImg, label: 'File Holder — Left Interior' },
+                  { src: fileHolderRightImg, label: 'File Holder — Right Interior' },
+                  { src: fileHolderBackImg, label: 'File Holder — Back Page' },
+                ]}
+                pdfUrl={fileHolderPdf}
+                pdfLabel="Download PDF"
               />
-            </div>
-          </div>
-        </div>
-      </section>
+              */}
 
-      {/* ── LinkedIn Posts ────────────────────── */}
-      <section style={{ ...S.sectionPad, background: '#F1FAF7' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <SectionHeader
-            eyebrow="Social Media"
-            title="Latest LinkedIn Updates"
-            subtitle="Stay connected with our latest news, events, and agricultural insights on LinkedIn."
-          />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
-            {linkedInPosts.map(({ urn }) => (
-              <div
-                key={urn}
-                style={{ background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)' }}
-              >
-                <iframe
-                  src={`https://www.linkedin.com/embed/feed/update/${urn}`}
-                  height="420"
-                  width="100%"
-                  frameBorder="0"
-                  allowFullScreen=""
-                  title={`LinkedIn post ${urn}`}
-                  style={{ display: 'block' }}
-                  sandbox="allow-scripts allow-same-origin allow-popups"
+              {/* Trifold Brochure */}
+              <div style={{ width: '100%', maxWidth: '420px' }}>
+                <BrandAssetCard
+                  title="AgriScanAI Trifold Brochure"
+                  description="Full trifold brochure design — front and back panels."
+                  images={[
+                    { src: brochureFrontImg, label: 'Brochure — Front' },
+                    { src: brochureBackImg, label: 'Brochure — Back' },
+                  ]}
+                  pdfUrl={brochurePdf}
+                  pdfLabel="Download PDF"
                 />
               </div>
-            ))}
+
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Newsletter CTA ────────────────────── */}
-      <section style={{ ...S.sectionPad, background: '#1b5e20', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '500px', height: '500px', background: 'rgba(52,211,153,0.12)', borderRadius: '50%', filter: 'blur(100px)', transform: 'translate(-50%,-50%)' }} />
-          <div style={{ position: 'absolute', bottom: 0, right: 0, width: '500px', height: '500px', background: 'rgba(34,197,94,0.12)', borderRadius: '50%', filter: 'blur(100px)', transform: 'translate(50%,50%)' }} />
-        </div>
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '680px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 800, color: '#fff', marginBottom: '1rem', letterSpacing: '-0.02em' }}>
-            Stay Ahead of the Curve
-          </h2>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(0.95rem,1.3vw,1.1rem)', color: 'rgba(255,255,255,0.8)', marginBottom: '2rem', lineHeight: 1.65 }}>
-            Join our mailing list to receive the latest research, reports, and exclusive insights directly to your inbox.
-          </p>
-          <form style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              style={{ flex: '1 1 260px', maxWidth: '380px', padding: '1rem 1.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', outline: 'none' }}
-              required
+        {/* ── Presentation ─────────────────────── */}
+        <section style={{ ...S.sectionPad, background: '#fff' }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+            <SectionHeader
+              eyebrow="Presentations"
+              title="About Us Presentation"
+              subtitle="Explore our journey, vision, and the innovative technology driving AgriScanAI forward."
             />
-            <button
-              type="submit"
-              style={{ padding: '1rem 2rem', background: '#fff', color: '#1b5e20', border: 'none', borderRadius: '16px', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}
-            >
-              Subscribe Now
-            </button>
-          </form>
-        </div>
-      </section>
+            <div style={{ position: 'relative', width: '100%', maxWidth: '960px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', background: '#F9FAFB' }}>
+              <div style={{ position: 'relative', width: '100%', height: 0, paddingTop: '56.25%' }}>
+                <iframe
+                  loading="lazy"
+                  style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none' }}
+                  src="https://www.canva.com/design/DAG5aExjfpA/ZvE6sun-Ezo-HTQFGqxyjQ/view?embed"
+                  allowFullScreen="allowfullscreen"
+                  allow="fullscreen"
+                  title="AgriScanAI Presentation"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
+        {/* ── LinkedIn Posts ────────────────────── */}
+        <section style={{ ...S.sectionPad, background: '#F1FAF7' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <SectionHeader
+              eyebrow="Social Media"
+              title="Latest LinkedIn Updates"
+              subtitle="Stay connected with our latest news, events, and agricultural insights on LinkedIn."
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
+              {linkedInPosts.map(({ urn }) => (
+                <div
+                  key={urn}
+                  style={{ background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(46,125,50,0.08)', border: '1px solid rgba(46,125,50,0.1)' }}
+                >
+                  <iframe
+                    src={`https://www.linkedin.com/embed/feed/update/${urn}`}
+                    height="420"
+                    width="100%"
+                    frameBorder="0"
+                    allowFullScreen=""
+                    title={`LinkedIn post ${urn}`}
+                    style={{ display: 'block' }}
+                    sandbox="allow-scripts allow-same-origin allow-popups"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Newsletter CTA ────────────────────── */}
+        <section style={{ ...S.sectionPad, background: '#1b5e20', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '500px', height: '500px', background: 'rgba(52,211,153,0.12)', borderRadius: '50%', filter: 'blur(100px)', transform: 'translate(-50%,-50%)' }} />
+            <div style={{ position: 'absolute', bottom: 0, right: 0, width: '500px', height: '500px', background: 'rgba(34,197,94,0.12)', borderRadius: '50%', filter: 'blur(100px)', transform: 'translate(50%,50%)' }} />
+          </div>
+          <div style={{ position: 'relative', zIndex: 1, maxWidth: '680px', margin: '0 auto' }}>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 800, color: '#fff', marginBottom: '1rem', letterSpacing: '-0.02em' }}>
+              Stay Ahead of the Curve
+            </h2>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(0.95rem,1.3vw,1.1rem)', color: 'rgba(255,255,255,0.8)', marginBottom: '2rem', lineHeight: 1.65 }}>
+              Join our mailing list to receive the latest research, reports, and exclusive insights directly to your inbox.
+            </p>
+            <form style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                style={{ flex: '1 1 260px', maxWidth: '380px', padding: '1rem 1.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', outline: 'none' }}
+                required
+              />
+              <button
+                type="submit"
+                style={{ padding: '1rem 2rem', background: '#fff', color: '#1b5e20', border: 'none', borderRadius: '16px', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}
+              >
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+        </section>
+
+      </main>
       <Footer />
     </PageTransition>
   );

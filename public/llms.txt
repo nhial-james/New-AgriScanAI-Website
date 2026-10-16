@@ -1,0 +1,20 @@
+# AgriScanAI
+
+> AgriScanAI is a digital extension support system built by Good Partners (Nairobi, Kenya). It combines AI crop pest and disease identification from photos, local-language advisory (Swahili and more), and farmer data tools that help NGOs, cooperatives, agribusinesses and government programmes run and measure agricultural programmes. The mobile app works offline and in low-connectivity areas; a web dashboard serves organisations.
+
+Contact: info@agriscanai.co.ke · +254 711 085 400 · Marsabit Plaza, Ngong Road, Nairobi, Kenya
+
+## Product
+- [Home](https://agriscanai.co.ke/): what AgriScanAI is, the challenges it addresses and its key features
+- [Solutions](https://agriscanai.co.ke/solutions): uses for NGOs, agribusinesses and cooperatives, government agencies and climate projects; web dashboard; AgriPay mobile-money payments
+- [Pilot Program](https://agriscanai.co.ke/pilot-program): how organisations can trial AgriScanAI with their farmers
+
+## Company
+- [About](https://agriscanai.co.ke/about): mission, vision and the relationship with Good Partners
+- [Events](https://agriscanai.co.ke/events): exhibitions, farmer trainings and awards
+- [Kakamega farmer training (2026)](https://agriscanai.co.ke/events/agriscanai-farmer-training-kakamega-2026): pilot with the Kilimo Training Institute of Permaculture
+- [Contact](https://agriscanai.co.ke/contact): demos, pilots and partnerships
+
+## Optional
+- [Resources](https://agriscanai.co.ke/resources): brochure and newsletter downloads
+- [Privacy Policy](https://agriscanai.co.ke/privacy-policy)

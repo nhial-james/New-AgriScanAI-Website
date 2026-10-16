@@ -1,4 +1,4 @@
-import empoweringImg from '../assets/Empowering small-scale farmers with digital farming image.png';
+import empoweringImg from '../assets/Empowering small-scale farmers with digital farming image.webp';
 
 export default function AboutEmpoweringSection() {
   return (
@@ -16,7 +16,7 @@ export default function AboutEmpoweringSection() {
           </p>
         </div>
         <div className="about-empowering-img-side">
-          <img
+          <img loading="lazy"
             src={empoweringImg}
             alt="Farmers using digital technology"
           />

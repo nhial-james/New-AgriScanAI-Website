@@ -1,10 +1,10 @@
-import pilotProgramImg from '../assets/Kilimo Pilot Program.jpg';
+import pilotProgramImg from '../assets/Kilimo Pilot Program.webp';
 
 export default function PilotProgramPhotoSection() {
   return (
     <section className="pilot-photo-section">
       <div className="pilot-photo-wrapper">
-        <img
+        <img loading="lazy"
           src={pilotProgramImg}
           alt="Farmers receiving training"
           className="pilot-photo-img"

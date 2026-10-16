@@ -1,12 +1,12 @@
-import actsLogo from '../assets/Partners Logo/ACTS-LOGO.svg';
-import aicadLogo from '../assets/Partners Logo/AICAD-LOGO.svg';
-import anganiLogo from '../assets/Partners Logo/ANGANI-LOGO.svg';
+import actsLogo from '../assets/Partners Logo/ACTS-LOGO.webp';
+import aicadLogo from '../assets/Partners Logo/AICAD-LOGO.webp';
+import anganiLogo from '../assets/Partners Logo/ANGANI-LOGO.webp';
 import finasLogo from '../assets/Partners Logo/FINAS-LOGO.svg';
-import fortuneLogo from '../assets/Partners Logo/FORTUNE-CREADIT-LOGO.svg';
-import foundersLiveLogo from '../assets/Partners Logo/FOUNDERS-LIVE-LOGO.svg';
-import igasitectLogo from '../assets/Partners Logo/IGASITECT-LOGO.svg';
-import inkomokoLogo from '../assets/Partners Logo/INKOMOKO-LOGO.svg';
-import kilimoLogo from '../assets/Partners Logo/KILIMO-LOGO.svg';
+import fortuneLogo from '../assets/Partners Logo/FORTUNE-CREADIT-LOGO.webp';
+import foundersLiveLogo from '../assets/Partners Logo/FOUNDERS-LIVE-LOGO.webp';
+import igasitectLogo from '../assets/Partners Logo/IGASITECT-LOGO.webp';
+import inkomokoLogo from '../assets/Partners Logo/INKOMOKO-LOGO.webp';
+import kilimoLogo from '../assets/Partners Logo/KILIMO-LOGO.webp';
 import mercyCorpsLogo from '../assets/Partners Logo/MERCY-CORPS-LOGO.svg';
 import nairobiStartupLogo from '../assets/Partners Logo/NAIROBI-STARTUP-LOGO.svg';
 
@@ -37,7 +37,7 @@ export default function TrustedPartnersSection() {
           <div className="partners-marquee-track">
             {track.map((p, i) => (
               <div className="partners-logo-item" key={i}>
-                <img src={p.src} alt={p.alt} className="partners-logo-img" />
+                <img loading="lazy" src={p.src} alt={p.alt} className="partners-logo-img" />
               </div>
             ))}
           </div>

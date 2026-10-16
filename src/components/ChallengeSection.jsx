@@ -1,6 +1,6 @@
-import limitedExtension from '../assets/Icons/Limited Extension Capacity.svg';
-import risingPest from '../assets/Icons/Rising Pest and Climate Risks.svg';
-import delayAccess from '../assets/Icons/Delay Access to Advisory.svg';
+import limitedExtension from '../assets/Icons/Limited Extension Capacity.webp';
+import risingPest from '../assets/Icons/Rising Pest and Climate Risks.webp';
+import delayAccess from '../assets/Icons/Delay Access to Advisory.webp';
 
 const challenges = [
   {
@@ -36,7 +36,7 @@ export default function ChallengeSection() {
             <div className="challenge-card-group" key={item.title}>
               <div className="challenge-card">
                 <div className="challenge-icon-wrap">
-                  <img src={item.icon} alt={item.title} />
+                  <img loading="lazy" src={item.icon} alt={item.title} />
                 </div>
                 <h3 className="challenge-card-title">{item.title}</h3>
                 <p className="challenge-card-desc">{item.desc}</p>

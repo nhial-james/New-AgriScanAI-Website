@@ -1,35 +1,31 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import PageTransition from './PageTransition';
-import KenyaSoftwareAISummit2025Image from '../assets/The Kenya Software & AI Summit 2025.jpeg';
+import KenyaSoftwareAISummit2025Image from '../assets/The Kenya Software & AI Summit 2025.webp';
 import '../EventDetail.css';
 
 // Import highlight images
-import img1 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 1.jpeg';
-import img2 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 2.jpeg';
-import img3 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 3.jpeg';
-import img4 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 4.JPG';
-import img6 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 6.JPG';
-import img7 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 7.JPG';
-import img8 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 8.jpeg';
-import img9 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 9.JPG';
-import img10 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 10.jpeg';
-import img11 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 11.jpg';
+import img1 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 1.webp';
+import img2 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 2.webp';
+import img3 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 3.webp';
+import img4 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 4.webp';
+import img6 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 6.webp';
+import img7 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 7.webp';
+import img8 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 8.webp';
+import img9 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 9.webp';
+import img10 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 10.webp';
+import img11 from '../assets/events/The Kenya Software & AI Summit 2025 Highlight Image 11.webp';
 
 // Import inline images
-import lizaSpeakerImg from '../assets/events/Liza Karen Achagana speaking at The Kenya Software & AI Summit 2025.jpg';
-import musaliaImg from '../assets/events/Prime Cabinet Secretary Musalia Mudavadi at the The Kenya Software & AI Summit 2025.jpg';
-import goodPartnersBoothImg from '../assets/events/Good Partners booth at The Kenya Software & AI Summit 2025.JPG';
+import lizaSpeakerImg from '../assets/events/Liza Karen Achagana speaking at The Kenya Software & AI Summit 2025.webp';
+import musaliaImg from '../assets/events/Prime Cabinet Secretary Musalia Mudavadi at the The Kenya Software & AI Summit 2025.webp';
+import goodPartnersBoothImg from '../assets/events/Good Partners booth at The Kenya Software & AI Summit 2025.webp';
 
 const gallery = [img1, img2, img3, img4, img6, img7, img8, img9, img10, img11];
 
 const KenyaSoftwareAISummit2025 = () => {
-  useEffect(() => {
-    document.title = 'AgriScanAI at Kenya Software & AI Summit 2025 - AgriScanAI';
-  }, []);
-
   return (
     <PageTransition>
       <div className="flex flex-col min-h-screen bg-white">
@@ -76,7 +72,7 @@ const KenyaSoftwareAISummit2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={goodPartnersBoothImg} alt="AgriScanAI Booth at The Kenya Software & AI Summit 2025" className="w-full h-auto" />
+                  <img loading="lazy" src={goodPartnersBoothImg} alt="AgriScanAI Booth at The Kenya Software & AI Summit 2025" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -84,7 +80,7 @@ const KenyaSoftwareAISummit2025 = () => {
                 </p>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={lizaSpeakerImg} alt="Liza Karen Achagana speaking" className="w-full h-auto" />
+                  <img loading="lazy" src={lizaSpeakerImg} alt="Liza Karen Achagana speaking" className="w-full h-auto" />
                 </div>
 
                 <div className="bg-primary-light/10 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 mb-6">
@@ -105,7 +101,7 @@ const KenyaSoftwareAISummit2025 = () => {
                 </h2>
 
                 <div className="mb-6 rounded-lg overflow-hidden shadow-xl">
-                  <img src={musaliaImg} alt="Prime Cabinet Secretary Musalia Mudavadi" className="w-full h-auto" />
+                  <img loading="lazy" src={musaliaImg} alt="Prime Cabinet Secretary Musalia Mudavadi" className="w-full h-auto" />
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -188,7 +184,7 @@ const KenyaSoftwareAISummit2025 = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {gallery.map((imgSrc, idx) => (
                     <div key={idx} className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img src={imgSrc} alt={`Summit Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img loading="lazy" src={imgSrc} alt={`Summit Highlight ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>

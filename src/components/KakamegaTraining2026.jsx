@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -6,13 +6,13 @@ import PageTransition from './PageTransition';
 import '../EventDetail.css';
 
 // Import local assets (optimized JPEGs)
-import KakamegaHero from '../assets/events/kakamega-training-2026-images/kakamega-training-hero-image.jpg';
-import BrochureFront from '../assets/events/kakamega-training-2026-images/AgriScanAI-Trifold-Brochure-Front-Image.jpg';
-import BrochureBack from '../assets/events/kakamega-training-2026-images/AgriScanAI-Trifold-Brochure-Back-Image.jpg';
+import KakamegaHero from '../assets/events/kakamega-training-2026-images/kakamega-training-hero-image.webp';
+import BrochureFront from '../assets/events/kakamega-training-2026-images/AgriScanAI-Trifold-Brochure-Front-Image.webp';
+import BrochureBack from '../assets/events/kakamega-training-2026-images/AgriScanAI-Trifold-Brochure-Back-Image.webp';
 import TruphenaQuoteCard from '../assets/events/kakamega-training-2026-images/Farmer-Truphena-quote.jpg';
 import AnthonyQuoteCard from '../assets/events/kakamega-training-2026-images/Farmer-Anthony-quote.jpg';
 import NolegaQuoteCard from '../assets/events/kakamega-training-2026-images/principal-nolega-quote.jpg';
-import CollagePhoto from '../assets/events/kakamega-training-2026-images/AgriScanAI-Kakamega-Training-Collage-Photo.jpg';
+import CollagePhoto from '../assets/events/kakamega-training-2026-images/AgriScanAI-Kakamega-Training-Collage-Photo.webp';
 
 // Partner Logos
 import gpLogo from '../assets/events/kakamega-training-2026-images/GPLOGO.jpg';
@@ -21,25 +21,21 @@ import agriscanLogo from '../assets/events/kakamega-training-2026-images/AgriSca
 
 // Highlight Gallery Images
 import img1 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-1.jpg';
-import img2 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-2.jpg';
-import img3 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-3.jpg';
-import img4 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-4.jpg';
+import img2 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-2.webp';
+import img3 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-3.webp';
+import img4 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-4.webp';
 import img5 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-5.jpg';
-import img6 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-6.jpg';
-import img7 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-7.jpg';
-import img8 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-8.jpg';
-import img9 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-9.jpg';
-import img10 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-10.jpg';
-import img11 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-11.jpg';
+import img6 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-6.webp';
+import img7 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-7.webp';
+import img8 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-8.webp';
+import img9 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-9.webp';
+import img10 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-10.webp';
+import img11 from '../assets/events/kakamega-training-2026-images/kakamega-training-image-11.webp';
 
 const gallery = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11];
 
 export default function KakamegaTraining2026() {
   const [modalImage, setModalImage] = useState(null);
-
-  useEffect(() => {
-    document.title = 'AgriScanAI Farmer Training in Kakamega - AgriScanAI';
-  }, []);
 
   return (
     <PageTransition>
@@ -88,11 +84,11 @@ export default function KakamegaTraining2026() {
               {/* Brochure Section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
                 <div className="group overflow-hidden rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow bg-white p-2">
-                  <img src={BrochureFront} alt="AgriScanAI Brochure Front" className="w-full h-auto rounded-lg group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(BrochureFront)} />
+                  <img loading="lazy" src={BrochureFront} alt="AgriScanAI Brochure Front" className="w-full h-auto rounded-lg group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(BrochureFront)} />
                   <p className="text-sm text-gray-500 text-center mt-3 font-medium">AgriScanAI Trifold Brochure (Front)</p>
                 </div>
                 <div className="group overflow-hidden rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow bg-white p-2">
-                  <img src={BrochureBack} alt="AgriScanAI Brochure Back" className="w-full h-auto rounded-lg group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(BrochureBack)} />
+                  <img loading="lazy" src={BrochureBack} alt="AgriScanAI Brochure Back" className="w-full h-auto rounded-lg group-hover:scale-[1.02] transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(BrochureBack)} />
                   <p className="text-sm text-gray-500 text-center mt-3 font-medium">AgriScanAI Trifold Brochure (Back)</p>
                 </div>
               </div>
@@ -158,10 +154,10 @@ export default function KakamegaTraining2026() {
                 {/* Inline Gallery */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                   <div className="rounded-lg overflow-hidden shadow-md">
-                    <img src={img3} alt="Kakamega training session" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img3)} />
+                    <img loading="lazy" src={img3} alt="Kakamega training session" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img3)} />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-md">
-                    <img src={img4} alt="Kakamega training activity" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img4)} />
+                    <img loading="lazy" src={img4} alt="Kakamega training activity" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img4)} />
                   </div>
                 </div>
               </section>
@@ -211,10 +207,10 @@ export default function KakamegaTraining2026() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                   <div className="rounded-lg overflow-hidden shadow-md">
-                    <img src={img1} alt="Training Session" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img1)} />
+                    <img loading="lazy" src={img1} alt="Training Session" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img1)} />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-md">
-                    <img src={img2} alt="Farmer demonstrating on mobile" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img2)} />
+                    <img loading="lazy" src={img2} alt="Farmer demonstrating on mobile" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => setModalImage(img2)} />
                   </div>
                 </div>
               </section>
@@ -231,7 +227,7 @@ export default function KakamegaTraining2026() {
                 {/* Pull Quote Blocks with Images */}
                 <div className="space-y-8 my-8">
                   <div className="bg-primary-light/5 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
-                    <img src={TruphenaQuoteCard} alt="Farmer Truphena" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
+                    <img loading="lazy" src={TruphenaQuoteCard} alt="Farmer Truphena" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
                     <div>
                       <p className="text-xl text-primary-background font-medium italic mb-2">
                         "Should we still record the maize we give to relatives when they visit us?"
@@ -241,7 +237,7 @@ export default function KakamegaTraining2026() {
                   </div>
 
                   <div className="bg-primary-light/5 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
-                    <img src={AnthonyQuoteCard} alt="Farmer Anthony" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
+                    <img loading="lazy" src={AnthonyQuoteCard} alt="Farmer Anthony" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
                     <div>
                       <p className="text-xl text-primary-background font-medium italic mb-2">
                         "Termites are a problem in our farms. We have tried everything, yet no solution works."
@@ -251,7 +247,7 @@ export default function KakamegaTraining2026() {
                   </div>
 
                   <div className="bg-primary-light/5 border-l-4 border-primary-light rounded-r-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
-                    <img src={NolegaQuoteCard} alt="Principal Nolega" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
+                    <img loading="lazy" src={NolegaQuoteCard} alt="Principal Nolega" className="w-24 h-24 rounded-full object-cover shadow-md border-2 border-white" />
                     <div>
                       <p className="text-xl text-primary-background font-medium italic mb-2">
                         "The financial tracking feature in AgriScanAI will help farmers monitor their finances, because many struggle to keep proper records."
@@ -271,7 +267,7 @@ export default function KakamegaTraining2026() {
                   The training sessions generated highly actionable feedback, which we are directly prioritizing in our upcoming roadmap:
                 </p>
                 <div className="my-8 rounded-xl overflow-hidden shadow-xl">
-                  <img src={CollagePhoto} alt="AgriScanAI Farmer Training Highlights" className="w-full h-auto" />
+                  <img loading="lazy" src={CollagePhoto} alt="AgriScanAI Farmer Training Highlights" className="w-full h-auto" />
                   <p className="text-sm text-gray-500 text-center py-3 bg-white border-t font-semibold">Highlights from the AgriScanAI Farmer Training Program in Kakamega</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -301,15 +297,15 @@ export default function KakamegaTraining2026() {
                 </h2>
                 <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
                   <div className="flex items-center justify-center p-3 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                    <img src={gpLogo} alt="Good Partners Logo" className="h-16 md:h-20 object-contain" />
+                    <img loading="lazy" src={gpLogo} alt="Good Partners Logo" className="h-16 md:h-20 object-contain" />
                   </div>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-primary-light to-transparent hidden md:block"></div>
                   <div className="flex items-center justify-center p-3 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                    <img src={ktipLogo} alt="KTIP Logo" className="h-16 md:h-20 object-contain" />
+                    <img loading="lazy" src={ktipLogo} alt="KTIP Logo" className="h-16 md:h-20 object-contain" />
                   </div>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-primary-light to-transparent hidden md:block"></div>
                   <div className="flex items-center justify-center p-3 bg-gray-50 rounded-lg hover:shadow-md transition-shadow">
-                    <img src={agriscanLogo} alt="AgriScanAI Logo" className="h-16 md:h-20 object-contain" />
+                    <img loading="lazy" src={agriscanLogo} alt="AgriScanAI Logo" className="h-16 md:h-20 object-contain" />
                   </div>
                 </div>
               </section>
@@ -324,7 +320,7 @@ export default function KakamegaTraining2026() {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {gallery.map((img, i) => (
                   <div key={i} className="group overflow-hidden rounded-lg aspect-square shadow-sm hover:shadow-md transition-shadow cursor-pointer bg-gray-100" onClick={() => setModalImage(img)}>
-                    <img src={img} alt={`Kakamega highlight ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img loading="lazy" src={img} alt={`Kakamega highlight ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                 ))}
               </div>
@@ -385,7 +381,7 @@ export default function KakamegaTraining2026() {
         {modalImage && (
           <div className="fixed inset-0 bg-black/90 z-[100000] flex items-center justify-center p-4 cursor-pointer" onClick={() => setModalImage(null)}>
             <button className="absolute top-6 right-6 text-white text-4xl font-light hover:text-gray-300 transition-colors" onClick={() => setModalImage(null)}>×</button>
-            <img src={modalImage} alt="Enlarged gallery item" className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+            <img loading="lazy" src={modalImage} alt="Enlarged gallery item" className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
           </div>
         )}
 

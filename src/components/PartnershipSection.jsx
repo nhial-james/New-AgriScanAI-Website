@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import ngosIcon from '../assets/Icons/NGOs & Development Programs.svg';
-import govtIcon from '../assets/Icons/Government Agencies & Network.svg';
-import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.svg';
-import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.svg';
+import ngosIcon from '../assets/Icons/NGOs & Development Programs.webp';
+import govtIcon from '../assets/Icons/Government Agencies & Network.webp';
+import cooperativesIcon from '../assets/Icons/Farmers Cooperatives & Networks.webp';
+import climateIcon from '../assets/Icons/Climate & Food Security Initiatives.webp';
 
 const CheckIcon = ({ color = '#2E7D32' }) => (
   <svg className="check-icon-sm" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ export default function PartnershipSection() {
       <div className="partner-types-grid">
         {partnerTypes.map((pt) => (
           <div className="partner-type-card" key={pt.title}>
-            <img src={pt.icon} alt={pt.title} className="partner-type-icon" />
+            <img loading="lazy" src={pt.icon} alt={pt.title} className="partner-type-icon" />
             <h4 className="partner-type-title">{pt.title}</h4>
             <p className="partner-type-desc">{pt.desc}</p>
           </div>

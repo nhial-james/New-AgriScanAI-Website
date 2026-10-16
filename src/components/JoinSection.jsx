@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import DownloadModal from './ui/DownloadModal';
 import ComingSoonModal from './ui/ComingSoonModal';
 
-import googlePlayBadge from '../assets/Icons/google play.svg';
-import appStoreBadge from '../assets/Icons/app store.svg';
-import androidApkBadge from '../assets/Icons/android apk.svg';
+import googlePlayBadge from '../assets/Icons/google play.webp';
+import appStoreBadge from '../assets/Icons/app store.webp';
+import androidApkBadge from '../assets/Icons/android apk.webp';
 
 const stats = [
   { value: '50+', label: 'Crops & Diseases' },
@@ -58,7 +58,7 @@ export default function JoinSection() {
               className="store-badge-btn"
               aria-label="Download Android APK"
             >
-              <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
+              <img loading="lazy" src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
             </button>
           ) : (
             <a
@@ -67,7 +67,7 @@ export default function JoinSection() {
               className="store-badge-btn inline-block"
               aria-label="Download Android APK"
             >
-              <img src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
+              <img loading="lazy" src={androidApkBadge} alt="Download Android APK" className="store-badge-img h-12 w-auto" />
             </a>
           )}
           
@@ -79,7 +79,7 @@ export default function JoinSection() {
                 className="store-badge-btn"
                 aria-label="Download on Google Play"
               >
-                <img src={googlePlayBadge} alt="Download on Google Play" className="store-badge-img h-12 w-auto" />
+                <img loading="lazy" src={googlePlayBadge} alt="Download on Google Play" className="store-badge-img h-12 w-auto" />
               </button>
               
               <button
@@ -87,7 +87,7 @@ export default function JoinSection() {
                 className="store-badge-btn"
                 aria-label="Download on the App Store"
               >
-                <img src={appStoreBadge} alt="Download on the App Store" className="store-badge-img h-12 w-auto" />
+                <img loading="lazy" src={appStoreBadge} alt="Download on the App Store" className="store-badge-img h-12 w-auto" />
               </button>
             </>
           )}
