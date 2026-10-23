@@ -263,3 +263,15 @@ All final pages score Lighthouse SEO 100, Best Practices 100, Accessibility 90�
 - soft 404s
 - www not redirecting
 - `google2bb5b0423006a774.html` returning the HTML shell, so **HTML-file verification for Search Console cannot currently succeed**
+
+---
+
+## 8. Incident: inner pages returned 404 on the live site (16–23 Oct 2026)
+
+- **How it surfaced:** a Search Console email ("Page with redirect", "Duplicate, Google chose different canonical than user"). Running `npm run smoke -- https://agriscanai.co.ke` on 23 Oct showed that since the 16 Oct deployment, **every page except `/` returned 404**. Redirects, robots.txt, the sitemap, the 404 page and the APK download all worked.
+- **Cause:** the page-serving rules were `RewriteCond %{DOCUMENT_ROOT}/_pages/$1.html -f`. On HostAfrica, `%{DOCUMENT_ROOT}` doesn't point at the folder `.htaccess` lives in, so the check never matched. This was reproduced on local Apache with an `Alias`-mounted site, a different document root: the deployed `.htaccess` gave the same symptom (home 200, every other page 404, `/about/` 404).
+- **Fix:** `scripts/prerender.mjs` now writes explicit rules for every route into `dist/.htaccess`: `RewriteRule ^(about|solutions|…)$ _pages/$1.html [L]` and the matching trailing-slash 301. There are no filesystem tests, so the rules work whatever `%{DOCUMENT_ROOT}` is. Verified on Apache in both the normal and the Alias setup. `check:seo` fails if any route lacks a rule.
+- **Search Console report (export of 23 Oct, data to 16 Oct):** 18 indexed, 5 not indexed:
+  - 3 "Page with redirect": expected for `www.`, `http://` and `/index.html`. No internal link or sitemap entry points at a redirecting URL.
+  - 1 "Duplicate without user-selected canonical" and 1 "Duplicate, Google chose different canonical than user": consistent with the old single-page app, which served identical HTML on every URL with no canonical tags, and the former duplicate `www.` host.
+  - The export contains only counts. Confirm the exact URLs on each reason's page in Search Console.

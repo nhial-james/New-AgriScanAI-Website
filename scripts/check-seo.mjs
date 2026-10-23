@@ -85,6 +85,14 @@ for (const ref of assetRefs) {
   if (!exists(decodeURIComponent(ref.slice(1)))) fail(`referenced asset missing from build: ${ref}`);
 }
 
+// dist/.htaccess must contain the generated rule for every route.
+const htaccess = exists('.htaccess') ? read('.htaccess') : '';
+if (htaccess.includes('@@PRERENDERED_ROUTE_RULES@@')) fail('.htaccess route rules were not generated');
+const serveRule = htaccess.match(/RewriteRule \^\(([^)]*)\)\$ _pages\/\$1\.html \[L\]/)?.[1].split('|') ?? [];
+for (const p of sitemapPaths) {
+  if (p !== '/' && !serveRule.includes(p.slice(1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))) fail(`.htaccess has no rewrite rule for ${p}`);
+}
+
 const notFound = exists('404.html') ? read('404.html') : '';
 if (!notFound.includes('noindex')) fail('404.html missing or not noindex');
 

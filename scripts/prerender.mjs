@@ -39,6 +39,22 @@ for (const meta of routes) {
 }
 await writePage('/__not-found__', NOT_FOUND, path.join(dist, '404.html'));
 
+// Write explicit per-route rewrite rules into dist/.htaccess (no filesystem tests,
+// so they work whatever %{DOCUMENT_ROOT} is on the host).
+const htaccessFile = path.join(dist, '.htaccess');
+const MARKER = /^[ \t]*# @@PRERENDERED_ROUTE_RULES@@[ \t]*\r?$/m;
+const htaccess = await fs.readFile(htaccessFile, 'utf8');
+if (!MARKER.test(htaccess)) throw new Error('dist/.htaccess is missing the @@PRERENDERED_ROUTE_RULES@@ marker');
+const routeAlternation = routes
+  .filter((r) => r.path !== '/')
+  .map((r) => r.path.slice(1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  .join('|');
+const routeRules = [
+  `  RewriteRule ^(${routeAlternation})/$ /$1 [R=301,L]`,
+  `  RewriteRule ^(${routeAlternation})$ ${PAGES_DIR}/$1.html [L]`,
+].join('\n');
+await fs.writeFile(htaccessFile, htaccess.replace(MARKER, routeRules));
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map((r) => `  <url><loc>${SITE_URL}${r.path}</loc></url>`).join('\n')}

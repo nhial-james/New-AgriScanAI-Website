@@ -64,7 +64,7 @@ Then, by hand:
 
 **If pages return 500**, a directive isn't supported by this server. Remove the `<IfModule mod_headers.c>` blocks first, then the `<FilesMatch "^\.">` block, and retest. The rules were verified on Apache 2.4.58 (§6), but HostAfrica sits behind nginx and may run LiteSpeed.
 
-**If pages other than `/` return 404**, the server's `%{DOCUMENT_ROOT}` doesn't point at `public_html`. This can happen with cPanel addon domains. Ask HostAfrica support, or replace `%{DOCUMENT_ROOT}/_pages/` with the absolute path (for example `/home/<user>/public_html/_pages/`) in the two `RewriteCond` lines.
+**If pages other than `/` return 404**, check that `public_html/_pages/` exists and holds the `.html` files, and that the uploaded `.htaccess` contains the two generated `RewriteRule ^(solutions|pilot-program|…)` lines. On 16–23 Oct 2026 the live site had exactly this symptom: the first version of the rules depended on `%{DOCUMENT_ROOT}/_pages/… -f`, which doesn't match `public_html` on HostAfrica. The rules are now generated per route and don't depend on `%{DOCUMENT_ROOT}`.
 
 **If `/does-not-exist` returns 200**, the server isn't honouring `ErrorDocument`. Ask HostAfrica support to enable it.
 
